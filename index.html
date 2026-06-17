@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Powrót do przeszłości</title>
+    <title>Nostalgiczna Trivia</title>
     <style>
         :root {
             --bg-color: #1a1a2e;
-            --card-color: rgba(22, 33, 62, 0.92); /* Lekka przezroczystość, by tło ładnie prześwitywało */
+            --card-color: rgba(22, 33, 62, 0.92);
             --accent-color: #00f2fe;
             --text-color: #e2e8f0;
             --success: #4ade80;
             --danger: #f87171;
+            --warning: #facc15;
         }
 
         * {
@@ -19,7 +20,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* --- STABILNE TŁO NA TELEFONY (FIX) --- */
         .mobile-bg-fix {
             position: fixed;
             top: 0;
@@ -27,12 +27,12 @@
             width: 100%;
             height: 100%;
             background-image: url('bg.png');
-            background-color: var(--bg-color); /* Kolor zapasowy */
+            background-color: var(--bg-color);
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            z-index: -1; /* Schowane pod grą */
-            transform: translate3d(0, 0, 0); /* Sprzętowa akceleracja zapobiegająca lagom */
+            z-index: -1;
+            transform: translate3d(0, 0, 0);
         }
 
         body {
@@ -53,7 +53,7 @@
             width: 100%;
             max-width: 600px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px); /* Delikatne rozmycie tła pod kartą gry */
+            backdrop-filter: blur(5px);
         }
 
         h1, h2, h3 {
@@ -78,23 +78,12 @@
             background-color: rgba(0, 0, 0, 0.2);
         }
 
-        .screen {
-            display: none;
-        }
+        .screen { display: none; }
+        .screen.active { display: block; }
+        .hidden { display: none !important; }
 
-        .screen.active {
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
 
         input, select, button {
             width: 100%;
@@ -137,6 +126,7 @@
 
         .btn-correct { background-color: var(--success); color: #111; }
         .btn-wrong { background-color: var(--danger); color: #111; }
+        .btn-check-answer { background-color: #f8fafc; color: #0f172a; font-size: 18px; padding: 15px;}
 
         .player-input-list {
             max-height: 250px;
@@ -163,6 +153,35 @@
             margin-bottom: 20px;
             min-height: 100px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- STYL PODPOWIEDZI --- */
+        .hint-box {
+            background-color: rgba(250, 204, 21, 0.1);
+            border: 1px dashed var(--warning);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-hint {
+            background-color: transparent;
+            color: var(--warning);
+            border: 1px solid var(--warning);
+            margin: 0;
+            padding: 8px;
+            font-size: 14px;
+        }
+        
+        .btn-hint:hover {
+            background-color: rgba(250, 204, 21, 0.2);
+        }
+
+        .hint-text-content {
+            color: var(--warning);
+            font-style: italic;
+            font-size: 15px;
         }
 
         .answer-box {
@@ -230,7 +249,7 @@
     </div>
 
     <div id="screen-setup" class="screen active">
-        <h1>Powrót Do Przeszłości</h1>
+        <h1>Nostalgiczna Trivia</h1>
         <div class="form-group">
             <label for="player-count">Liczba graczy (1 - 10):</label>
             <select id="player-count"></select>
@@ -253,14 +272,25 @@
             <span id="info-round">Runda: 1/3</span>
             <span id="info-turn" style="color: var(--accent-color); font-weight: bold;">Odpowiada: ...</span>
         </div>
+        
         <div class="question-box" id="game-question">Pytanie ładuje się...</div>
-        <div class="answer-box">
-            <span style="font-size: 12px; display: block; opacity: 0.7; margin-bottom: 4px;">ODPOWIEDŹ (DLA HOSTA):</span>
-            <span id="game-answer">...</span>
+
+        <div class="hint-box" id="hint-container">
+            <button id="btn-show-hint" class="btn-hint">💡 Podpowiedź (Hint)</button>
+            <div id="hint-text" class="hint-text-content hidden"></div>
         </div>
-        <div class="btn-game-container">
-            <button id="btn-wrong" class="btn-wrong">❌ Źle</button>
-            <button id="btn-correct" class="btn-correct">✅ Dobrze</button>
+
+        <button id="btn-check-answer" class="btn-check-answer hidden">Sprawdź odpowiedź ➡️</button>
+
+        <div id="answer-evaluation-area">
+            <div class="answer-box">
+                <span id="answer-label" style="font-size: 12px; display: block; opacity: 0.7; margin-bottom: 4px;">ODPOWIEDŹ:</span>
+                <span id="game-answer">...</span>
+            </div>
+            <div class="btn-game-container">
+                <button id="btn-wrong" class="btn-wrong">❌ Źle</button>
+                <button id="btn-correct" class="btn-correct">✅ Dobrze</button>
+            </div>
         </div>
     </div>
 
@@ -280,7 +310,7 @@
 
     <div id="screen-bonus" class="screen">
         <h2>Mamy Remis! 😱</h2>
-        <p style="text-align: center; margin-bottom: 20px;">Czas na rundę osobistą/bonusową. Zadaj pytanie z głowy. Kliknij na brata, który wygrał dogrywkę:</p>
+        <p style="text-align: center; margin-bottom: 20px;">Czas na rundę osobistą/bonusową. Zadaj pytanie z głowy. Kliknij na gracza, który wygrał dogrywkę:</p>
         <div id="bonus-voters"></div>
     </div>
 
@@ -383,7 +413,7 @@
         let opt = document.createElement('option');
         opt.value = i;
         opt.innerHTML = i;
-        if(i === 3) opt.selected = true;
+        if(i === 1) opt.selected = true; // Domyślnie 1 dla szybszych testów solo
         playerCountSelect.appendChild(opt);
     }
 
@@ -434,7 +464,14 @@
         shuffleArray(sessionQuestions);
 
         document.getElementById('logo-area').style.display = 'none';
-        showNextPlayerScreen();
+
+        // Omijamy ekran buforowy dla trybu SOLO
+        if (players.length === 1) {
+            switchScreen('screen-game');
+            loadQuestionForTurn();
+        } else {
+            showNextPlayerScreen();
+        }
     });
 
     function showNextPlayerScreen() {
@@ -465,6 +502,15 @@
         loadQuestionForTurn();
     });
 
+    // GENERATOR PODPOWIEDZI (Na wypadek braku podpowiedzi w bazie JSON)
+    function generateDynamicHint(answerText) {
+        // Obcina tekst w nawiasach (np. dodatkowe wyjaśnienia w bazie)
+        let cleanAnswer = answerText.split('(')[0].trim();
+        let firstLetter = cleanAnswer.charAt(0).toUpperCase();
+        let length = cleanAnswer.replace(/\s/g, '').length;
+        return `Pierwsza litera to <strong>${firstLetter}</strong>. Słowo/wyrażenie składa się z <strong>${length}</strong> liter.`;
+    }
+
     function loadQuestionForTurn() {
         document.getElementById('info-round').innerText = `Runda: ${currentRound}/${totalRounds}`;
         document.getElementById('info-turn').innerText = `Odpowiada: ${players[currentPlayerIndex].name}`;
@@ -477,7 +523,43 @@
         currentQuestion = sessionQuestions.pop();
         document.getElementById('game-question').innerText = currentQuestion.question;
         document.getElementById('game-answer').innerText = currentQuestion.answer;
+
+        // Resetowanie sekcji Hint
+        document.getElementById('btn-show-hint').classList.remove('hidden');
+        document.getElementById('hint-text').classList.add('hidden');
+        
+        // Generujemy podpowiedź na podstawie odpowiedzi
+        document.getElementById('hint-text').innerHTML = currentQuestion.hint || generateDynamicHint(currentQuestion.answer);
+
+        // Konfiguracja UI na podstawie ilości graczy
+        const isSolo = players.length === 1;
+        
+        if (isSolo) {
+            // TRYB SOLO: Ukrywamy odpowiedź i pokazujemy przycisk "Sprawdź"
+            document.getElementById('answer-evaluation-area').classList.add('hidden');
+            document.getElementById('btn-check-answer').classList.remove('hidden');
+        } else {
+            // TRYB MULTI (Host): Pokazujemy od razu odpowiedź i przyciski
+            document.getElementById('answer-evaluation-area').classList.remove('hidden');
+            document.getElementById('btn-check-answer').classList.add('hidden');
+            document.getElementById('answer-label').innerText = "ODPOWIEDŹ (DLA HOSTA):";
+        }
     }
+
+    // OBSŁUGA PRZYCISKU HINT
+    document.getElementById('btn-show-hint').addEventListener('click', () => {
+        playTone('click');
+        document.getElementById('btn-show-hint').classList.add('hidden');
+        document.getElementById('hint-text').classList.remove('hidden');
+    });
+
+    // OBSŁUGA PRZYCISKU SPRAWDŹ (Tylko Solo)
+    document.getElementById('btn-check-answer').addEventListener('click', () => {
+        playTone('click');
+        document.getElementById('btn-check-answer').classList.add('hidden');
+        document.getElementById('answer-evaluation-area').classList.remove('hidden');
+        document.getElementById('answer-label').innerText = "CZY TWOJA ODPOWIEDŹ BYŁA POPRAWNA?";
+    });
 
     document.getElementById('btn-correct').addEventListener('click', () => {
         players[currentPlayerIndex].score += 1;
@@ -496,7 +578,17 @@
             currentPlayerIndex = 0;
             currentRound++;
         }
-        showNextPlayerScreen();
+
+        // Pomijamy ekran "Przekaż telefon" w trybie SOLO
+        if (players.length === 1) {
+            if (currentRound > totalRounds) {
+                endNormalGame();
+            } else {
+                loadQuestionForTurn();
+            }
+        } else {
+            showNextPlayerScreen();
+        }
     }
 
     function endNormalGame() {
