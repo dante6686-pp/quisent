@@ -413,7 +413,7 @@
         let opt = document.createElement('option');
         opt.value = i;
         opt.innerHTML = i;
-        if(i === 1) opt.selected = true; // Domyślnie 1 dla szybszych testów solo
+        if(i === 1) opt.selected = true; // Domyślnie 1
         playerCountSelect.appendChild(opt);
     }
 
@@ -502,9 +502,8 @@
         loadQuestionForTurn();
     });
 
-    // GENERATOR PODPOWIEDZI (Na wypadek braku podpowiedzi w bazie JSON)
+    // GENERATOR PODPOWIEDZI
     function generateDynamicHint(answerText) {
-        // Obcina tekst w nawiasach (np. dodatkowe wyjaśnienia w bazie)
         let cleanAnswer = answerText.split('(')[0].trim();
         let firstLetter = cleanAnswer.charAt(0).toUpperCase();
         let length = cleanAnswer.replace(/\s/g, '').length;
@@ -523,10 +522,6 @@
         currentQuestion = sessionQuestions.pop();
         document.getElementById('game-question').innerText = currentQuestion.question;
         document.getElementById('game-answer').innerText = currentQuestion.answer;
-
-        // Resetowanie sekcji Hint
-        document.getElementById('btn-show-hint').classList.remove('hidden');
-        document.getElementById('hint-text').classList.add('hidden');
         
         // Generujemy podpowiedź na podstawie odpowiedzi
         document.getElementById('hint-text').innerHTML = currentQuestion.hint || generateDynamicHint(currentQuestion.answer);
@@ -535,25 +530,35 @@
         const isSolo = players.length === 1;
         
         if (isSolo) {
-            // TRYB SOLO: Ukrywamy odpowiedź i pokazujemy przycisk "Sprawdź"
+            // TRYB SOLO:
+            // Ukrywamy odpowiedź i pokazujemy przycisk "Sprawdź"
             document.getElementById('answer-evaluation-area').classList.add('hidden');
             document.getElementById('btn-check-answer').classList.remove('hidden');
+            
+            // Hint schowany za przyciskiem
+            document.getElementById('btn-show-hint').classList.remove('hidden');
+            document.getElementById('hint-text').classList.add('hidden');
         } else {
-            // TRYB MULTI (Host): Pokazujemy od razu odpowiedź i przyciski
+            // TRYB MULTI (Host):
+            // Pokazujemy od razu odpowiedź i przyciski
             document.getElementById('answer-evaluation-area').classList.remove('hidden');
             document.getElementById('btn-check-answer').classList.add('hidden');
             document.getElementById('answer-label').innerText = "ODPOWIEDŹ (DLA HOSTA):";
+            
+            // Hint widoczny od razu (bez przycisku)
+            document.getElementById('btn-show-hint').classList.add('hidden');
+            document.getElementById('hint-text').classList.remove('hidden');
         }
     }
 
-    // OBSŁUGA PRZYCISKU HINT
+    // OBSŁUGA PRZYCISKU HINT (dla trybu Solo)
     document.getElementById('btn-show-hint').addEventListener('click', () => {
         playTone('click');
         document.getElementById('btn-show-hint').classList.add('hidden');
         document.getElementById('hint-text').classList.remove('hidden');
     });
 
-    // OBSŁUGA PRZYCISKU SPRAWDŹ (Tylko Solo)
+    // OBSŁUGA PRZYCISKU SPRAWDŹ (dla trybu Solo)
     document.getElementById('btn-check-answer').addEventListener('click', () => {
         playTone('click');
         document.getElementById('btn-check-answer').classList.add('hidden');
