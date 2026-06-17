@@ -1,1 +1,503 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostalgiczna Trivia Online</title>
+    <style>
+        :root {
+            --bg-color: #1a1a2e;
+            --card-color: rgba(22, 33, 62, 0.92);
+            --accent-color: #00f2fe;
+            --text-color: #e2e8f0;
+            --success: #4ade80;
+            --danger: #f87171;
+            --warning: #facc15;
+        }
+
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        .mobile-bg-fix {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('bg.png'); background-color: var(--bg-color);
+            background-size: cover; background-position: center; background-repeat: no-repeat;
+            z-index: -1; transform: translate3d(0, 0, 0);
+        }
+
+        body {
+            color: var(--text-color); margin: 0; padding: 20px;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+        }
+
+        .container {
+            background-color: var(--card-color); padding: 30px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); width: 100%; max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px);
+        }
+
+        h1, h2, h3 { text-align: center; color: var(--accent-color); margin-top: 0; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
+        .pin-display { font-size: 48px; color: var(--warning); text-align: center; letter-spacing: 5px; margin: 20px 0; font-weight: bold; }
+
+        .logo-container { text-align: center; margin-bottom: 25px; }
+        .game-logo { max-width: 100%; height: auto; max-height: 150px; border-radius: 8px; border: 2px dashed rgba(255, 255, 255, 0.2); padding: 5px; background-color: rgba(0, 0, 0, 0.2); }
+
+        .screen { display: none; }
+        .screen.active { display: block; }
+        .hidden { display: none !important; }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+
+        input, select, button {
+            width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(0, 0, 0, 0.4); color: var(--text-color); font-size: 16px; outline: none; transition: all 0.3s ease;
+        }
+        input:focus, select:focus { border-color: var(--accent-color); box-shadow: 0 0 8px rgba(0, 242, 254, 0.4); text-transform: uppercase;}
+
+        button { background-color: var(--accent-color); color: #111; font-weight: bold; cursor: pointer; border: none; margin-top: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); }
+        button:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0, 242, 254, 0.2); }
+
+        .btn-game-container { display: flex; gap: 15px; margin-top: 20px; }
+        .btn-correct { background-color: var(--success); color: #111; }
+        .btn-wrong { background-color: var(--danger); color: #111; }
+        .btn-alt { background-color: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); }
+
+        .player-list-lobby { list-style: none; padding: 0; margin-bottom: 20px; text-align: center; font-size: 18px; color: var(--success);}
+
+        .game-info { display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px; }
+        .question-box { background-color: rgba(0, 0, 0, 0.3); padding: 20px; border-radius: 8px; font-size: 18px; line-height: 1.5; text-align: center; margin-bottom: 20px; min-height: 100px; border: 1px solid rgba(255, 255, 255, 0.05); }
+
+        .hint-box { background-color: rgba(250, 204, 21, 0.1); border: 1px dashed var(--warning); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
+        .btn-hint { background-color: transparent; color: var(--warning); border: 1px solid var(--warning); margin: 0; padding: 8px; font-size: 14px; }
+        .hint-text-content { color: var(--warning); font-style: italic; font-size: 15px; }
+
+        .answer-box { background-color: rgba(74, 222, 128, 0.15); border: 1px dashed var(--success); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-weight: bold; }
+
+        .live-score-box { margin-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px; }
+        .score-title { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255, 255, 255, 0.5); margin-bottom: 10px; text-align: center; }
+        .leaderboard-list { list-style: none; padding: 0; margin: 0; }
+        .leaderboard-item { display: flex; justify-content: space-between; padding: 10px 12px; background-color: rgba(0, 0, 0, 0.3); margin-bottom: 6px; border-radius: 6px; font-size: 15px; border: 1px solid rgba(255, 255, 255, 0.02); }
+        .leaderboard-item.winner { border: 2px solid var(--accent-color); background-color: rgba(0, 242, 254, 0.15); font-weight: bold; }
+        .bonus-btn { background-color: #f59e0b; color: #111; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="mobile-bg-fix"></div>
+
+<div class="container">
+    <div id="logo-area" class="logo-container">
+        <img src="logo.png" alt="[Nostalgiczna Trivia]" class="game-logo" onerror="this.style.display='none';">
+    </div>
+
+    <div id="screen-role" class="screen active">
+        <h1>Nostalgiczna Trivia</h1>
+        <button id="btn-role-host">👑 Jestem Hostem (Stwórz Grę)</button>
+        <button id="btn-role-player" class="btn-alt">📱 Jestem Graczem (Dołącz do Gry)</button>
+    </div>
+
+    <div id="screen-host-setup" class="screen">
+        <h2>Ustawienia Gry</h2>
+        <div class="form-group">
+            <label for="round-count">Liczba rund:</label>
+            <input type="number" id="round-count" value="3" min="1" max="20">
+        </div>
+        <button id="btn-create-room">Utwórz Pokój 🚀</button>
+    </div>
+
+    <div id="screen-player-join" class="screen">
+        <h2>Dołącz do gry</h2>
+        <div class="form-group">
+            <label>PIN Pokoju:</label>
+            <input type="number" id="input-pin" placeholder="np. 1234">
+        </div>
+        <div class="form-group">
+            <label>Twoje Imię:</label>
+            <input type="text" id="input-player-name" placeholder="Brat 1">
+        </div>
+        <button id="btn-join-room">Wejdź do poczekalni</button>
+    </div>
+
+    <div id="screen-lobby" class="screen">
+        <h2>Poczekalnia</h2>
+        <p style="text-align: center;">Kod dostępu dla braci:</p>
+        <div id="lobby-pin" class="pin-display">...</div>
+        <p style="text-align: center; color: var(--accent-color);">Oczekujący gracze:</p>
+        <ul id="lobby-players" class="player-list-lobby"></ul>
+        
+        <button id="btn-start-game" class="hidden">Zacznijmy to! 🎮</button>
+        <p id="lobby-wait-msg" style="text-align: center; opacity: 0.6;" class="hidden">Oczekiwanie na start przez Hosta...</p>
+    </div>
+
+    <div id="screen-game" class="screen">
+        <div class="game-info">
+            <span id="info-round">Runda: ...</span>
+            <span id="info-turn" style="color: var(--accent-color); font-weight: bold;">Odpowiada: ...</span>
+        </div>
+        
+        <div class="question-box" id="game-question">Czekaj na pytanie...</div>
+
+        <div class="hint-box" id="hint-container">
+            <button id="btn-show-hint" class="btn-hint">💡 Odkryj podpowiedź</button>
+            <div id="hint-text" class="hint-text-content hidden"></div>
+        </div>
+
+        <div id="host-controls" class="hidden">
+            <div class="answer-box">
+                <span style="font-size: 12px; display: block; opacity: 0.7; margin-bottom: 4px;">ODPOWIEDŹ (WIDZISZ TYLKO TY):</span>
+                <span id="game-answer">...</span>
+            </div>
+            <div class="btn-game-container">
+                <button id="btn-wrong" class="btn-wrong">❌ Źle odpowiedział</button>
+                <button id="btn-correct" class="btn-correct">✅ Dobrze odpowiedział</button>
+            </div>
+        </div>
+
+        <div class="live-score-box">
+            <div class="score-title">Tabela wyników:</div>
+            <ul id="live-score-list" class="leaderboard-list"></ul>
+        </div>
+    </div>
+
+    <div id="screen-bonus" class="screen">
+        <h2>Mamy Remis! 😱</h2>
+        <p style="text-align: center; margin-bottom: 20px;">Zadaj pytanie z głowy. Jako Host, wskaż zwycięzcę dogrywki:</p>
+        <div id="bonus-voters"></div>
+    </div>
+
+    <div id="screen-leaderboard" class="screen">
+        <h2>🏆 Wyniki Końcowe</h2>
+        <ul id="leaderboard-list" class="leaderboard-list"></ul>
+        <button id="btn-restart" class="hidden">Zakończ i wróć (Host)</button>
+    </div>
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getDatabase, ref, set, get, update, onValue, child } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
+    // =========================================================
+    // WAŻNE: TUTAJ WKLEJ SWOJĄ KONFIGURACJĘ Z KONSOLI FIREBASE
+    // =========================================================
+    const firebaseConfig = {
+        apiKey: "TWOJ_API_KEY",
+        authDomain: "TWOJ_PROJEKT.firebaseapp.com",
+        databaseURL: "https://TWOJ_PROJEKT-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "TWOJ_PROJEKT",
+        storageBucket: "TWOJ_PROJEKT.appspot.com",
+        messagingSenderId: "SENDER_ID",
+        appId: "APP_ID"
+    };
+    // =========================================================
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // --- SYNTEZATOR AUDIO ---
+    let audioCtx = null;
+    function initAudio() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+    function playTone(type) {
+        initAudio(); if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+        if (type === 'click') {
+            let osc = audioCtx.createOscillator(); let gain = audioCtx.createGain();
+            osc.type = 'sine'; osc.frequency.setValueAtTime(400, now);
+            gain.gain.setValueAtTime(0.1, now); gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+            osc.connect(gain); gain.connect(audioCtx.destination); osc.start(now); osc.stop(now + 0.05);
+        } else if (type === 'correct') {
+            [523.25, 659.25, 783.99].forEach((freq, index) => {
+                let osc = audioCtx.createOscillator(); let gain = audioCtx.createGain();
+                osc.type = 'square'; osc.frequency.setValueAtTime(freq, now + index * 0.08);
+                gain.gain.setValueAtTime(0.08, now + index * 0.08); gain.gain.exponentialRampToValueAtTime(0.01, now + index * 0.08 + 0.12);
+                osc.connect(gain); gain.connect(audioCtx.destination); osc.start(now + index * 0.08); osc.stop(now + index * 0.08 + 0.12);
+            });
+        } else if (type === 'wrong') {
+            let osc = audioCtx.createOscillator(); let gain = audioCtx.createGain();
+            osc.type = 'sawtooth'; osc.frequency.setValueAtTime(180, now); osc.frequency.linearRampToValueAtTime(90, now + 0.25);
+            gain.gain.setValueAtTime(0.12, now); gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+            osc.connect(gain); gain.connect(audioCtx.destination); osc.start(now); osc.stop(now + 0.25);
+        } else if (type === 'victory') {
+            const notes = [261.63, 329.63, 392.00, 523.25];
+            notes.forEach((freq, index) => {
+                let osc = audioCtx.createOscillator(); let gain = audioCtx.createGain();
+                osc.type = 'triangle'; osc.frequency.setValueAtTime(freq, now + index * 0.12);
+                gain.gain.setValueAtTime(0.1, now + index * 0.12);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + index * 0.12 + (index === notes.length - 1 ? 0.4 : 0.15));
+                osc.connect(gain); gain.connect(audioCtx.destination); osc.start(now + index * 0.12); osc.stop(now + index * 0.12 + (index === notes.length - 1 ? 0.4 : 0.15));
+            });
+        }
+    }
+
+    // --- STAN LOKALNY ---
+    let isHost = false;
+    let roomPin = "";
+    let myPlayerId = "";
+    let dbQuestions = [];
+    let hostSessionQuestions = [];
+
+    // Funkcje UI
+    function switchScreen(screenId) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(screenId).classList.add('active');
+    }
+
+    function generateDynamicHint(answerText) {
+        let cleanAnswer = answerText.split('(')[0].trim();
+        let firstLetter = cleanAnswer.charAt(0).toUpperCase();
+        let length = cleanAnswer.replace(/\s/g, '').length;
+        return `Pierwsza litera to <strong>${firstLetter}</strong>. Zawiera <strong>${length}</strong> znaków.`;
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    async function fetchQuestions() {
+        try {
+            const response = await fetch('questions.json');
+            dbQuestions = await response.json();
+            hostSessionQuestions = [...dbQuestions];
+            shuffleArray(hostSessionQuestions);
+        } catch (error) {
+            console.error("Błąd bazy pytań:", error);
+        }
+    }
+
+    // --- LOGIKA HOSTA ---
+    document.getElementById('btn-role-host').addEventListener('click', () => {
+        playTone('click'); isHost = true; switchScreen('screen-host-setup'); fetchQuestions();
+    });
+
+    document.getElementById('btn-create-room').addEventListener('click', async () => {
+        playTone('click');
+        roomPin = Math.floor(1000 + Math.random() * 9000).toString();
+        const rounds = parseInt(document.getElementById('round-count').value) || 3;
+
+        await set(ref(db, `rooms/${roomPin}`), {
+            status: 'lobby',
+            totalRounds: rounds,
+            currentRound: 1,
+            turnIndex: 0,
+            players: [],
+            currentQuestion: null,
+            winner: null
+        });
+
+        document.getElementById('lobby-pin').innerText = roomPin;
+        document.getElementById('btn-start-game').classList.remove('hidden');
+        switchScreen('screen-lobby');
+        document.getElementById('logo-area').style.display = 'none';
+
+        listenToRoom();
+    });
+
+    document.getElementById('btn-start-game').addEventListener('click', async () => {
+        playTone('click');
+        const snapshot = await get(ref(db, `rooms/${roomPin}/players`));
+        if (!snapshot.exists()) { alert("Brak graczy w poczekalni!"); return; }
+        
+        let q = hostSessionQuestions.pop();
+        q.hintData = q.hint || generateDynamicHint(q.answer);
+
+        await update(ref(db, `rooms/${roomPin}`), {
+            status: 'playing',
+            currentQuestion: q
+        });
+    });
+
+    // Przyciski Hosta (Ocenianie)
+    document.getElementById('btn-correct').addEventListener('click', () => hostEvaluate(true));
+    document.getElementById('btn-wrong').addEventListener('click', () => hostEvaluate(false));
+
+    async function hostEvaluate(isCorrect) {
+        if(isCorrect) playTone('correct'); else playTone('wrong');
+        
+        const snapshot = await get(ref(db, `rooms/${roomPin}`));
+        let room = snapshot.val();
+        let pList = room.players || [];
+        
+        if (isCorrect) { pList[room.turnIndex].score += 1; }
+
+        let nextTurn = room.turnIndex + 1;
+        let nextRound = room.currentRound;
+
+        if (nextTurn >= pList.length) {
+            nextTurn = 0;
+            nextRound += 1;
+        }
+
+        if (nextRound > room.totalRounds) {
+            // Koniec gry, sprawdzanie remisów
+            await update(ref(db, `rooms/${roomPin}`), { players: pList });
+            let maxScore = Math.max(...pList.map(p => p.score));
+            let winners = pList.filter(p => p.score === maxScore);
+
+            if (winners.length > 1) {
+                await update(ref(db, `rooms/${roomPin}`), { status: 'tiebreaker' });
+            } else {
+                await update(ref(db, `rooms/${roomPin}`), { status: 'finished', winner: winners[0].name });
+            }
+        } else {
+            // Następne pytanie
+            let q = hostSessionQuestions.pop();
+            q.hintData = q.hint || generateDynamicHint(q.answer);
+            await update(ref(db, `rooms/${roomPin}`), {
+                players: pList,
+                turnIndex: nextTurn,
+                currentRound: nextRound,
+                currentQuestion: q
+            });
+        }
+    }
+
+    // --- LOGIKA GRACZA ---
+    document.getElementById('btn-role-player').addEventListener('click', () => {
+        playTone('click'); isHost = false; switchScreen('screen-player-join');
+    });
+
+    document.getElementById('btn-join-room').addEventListener('click', async () => {
+        playTone('click');
+        roomPin = document.getElementById('input-pin').value.trim();
+        let pName = document.getElementById('input-player-name').value.trim() || "Anonim";
+
+        if(roomPin.length !== 4) { alert("PIN musi mieć 4 cyfry!"); return; }
+
+        const snapshot = await get(ref(db, `rooms/${roomPin}`));
+        if (!snapshot.exists()) { alert("Taki pokój nie istnieje!"); return; }
+        if (snapshot.val().status !== 'lobby') { alert("Gra już się rozpoczęła!"); return; }
+
+        let currentPlayers = snapshot.val().players || [];
+        myPlayerId = currentPlayers.length; // Index w tablicy
+        currentPlayers.push({ name: pName, score: 0 });
+
+        await update(ref(db, `rooms/${roomPin}`), { players: currentPlayers });
+
+        document.getElementById('lobby-pin').innerText = roomPin;
+        document.getElementById('lobby-wait-msg').classList.remove('hidden');
+        switchScreen('screen-lobby');
+        document.getElementById('logo-area').style.display = 'none';
+
+        listenToRoom();
+    });
+
+    // Przycisk podpowiedzi dla gracza
+    document.getElementById('btn-show-hint').addEventListener('click', () => {
+        playTone('click');
+        document.getElementById('btn-show-hint').classList.add('hidden');
+        document.getElementById('hint-text').classList.remove('hidden');
+    });
+
+    // --- SYNCHRONIZACJA W CZASIE RZECZYWISTYM (REALTIME) ---
+    function listenToRoom() {
+        onValue(ref(db, `rooms/${roomPin}`), (snapshot) => {
+            if (!snapshot.exists()) return;
+            const room = snapshot.val();
+
+            // Aktualizacja listy w Lobby
+            if (room.status === 'lobby') {
+                const list = document.getElementById('lobby-players');
+                list.innerHTML = '';
+                if(room.players) {
+                    room.players.forEach(p => {
+                        let li = document.createElement('li'); li.innerText = p.name; list.appendChild(li);
+                    });
+                }
+            }
+
+            // Stan gry
+            if (room.status === 'playing') {
+                switchScreen('screen-game');
+                document.getElementById('info-round').innerText = `Runda: ${room.currentRound}/${room.totalRounds}`;
+                
+                let activePlayer = room.players[room.turnIndex].name;
+                document.getElementById('info-turn').innerText = `Odpowiada: ${activePlayer}`;
+                document.getElementById('game-question').innerText = room.currentQuestion.question;
+
+                // Hint reset
+                document.getElementById('hint-text').innerHTML = room.currentQuestion.hintData;
+                document.getElementById('btn-show-hint').classList.remove('hidden');
+                document.getElementById('hint-text').classList.add('hidden');
+
+                // Aktualizacja Live Score
+                const scoreList = document.getElementById('live-score-list');
+                scoreList.innerHTML = '';
+                let sortedLive = [...(room.players||[])].sort((a, b) => b.score - a.score);
+                sortedLive.forEach(p => {
+                    let li = document.createElement('li'); li.className = 'leaderboard-item';
+                    if (p.name === activePlayer) li.style.border = "1px solid var(--accent-color)";
+                    li.innerHTML = `<span>${p.name}</span><span>${Math.floor(p.score)} pkt</span>`;
+                    scoreList.appendChild(li);
+                });
+
+                // UI zależne od roli
+                if (isHost) {
+                    document.getElementById('host-controls').classList.remove('hidden');
+                    document.getElementById('game-answer').innerText = room.currentQuestion.answer;
+                    document.getElementById('hint-container').classList.add('hidden'); // Host nie potrzebuje Hinta
+                } else {
+                    document.getElementById('host-controls').classList.add('hidden');
+                    document.getElementById('hint-container').classList.remove('hidden');
+                }
+            }
+
+            // Remis (Tylko Host rozwiązuje)
+            if (room.status === 'tiebreaker') {
+                if (isHost) {
+                    switchScreen('screen-bonus');
+                    const bonusContainer = document.getElementById('bonus-voters');
+                    bonusContainer.innerHTML = '';
+                    let maxScore = Math.max(...room.players.map(p => p.score));
+                    let winners = room.players.filter(p => p.score === maxScore);
+                    
+                    winners.forEach(winner => {
+                        const btn = document.createElement('button'); btn.className = 'bonus-btn'; btn.innerText = `👑 Dogrywkę wygrywa: ${winner.name}`;
+                        btn.onclick = async () => {
+                            playTone('victory');
+                            let idx = room.players.findIndex(p => p.name === winner.name);
+                            room.players[idx].score += 0.1;
+                            await update(ref(db, `rooms/${roomPin}`), { status: 'finished', players: room.players, winner: winner.name });
+                        };
+                        bonusContainer.appendChild(btn);
+                    });
+                } else {
+                    // Gracz widzi info o dogrywce
+                    switchScreen('screen-game');
+                    document.getElementById('game-question').innerHTML = "<span style='color:#facc15'>MAMY REMIS!</span><br>Host właśnie zadaje pytanie z głowy. Słuchaj uważnie!";
+                    document.getElementById('hint-container').classList.add('hidden');
+                }
+            }
+
+            // Koniec Gry
+            if (room.status === 'finished') {
+                if(!isHost) playTone('victory');
+                switchScreen('screen-leaderboard');
+                if(isHost) document.getElementById('btn-restart').classList.remove('hidden');
+
+                const list = document.getElementById('leaderboard-list');
+                list.innerHTML = '';
+                const sorted = [...room.players].sort((a, b) => b.score - a.score);
+
+                sorted.forEach(p => {
+                    const li = document.createElement('li'); li.className = 'leaderboard-item';
+                    if (p.name === room.winner) {
+                        li.className += ' winner';
+                        li.innerHTML = `<span>👑 ${p.name}</span><span>${Math.floor(p.score)} pkt</span>`;
+                    } else {
+                        li.innerHTML = `<span>${p.name}</span><span>${Math.floor(p.score)} pkt</span>`;
+                    }
+                    list.appendChild(li);
+                });
+            }
+        });
+    }
+
+    document.getElementById('btn-restart').addEventListener('click', () => {
+        playTone('click'); location.reload(); // Prosty powrót do wyboru ról
+    });
+</script>
+</body>
+</html>
 
