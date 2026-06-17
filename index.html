@@ -140,6 +140,369 @@
             font-weight: bold;
         }
 
+        .live-score-box {
+            margin-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+        }
+
+        .score-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .leaderboard-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 12px;
+            background-color: rgba(255, 255, 255, 0.03);
+            margin-bottom: 6px;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .leaderboard-item.winner {
+            border: 2px solid var(--accent-color);
+            background-color: rgba(0, 242, 254, 0.1);
+            font-weight: bold;
+        }
+
+        .bonus-btn {
+            background-color: #f59e0b;
+            color: #111;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="screen-setup" class="screen active">
+        <h1>Nostalgiczna Trivia</h1>
+        <div class="form-group">
+            <label for="player-count">Liczba graczy (1 - 10):</label>
+            <select id="player-count">
+                </select>
+        </div>
+        <div class="form-group">
+            <label for="round-count">Liczba rund:</label>
+            <input type="number" id="round-count" value="3" min="1" max="20">
+        </div>
+        <button id="btn-next-names">Dalej</button>
+    </div>
+
+    <div id="screen-names" class="screen">
+        <h2>Kto gra?</h2>
+        <div id="player-inputs" class="player-input-list"></div>
+        <button id="btn-start-game">Uruchom Grę 🚀</button>
+    </div>
+
+    <div id="screen-game" class="screen">
+        <div class="game-info">
+            <span id="info-round">Runda: 1/3</span>
+            <span id="info-turn" style="color: var(--accent-color); font-weight: bold;">Odpowiada: ...</span>
+        </div>
+        <div class="question-box" id="game-question">Pytanie ładuje się...</div>
+        <div class="answer-box">
+            <span style="font-size: 12px; display: block; opacity: 0.7; margin-bottom: 4px;">ODPOWIEDŹ (DLA HOSTA):</span>
+            <span id="game-answer">...</span>
+        </div>
+        <div class="btn-game-container">
+            <button id="btn-wrong" class="btn-wrong">❌ Źle</button>
+            <button id="btn-correct" class="btn-correct">✅ Dobrze</button>
+        </div>
+    </div>
+
+    <div id="screen-next-player" class="screen">
+        <h2 style="color: #f59e0b;">Przekaż telefon/klawiaturę!</h2>
+        <p style="text-align: center; font-size: 18px; margin-bottom: 25px;">
+            Teraz kolej na: <br>
+            <strong id="next-player-name" style="color: var(--accent-color); font-size: 24px;">...</strong>
+        </p>
+        <button id="btn-show-question">Pokaż pytanie ➡️</button>
+
+        <div class="live-score-box">
+            <div class="score-title">Aktualny stan punktów:</div>
+            <ul id="live-score-list" class="leaderboard-list"></ul>
+        </div>
+    </div>
+
+    <div id="screen-bonus" class="screen">
+        <h2>Mamy Remis! 😱</h2>
+        <p style="text-align: center; margin-bottom: 20px;">Czas na rundę osobistą/bonusową. Zadaj pytanie z głowy. Kliknij na brata, który wygrał dogrywkę:</p>
+        <div id="bonus-voters"></div>
+    </div>
+
+    <div id="screen-leaderboard" class="screen">
+        <h2>🏆 Wyniki Końcowe</h2>
+        <ul id="leaderboard-list" class="leaderboard-list"></ul>
+        <button id="btn-restart">Zagraj Jeszcze Raz 🔄</button>
+    </div>
+</div>
+
+<script>
+    // Stan Gry
+    let dbQuestions = [];
+    let sessionQuestions = [];
+    let players = [];
+    let totalRounds = 3;
+    let currentRound = 1;
+    let currentPlayerIndex = 0;
+    let currentQuestion = null;
+
+    // Inicjalizacja wyboru graczy
+    const playerCountSelect = document.getElementById('player-count');
+    for (let i = 1; i <= 10; i++) {
+        let opt = document.createElement('option');
+        opt.value = i;
+        opt.innerHTML = i;
+        if(i === 3) opt.selected = true;
+        playerCountSelect.appendChild(opt);
+    }
+
+    // Ładowanie bazy pytań
+    async function loadQuestions() {
+        try {
+            const response = await fetch('questions.json');
+            dbQuestions = await response.json();
+            sessionQuestions = [...dbQuestions];
+        } catch (error) {
+            console.error("Błąd ładowania pytań:", error);
+            document.getElementById('game-question').innerText = "Błąd krytyczny: Nie udało się załadować pytań z pliku questions.json";
+        }
+    }
+    loadQuestions();
+
+    // Przejście do wpisywania imion
+    document.getElementById('btn-next-names').addEventListener('click', () => {
+        const count = parseInt(playerCountSelect.value);
+        totalRounds = parseInt(document.getElementById('round-count').value) || 3;
+        
+        const container = document.getElementById('player-inputs');
+        container.innerHTML = '';
+
+        for (let i = 1; i <= count; i++) {
+            const div = document.createElement('div');
+            div.className = 'form-group';
+            div.innerHTML = `
+                <label>Gracz ${i}:</label>
+                <input type="text" class="player-name-input" value="Brat ${i}" required>
+            `;
+            container.appendChild(div);
+        }
+
+        switchScreen('screen-names');
+    });
+
+    // Start gry
+    document.getElementById('btn-start-game').addEventListener('click', () => {
+        const inputs = document.querySelectorAll('.player-name-input');
+        players = Array.from(inputs).map(input => ({
+            name: input.value.trim() || "Anonim",
+            score: 0
+        }));
+
+        currentRound = 1;
+        currentPlayerIndex = 0;
+        
+        sessionQuestions = [...dbQuestions];
+        shuffleArray(sessionQuestions);
+
+        // Zaczynamy od razu od ekranu zapowiedzi gracza
+        showNextPlayerScreen();
+    });
+
+    // Pokazuje ekran buforowy przed pytaniem
+    function showNextPlayerScreen() {
+        if (currentRound > totalRounds) {
+            endNormalGame();
+            return;
+        }
+
+        document.getElementById('next-player-name').innerText = players[currentPlayerIndex].name;
+        
+        // Generowanie tabeli punktów pod spodem
+        const scoreList = document.getElementById('live-score-list');
+        scoreList.innerHTML = '';
+        
+        // Sortujemy wyniki na żywo od najlepszego
+        const sortedLive = [...players].sort((a, b) => b.score - a.score);
+        sortedLive.forEach(p => {
+            const li = document.createElement('li');
+            li.className = 'leaderboard-item';
+            li.innerHTML = `<span>${p.name}</span><span>${Math.floor(p.score)} pkt</span>`;
+            scoreList.appendChild(li);
+        });
+
+        switchScreen('screen-next-player');
+    }
+
+    // Host klika "Następne pytanie" -> ładujemy właściwą rozgrywkę
+    document.getElementById('btn-show-question').addEventListener('click', () => {
+        switchScreen('screen-game');
+        loadQuestionForTurn();
+    });
+
+    // Ładowanie pytania do tury
+    function loadQuestionForTurn() {
+        document.getElementById('info-round').innerText = `Runda: ${currentRound}/${totalRounds}`;
+        document.getElementById('info-turn').innerText = `Odpowiada: ${players[currentPlayerIndex].name}`;
+
+        if (sessionQuestions.length === 0) {
+            sessionQuestions = [...dbQuestions];
+            shuffleArray(sessionQuestions);
+        }
+        
+        currentQuestion = sessionQuestions.pop();
+        document.getElementById('game-question').innerText = currentQuestion.question;
+        document.getElementById('game-answer').innerText = currentQuestion.answer;
+    }
+
+    // Obsługa odpowiedzi "Dobrze"
+    document.getElementById('btn-correct').addEventListener('click', () => {
+        players[currentPlayerIndex].score += 1;
+        advanceTurn();
+    });
+
+    // Obsługa odpowiedzi "Źle"
+    document.getElementById('btn-wrong').addEventListener('click', () => {
+        advanceTurn();
+    });
+
+    // Przejście do kolejnego gracza / rundy
+    function advanceTurn() {
+        currentPlayerIndex++;
+        if (currentPlayerIndex >= players.length) {
+            currentPlayerIndex = 0;
+            currentRound++;
+        }
+        // Zamiast od razu ładować pytanie, wywołujemy ekran przejściowy
+        showNextPlayerScreen();
+    }
+
+    // Koniec rund podstawowych
+    function endNormalGame() {
+        let maxScore = Math.max(...players.map(p => p.score));
+        let winners = players.filter(p => p.score === maxScore);
+
+        if (winners.length > 1) {
+            switchScreen('screen-bonus');
+            const bonusContainer = document.getElementById('bonus-voters');
+            bonusContainer.innerHTML = '';
+            
+            winners.forEach(winner => {
+                const btn = document.createElement('button');
+                btn.className = 'bonus-btn';
+                btn.innerText = `👑 Wygrywa: ${winner.name}`;
+                btn.onclick = () => {
+                    winner.score += 0.1; // Rozbicie remisu w logice rankingu
+                    showLeaderboard(winner.name);
+                };
+                bonusContainer.appendChild(btn);
+            });
+        } else {
+            showLeaderboard(winners[0].name);
+        }
+    }
+
+    // Ekran wyników końcowych
+    function showLeaderboard(absoluteWinnerName) {
+        switchScreen('screen-leaderboard');
+        const list = document.getElementById('leaderboard-list');
+        list.innerHTML = '';
+
+        const sorted = [...players].sort((a, b) => b.score - a.score);
+
+        sorted.forEach(p => {
+            const li = document.createElement('li');
+            li.className = 'leaderboard-item';
+            const displayScore = Math.floor(p.score);
+            
+            if (p.name === absoluteWinnerName) {
+                li.className += ' winner';
+                li.innerHTML = `<span>👑 ${p.name} (Zwycięzca!)</span><span>${displayScore} pkt</span>`;
+            } else {
+                li.innerHTML = `<span>${p.name}</span><span>${displayScore} pkt</span>`;
+            }
+            list.appendChild(li);
+        });
+    }
+
+    // Restart gry
+    document.getElementById('btn-restart').addEventListener('click', () => {
+        switchScreen('screen-setup');
+    });
+
+    // Helpery ekranów i tasowania
+    function switchScreen(screenId) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(screenId).classList.add('active');
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+</script>
+
+</body>
+</html>
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-correct { background-color: var(--success); color: #111; }
+        .btn-wrong { background-color: var(--danger); color: #111; }
+
+        .player-input-list {
+            max-height: 250px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .question-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 20px;
+            min-height: 100px;
+        }
+
+        .answer-box {
+            background-color: rgba(74, 222, 128, 0.1);
+            border: 1px dashed var(--success);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
         .leaderboard-list {
             list-style: none;
             padding: 0;
