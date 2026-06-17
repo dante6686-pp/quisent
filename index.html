@@ -46,6 +46,20 @@
             margin-top: 0;
         }
 
+        .logo-container {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .game-logo {
+            max-width: 100%;
+            height: auto;
+            max-height: 150px;
+            border-radius: 8px;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            padding: 5px;
+        }
+
         .screen {
             display: none;
         }
@@ -187,12 +201,15 @@
 <body>
 
 <div class="container">
+    <div id="logo-area" class="logo-container">
+        <img src="logo.png" alt="[Nostalgiczna Trivia - Logo]" class="game-logo" onerror="this.style.display='none';">
+    </div>
+
     <div id="screen-setup" class="screen active">
         <h1>Nostalgiczna Trivia</h1>
         <div class="form-group">
             <label for="player-count">Liczba graczy (1 - 10):</label>
-            <select id="player-count">
-                </select>
+            <select id="player-count"></select>
         </div>
         <div class="form-group">
             <label for="round-count">Liczba rund:</label>
@@ -251,7 +268,87 @@
 </div>
 
 <script>
-    // Stan Gry
+    // --- 8-BITOWY SYNTEZATOR AUDIO (PARTY PIXELS ENGINE) ---
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+    }
+
+    function playTone(type) {
+        initAudio();
+        if (!audioCtx) return;
+
+        const now = audioCtx.currentTime;
+
+        if (type === 'click') {
+            let osc = audioCtx.createOscillator();
+            let gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(400, now);
+            gain.gain.setValueAtTime(0.1, now);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.05);
+        } 
+        else if (type === 'correct') {
+            // Retro arpeggio (Power-up)
+            [523.25, 659.25, 783.99].forEach((freq, index) => {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(freq, now + index * 0.08);
+                gain.gain.setValueAtTime(0.08, now + index * 0.08);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + index * 0.08 + 0.12);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now + index * 0.08);
+                osc.stop(now + index * 0.08 + 0.12);
+            });
+        } 
+        else if (type === 'wrong') {
+            // Spadający, surowy ton błędu
+            let osc = audioCtx.createOscillator();
+            let gain = audioCtx.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(180, now);
+            osc.frequency.linearRampToValueAtTime(90, now + 0.25);
+            gain.gain.setValueAtTime(0.12, now);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.25);
+        } 
+        else if (type === 'victory') {
+            // Retro fanfara zwycięstwa
+            const notes = [261.63, 329.63, 392.00, 523.25];
+            notes.forEach((freq, index) => {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, now + index * 0.12);
+                gain.gain.setValueAtTime(0.1, now + index * 0.12);
+                if (index === notes.length - 1) {
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + index * 0.12 + 0.4);
+                    osc.start(now + index * 0.12);
+                    osc.stop(now + index * 0.12 + 0.4);
+                } else {
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + index * 0.12 + 0.15);
+                    osc.start(now + index * 0.12);
+                    osc.stop(now + index * 0.12 + 0.15);
+                }
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+            });
+        }
+    }
+
+    // --- LOGIKA GRY ---
     let dbQuestions = [];
     let sessionQuestions = [];
     let players = [];
@@ -260,7 +357,6 @@
     let currentPlayerIndex = 0;
     let currentQuestion = null;
 
-    // Inicjalizacja wyboru graczy
     const playerCountSelect = document.getElementById('player-count');
     for (let i = 1; i <= 10; i++) {
         let opt = document.createElement('option');
@@ -270,7 +366,6 @@
         playerCountSelect.appendChild(opt);
     }
 
-    // Ładowanie bazy pytań
     async function loadQuestions() {
         try {
             const response = await fetch('questions.json');
@@ -278,13 +373,13 @@
             sessionQuestions = [...dbQuestions];
         } catch (error) {
             console.error("Błąd ładowania pytań:", error);
-            document.getElementById('game-question').innerText = "Błąd krytyczny: Nie udało się załadować pytań z pliku questions.json";
+            document.getElementById('game-question').innerText = "Błąd: Nie załadowano pytań.";
         }
     }
     loadQuestions();
 
-    // Przejście do wpisywania imion
     document.getElementById('btn-next-names').addEventListener('click', () => {
+        playTone('click');
         const count = parseInt(playerCountSelect.value);
         totalRounds = parseInt(document.getElementById('round-count').value) || 3;
         
@@ -296,16 +391,15 @@
             div.className = 'form-group';
             div.innerHTML = `
                 <label>Gracz ${i}:</label>
-                <input type="text" class="player-name-input" value="Brat ${i}" required>
+                <input type="text" class="player-name-input" value="Gracz ${i}" required>
             `;
             container.appendChild(div);
         }
-
         switchScreen('screen-names');
     });
 
-    // Start gry
     document.getElementById('btn-start-game').addEventListener('click', () => {
+        playTone('click');
         const inputs = document.querySelectorAll('.player-name-input');
         players = Array.from(inputs).map(input => ({
             name: input.value.trim() || "Anonim",
@@ -318,11 +412,10 @@
         sessionQuestions = [...dbQuestions];
         shuffleArray(sessionQuestions);
 
-        // Zaczynamy od razu od ekranu zapowiedzi gracza
+        document.getElementById('logo-area').style.display = 'none';
         showNextPlayerScreen();
     });
 
-    // Pokazuje ekran buforowy przed pytaniem
     function showNextPlayerScreen() {
         if (currentRound > totalRounds) {
             endNormalGame();
@@ -331,11 +424,9 @@
 
         document.getElementById('next-player-name').innerText = players[currentPlayerIndex].name;
         
-        // Generowanie tabeli punktów pod spodem
         const scoreList = document.getElementById('live-score-list');
         scoreList.innerHTML = '';
         
-        // Sortujemy wyniki na żywo od najlepszego
         const sortedLive = [...players].sort((a, b) => b.score - a.score);
         sortedLive.forEach(p => {
             const li = document.createElement('li');
@@ -347,13 +438,12 @@
         switchScreen('screen-next-player');
     }
 
-    // Host klika "Następne pytanie" -> ładujemy właściwą rozgrywkę
     document.getElementById('btn-show-question').addEventListener('click', () => {
+        playTone('click');
         switchScreen('screen-game');
         loadQuestionForTurn();
     });
 
-    // Ładowanie pytania do tury
     function loadQuestionForTurn() {
         document.getElementById('info-round').innerText = `Runda: ${currentRound}/${totalRounds}`;
         document.getElementById('info-turn').innerText = `Odpowiada: ${players[currentPlayerIndex].name}`;
@@ -368,29 +458,26 @@
         document.getElementById('game-answer').innerText = currentQuestion.answer;
     }
 
-    // Obsługa odpowiedzi "Dobrze"
     document.getElementById('btn-correct').addEventListener('click', () => {
+        playTone('correct');
         players[currentPlayerIndex].score += 1;
         advanceTurn();
     });
 
-    // Obsługa odpowiedzi "Źle"
     document.getElementById('btn-wrong').addEventListener('click', () => {
+        playTone('wrong');
         advanceTurn();
     });
 
-    // Przejście do kolejnego gracza / rundy
     function advanceTurn() {
         currentPlayerIndex++;
         if (currentPlayerIndex >= players.length) {
             currentPlayerIndex = 0;
             currentRound++;
         }
-        // Zamiast od razu ładować pytanie, wywołujemy ekran przejściowy
         showNextPlayerScreen();
     }
 
-    // Koniec rund podstawowych
     function endNormalGame() {
         let maxScore = Math.max(...players.map(p => p.score));
         let winners = players.filter(p => p.score === maxScore);
@@ -405,17 +492,18 @@
                 btn.className = 'bonus-btn';
                 btn.innerText = `👑 Wygrywa: ${winner.name}`;
                 btn.onclick = () => {
-                    winner.score += 0.1; // Rozbicie remisu w logice rankingu
+                    playTone('victory');
+                    winner.score += 0.1;
                     showLeaderboard(winner.name);
                 };
                 bonusContainer.appendChild(btn);
             });
         } else {
+            playTone('victory');
             showLeaderboard(winners[0].name);
         }
     }
 
-    // Ekran wyników końcowych
     function showLeaderboard(absoluteWinnerName) {
         switchScreen('screen-leaderboard');
         const list = document.getElementById('leaderboard-list');
@@ -438,12 +526,12 @@
         });
     }
 
-    // Restart gry
     document.getElementById('btn-restart').addEventListener('click', () => {
+        playTone('click');
+        document.getElementById('logo-area').style.display = 'block';
         switchScreen('screen-setup');
     });
 
-    // Helpery ekranów i tasowania
     function switchScreen(screenId) {
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
         document.getElementById(screenId).classList.add('active');
