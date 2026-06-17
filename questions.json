@@ -50,7 +50,7 @@
   {
     "id": 9,
     "category": "Telewizja i Popkultura",
-    "question": "Jak nazywał się popularny popołudniowy blok programowy dla młodzieży na antenie TVP2 w latach 90., prowadzony m.in. przez Marcina Tyszkę?",
+    "question": "Jak nazywał się popularny popołudniowy blok programowy dla młodzieży na antenie TVP2 w latach 90., prowadzony m.in. przez Marcin Tyszkę?",
     "answer": "5-10-15"
   },
   {
@@ -176,7 +176,907 @@
   {
     "id": 30,
     "category": "Podwórko i Styl Życia",
-    "question": "Jak nazywał się popularny butik/sieć sklepów z odzieżą i gadżetami dla młodzieży, charakteryzujący się neonowymi kolorami i wszechobecnym plastikiem w latach 90./2000.?",
+    "question": "Jak nazywał się popularny butik/sieć sklepów z odzieżą i gadżetami dla młodzieży, charakteryzujący się neonowymi kolorami i wsobecnym plastikiem w latach 90./2000.?",
     "answer": "Reporter / Troll"
+  },
+  {
+    "id": 31,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się nadawany w TVP2 teleturniej, w którym trzy dwuosobowe rodziny rywalizowały w konkurencjach sprawnościowych i wiedzowych, a nagrodą główną była wycieczka zagraniczna? Charakterystycznym elementem były kolorowe stroje drużyn.",
+    "answer": "Czar Par"
+  },
+  {
+    "id": 32,
+    "category": "Telewizja i Popkultura",
+    "question": "Który znany aktor prowadził kultowy teleturniej 'Miliard w rozumie'?",
+    "answer": "Janusz Weiss"
+  },
+  {
+    "id": 33,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywało się legendarne rodzeństwo z reality show 'Bar' (Polsat), znane z ciągłych kłótni, specyficznego śmiechu i miłości do solarium?",
+    "answer": "Bliźniacy (Jacek i Sławek Oborscy)"
+  },
+  {
+    "id": 34,
+    "category": "Telewizja i Popkultura",
+    "question": "Jaki polski serial komediowy z lat 90. opowiadał o perypetiach inżyniera Stefana Karwowskiego i jego rodziny, będąc kontynuacją hitu z czasów PRL?",
+    "answer": "40-latek. 20 lat później"
+  },
+  {
+    "id": 35,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się kultowy program rozrywkowy Szymona Majewskiego emitowany w TVN, w którym parodiowano znanych polityków w sekcji 'Rozmowy w tłoku'?",
+    "answer": "Szymon Majewski Show"
+  },
+  {
+    "id": 36,
+    "category": "Telewizja i Popkultura",
+    "question": "Które kultowe amerykańskie pismo dla dzieci z komiksami (np. o Kaczorze Donaldzie) miało w Polsce swój miesięcznik, do którego zawsze dołączany był jakiś plastikowy gadżet (np. lupa detektywa)?",
+    "answer": "Kaczor Donald"
+  },
+  {
+    "id": 37,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się zwariowany czeski serial animowany, emitowany w 'Wieczorynce', opowiadający o przygodach dwóch psów – jednego chudego i długiego, drugiego grubego i małego?",
+    "answer": "Sąsiedzi (lub: Żwirek i Muchomorek / Rumcajs - zależy od skojarzeń, ale o psach to: 'Psi żywot' lub 'Przygody psa podwórkowego' / 'Reksio')"
+  },
+  {
+    "id": 38,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak wabiła się małpka, która towarzyszyła słynnemu podróżnikowi Tony'emu Halikowi w programach 'Pieprz i wanilia'?",
+    "answer": "W programie nie było żywej małpki, ale maskotka nazywała się Elżbieta (Halik miał też papugę)"
+  },
+  {
+    "id": 39,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się pierwszy komercyjny kanał telewizyjny w Polsce, wystartowany zza granicy w grudniu 1992 roku przez Zygmunta Solorza?",
+    "answer": "Polsat"
+  },
+  {
+    "id": 40,
+    "category": "Telewizja i Popkultura",
+    "question": "Dokończ słynny wers z czołówki serialu 'Zbuntowany Anioł' śpiewany przez Natalię Oreiro: 'Cambio dolor por...'",
+    "answer": "libertad"
+  },
+  {
+    "id": 41,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się grany przez Cezarego Pazurę starszy posterunkowy w serialu '13 posterunek'?",
+    "answer": "Cezary Cezary"
+  },
+  {
+    "id": 42,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się teleturniej edukacyjny dla młodzieży prowadzony przez Jarosława Kulczyckiego na TVP2, w którym na ekranie pojawiała się animowana postać zwana 'Cyber-Mychą'?",
+    "answer": "Cyber-Mycha (lub: 'Krzyżówka Szczęścia')"
+  },
+  {
+    "id": 43,
+    "category": "Telewizja i Popkultura",
+    "question": "Które pasmo muzyczne oglądało się na przełomie lat 90. i 2000., by zobaczyć programy takie jak 'Viva Sunset' czy 'Charter'?",
+    "answer": "VIVA Polska"
+  },
+  {
+    "id": 44,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się program informacyjno-satyryczny na TVN prowadzony przez Marcina Mellera, podsumowujący wydarzenia tygodnia?",
+    "answer": "Kapitalny program / Agent (Meller prowadził Agenta, a satyryczny to był 'Szkło kontaktowe' lub 'Mamy Cię!')"
+  },
+  {
+    "id": 45,
+    "category": "Telewizja i Popkultura",
+    "question": "Kto był pierwszym prowadzącym reality show 'Agent' kręconego w egzotycznych krajach w 2000 roku?",
+    "answer": "Marcin Meller"
+  },
+  {
+    "id": 46,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się kultowy program interwencyjny Michała Fajbusiewicza, w którym rekonstruowano zbrodnie?",
+    "answer": "997 (Magazyn Kryminalny 997)"
+  },
+  {
+    "id": 47,
+    "category": "Telewizja i Popkultura",
+    "question": "Który teleturniej Polsatu wymagał od uczestników licytowania pytań na czas, a prowadził go słynący z dynamicznego stylu Krzysztof Ibisz?",
+    "answer": "Awantura o kasę"
+  },
+  {
+    "id": 48,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się program publicystyczny Mariusza Szczygła, w którym rozmawiano na kontrowersyjne, obyczajowe tematy pod koniec lat 90.?",
+    "answer": "Na każdy temat"
+  },
+  {
+    "id": 49,
+    "category": "Telewizja i Popkultura",
+    "question": "Jaki zwierzak był głównym bohaterem wieczorynki 'Wuzzle' emitowanej w latach 90.?",
+    "answer": "Wuzzle były hybrydami dwóch różnych zwierząt (np. Trzmielolew)"
+  },
+  {
+    "id": 50,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywała się postać grana przez Janusza Rewińskiego w filmie 'Kiler', która miała słynne powiedzenie 'Mają rozmach, sk***ysyny'?",
+    "answer": "Stefan 'Siara' Siarzewski"
+  },
+  {
+    "id": 51,
+    "category": "Telewizja i Popkultura",
+    "question": "Która stacja telewizyjna w latach 90. emitowała kultowy blok kreskówek 'Cartoon Network' po angielsku, zanim powstała polska wersja?",
+    "answer": "Oglądało się to głównie z satelity Astra / Hotbird"
+  },
+  {
+    "id": 52,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się lekarz z serialu 'Na dobre i na złe' grany przez Artura Żmijewskiego, do którego wzdychały wszystkie mamy w latach 2000.?",
+    "answer": "Jakub Burski"
+  },
+  {
+    "id": 53,
+    "category": "Telewizja i Popkultura",
+    "question": "Jaki teleturniej TVP opierał się na pojedynkach miast, w których mieszkańcy przeciągali liny lub ścigali się na rurach?",
+    "answer": "Turniej Miast"
+  },
+  {
+    "id": 54,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak miała na imię niania z popularnego serialu TVN, w którą wcieliła się Agnieszka Dygant?",
+    "answer": "Frania Maj"
+  },
+  {
+    "id": 55,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się luksusowy dom towarowy w Warszawie, w którym kręcono sceny do filmu i serialu 'Tygrysy Europy'?",
+    "answer": "Panorama"
+  },
+  {
+    "id": 56,
+    "category": "Telewizja i Popkultura",
+    "question": "W którym reality show Polsatu uczestnicy musieli pracować w zamkniętej restauracji pod okiem kamer?",
+    "answer": "Bar"
+  },
+  {
+    "id": 57,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się program kulinarny Roberta Makłowicza, w którym podróżował po świecie i gotował na świeżym powietrzu?",
+    "answer": "Podróże kulinarne Roberta Makłowicza"
+  },
+  {
+    "id": 58,
+    "category": "Telewizja i Popkultura",
+    "question": "Które lalki-podróbki Barbie z wielkimi głowami i mocnym makijażem stały się hitem dziewczynek wczesnych lat 2000.?",
+    "answer": "Bratz"
+  },
+  {
+    "id": 59,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak wabił się komisarz w popularnym serialu kryminalnym z Markiem Perepeczką i Arturem Żmijewskim?",
+    "answer": "Chodzi o serial 'Ekstradycja' (Olgierd Halski) lub 'Ojciec Mateusz' (później), ale psem-komisarzem był 'Rex' (Komisarz Rex)"
+  },
+  {
+    "id": 60,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywała się wieczorynka o niebieskich stworkach, które ciągle uciekały przed złośliwym czarownikiem Gargamelem?",
+    "answer": "Smerfy"
+  },
+  {
+    "id": 61,
+    "category": "Gry i Technologie",
+    "question": "Z jakiej słynnej serii gier strategicznych pochodzi kultowy tekst 'Musisz wybudować dodatkowe pylony' (You must construct additional pylons)?",
+    "answer": "StarCraft"
+  },
+  {
+    "id": 62,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywała się dyskietka o mniejszej pojemności (zazwyczaj 1.44 MB), która wyparła stare, giętkie dyskietki 5.25 cala?",
+    "answer": "Dyskietka 3.5 cala"
+  },
+  {
+    "id": 63,
+    "category": "Gry i Technologie",
+    "question": "Która gra MMO, stworzona w Niemczech, była absolutnym hitem w polskich kafejkach internetowych w okolicach 2003-2006 roku, mimo że grafika była dwuwymiarowa i bardzo prosta?",
+    "answer": "Tibia"
+  },
+  {
+    "id": 64,
+    "category": "Gry i Technologie",
+    "question": "Jak potocznie nazywano obudowy komputerów, które nie stały pionowo (jak wieża/tower), ale leżały płasko na biurku, a na nich stawiano monitor kineskopowy?",
+    "answer": "Desktop"
+  },
+  {
+    "id": 65,
+    "category": "Gry i Technologie",
+    "question": "Jaka kultowa marka telefonów zasłynęła modelem 3310, na którym wszyscy zagrywali się w grę Snake?",
+    "answer": "Nokia"
+  },
+  {
+    "id": 66,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywał się program peer-to-peer do ściągania muzyki, który miał w logo zieloną limonkę i zrewolucjonizował internet w latach 2000.?",
+    "answer": "LimeWire"
+  },
+  {
+    "id": 67,
+    "category": "Gry i Technologie",
+    "question": "Która gra wyścigowa z 2003 roku pozwalała na tuningowanie aut i miała genialny soundtrack z utworem 'Get Low' (Lil Jon)?",
+    "answer": "Need for Speed: Underground"
+  },
+  {
+    "id": 68,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywał się system operacyjny Microsoftu wprowadzony w 2001 roku, który charakteryzował się domyślną zielono-niebieską tapetą z idyllicznym wzgórzem (Bliss)?",
+    "answer": "Windows XP"
+  },
+  {
+    "id": 69,
+    "category": "Gry i Technologie",
+    "question": "Jak potocznie nazywało się osiedlowe sieci komputerowe, w których gracze łączyli się kablami (skrętkami) rzucanymi z okna do okna, by grać w Counter-Strike'a?",
+    "answer": "LAN (lub sieć osiedlowa)"
+  },
+  {
+    "id": 70,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywała się przenośna konsola Nintendo z monochromatycznym ekranem, na której grało się w Tetrisa lub Pokemony w latach 90.?",
+    "answer": "Game Boy"
+  },
+  {
+    "id": 71,
+    "category": "Gry i Technologie",
+    "question": "Jaki kod (cheat) w grze The Sims dodawał 1000 lub 50000 simoleonów do budżetu rodziny?",
+    "answer": "rosebud (lub motherlode)"
+  },
+  {
+    "id": 72,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywała się wyszukiwarka internetowa, która w latach 90. i wczesnych 2000. konkurowała w Polsce z Google, a jej nazwa kojarzyła się z dużym portalem na literę O?",
+    "answer": "Onet (lub: Wirtualna Polska / Altavista)"
+  },
+  {
+    "id": 73,
+    "category": "Gry i Technologie",
+    "question": "Która polska gra strategiczna z 1997 roku opowiadała o walce trzech klanów (Scythes, Dragons, L.C.O.) na zniszczonej Ziemi?",
+    "answer": "Earth 2140"
+  },
+  {
+    "id": 74,
+    "category": "Gry i Technologie",
+    "question": "Co trzeba było zrobić z kulką w myszce komputerowej z lat 90., kiedy kursor zaczynał przeskakiwać i ciężko było celować?",
+    "answer": "Wyjąć ją (odkręcając plastikową klapkę) i wyczyścić z brudu rolki w środku"
+  },
+  {
+    "id": 75,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywał się program do odtwarzania muzyki MP3 na komputerze, do którego wgrywało się wymyślne skórki (skins), a jego kultowy dźwięk powitalny wspominał o 'whip the llama's ass'?",
+    "answer": "Winamp"
+  },
+  {
+    "id": 76,
+    "category": "Gry i Technologie",
+    "question": "W jakiej legendarnej strzelance FPP z 1996 roku główny bohater rzucał tekstami w stylu 'It's time to kick ass and chew bubble gum'?",
+    "answer": "Duke Nukem 3D"
+  },
+  {
+    "id": 77,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywało się urządzenie, które nosiło się przypięte do paska spodni w latach 90. – nie można było z niego dzwonić, ale wyświetlało krótkie wiadomości tekstowe i numery telefonów?",
+    "answer": "Pager"
+  },
+  {
+    "id": 78,
+    "category": "Gry i Technologie",
+    "question": "Która gra RPG od studia BioWare, wydana w Polsce w 1999 roku z genialnym dubbingiem (m.in. Piotr Fronczewski), zaczynała się od słów: 'Przed wyruszeniem w drogę należy zebrać drużynę'?",
+    "answer": "Baldur's Gate"
+  },
+  {
+    "id": 79,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywał się popularny pakiet biurowy, w którym asystentem użytkownika był animowany, irytujący spinacz biurowy o imieniu Pan Spinacz (Clippy)?",
+    "answer": "Microsoft Office"
+  },
+  {
+    "id": 80,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywał się polski program telewizyjny o grach wideo nadawany na stacji Canal+, prowadzony przez słynnego 'Manna i ...' (właściwie: Gulczasa / Alexa)?",
+    "answer": "Cyberia / Hyper (blok programowy)"
+  },
+  {
+    "id": 81,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywał się margarynowy hit lat 90., reklamowany piosenką 'Płyń dalej, Smaku...'?",
+    "answer": "Rama"
+  },
+  {
+    "id": 82,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się małe, kolorowe cukierki w plastikowych dozownikach z głowami postaci z bajek, które wysuwały się po odchyleniu głowy?",
+    "answer": "PEZ"
+  },
+  {
+    "id": 83,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jaki proszek do robienia galaretek lub kisielu z charakterystycznym bobasem w logo gościł w każdej kuchni w latach 90.?",
+    "answer": "Gellwe"
+  },
+  {
+    "id": 84,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się chrupki kukurydziane w kształcie duszka, o smaku ketchupu, które były hitem szkolnych sklepików?",
+    "answer": "Cheetos"
+  },
+  {
+    "id": 85,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jaki tani, gazowany napój w szklanych butelkach zamykanych na kapsel (często o smaku landrynkowym) kupowało się na podwórku, a butelkę zwracało do sklepu?",
+    "answer": "Kaskada (lub: Oranżada tradycyjna)"
+  },
+  {
+    "id": 86,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywał się kultowy batonik kokosowy w czekoladzie, którego reklama z rajską plażą i palmami była puszczana na okrągło w telewizji?",
+    "answer": "Bounty"
+  },
+  {
+    "id": 87,
+    "category": "Smaki Dzieciństwa",
+    "question": "Który napój herbaciany w plastikowych butelkach zrewolucjonizował polski rynek napojów w latach 2000., konkurując z Coca-Colą? Słynne były smaki Peach i Lemon.",
+    "answer": "Nestea (lub Lipton Ice Tea)"
+  },
+  {
+    "id": 88,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się owocowe gumy rozpuszczalne, które reklamowały się hasłem: 'Kto rano wstaje, temu ... daje'?",
+    "answer": "Mamba"
+  },
+  {
+    "id": 89,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywał się proszek kakaowy instant z królikiem w żółtym opakowaniu, który piło się rano przed szkołą?",
+    "answer": "Nesquik"
+  },
+  {
+    "id": 90,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jaki rodzaj chipsów o specyficznym, podłużnym i falowanym kształcie, pakowanych w kartonowe tuby, był synonimem 'luksusu' na domówkach w latach 90.?",
+    "answer": "Pringles"
+  },
+  {
+    "id": 91,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywał się napój gazowany o smaku ziołowym, sprowadzany z Czech lub Słowacji, stanowiący konkurencję dla coli?",
+    "answer": "Kofola"
+  },
+  {
+    "id": 92,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się kwaśne cukierki/lizaki z lat 90., które wykręcały twarz na drugą stronę, a ich nazwa sugerowała wybuch nuklearny?",
+    "answer": "Shock (lub Center Shock)"
+  },
+  {
+    "id": 93,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jaki serek homogenizowany z rysunkowym radomskim symbolem (orłem/kurczakiem) lub po prostu z truskawką był najpopularniejszym deserem dzieciństwa w latach 90.?",
+    "answer": "Serek Rolmlecz (z krówką) lub Danio (później, z Małym Głodem)"
+  },
+  {
+    "id": 94,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się chrupki w kształcie trójkątów z dipem serowym lub pomidorowym, które weszły na polski rynek na fali popularności kina z USA?",
+    "answer": "Nachos (lub konkretna marka Doritos)"
+  },
+  {
+    "id": 95,
+    "category": "Smaki Dzieciństwa",
+    "question": "Które lody na patyku, produkowane przez firmę Algida, miały charakterystyczny kształt wiru (dwóch smaków) i kosztowały w latach 90. poniżej złotówki?",
+    "answer": "Tornado (lub Twister)"
+  },
+  {
+    "id": 96,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywał się napój w kartoniku ze słomką, produkowany przez firmę Hortex, z kultowym logiem i rysunkowymi owocami (np. jabłko-mięta)?",
+    "answer": "Tymbark (kartoniki)"
+  },
+  {
+    "id": 97,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jaka marka kawy zbożowej instant w brązowo-czerwonej puszce była pita przez dzieci jako 'dorosła kawa' z mlekiem?",
+    "answer": "Inka"
+  },
+  {
+    "id": 98,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywał się okrągły lizak, którego plastikowy patyczek był jednocześnie gwizdkiem?",
+    "answer": "Melody Pops (Chupa Chups)"
+  },
+  {
+    "id": 99,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak potocznie nazywano bardzo tanie wina robione z jabłek lub siarki, które piło się na ławkach w parku w czasach liceum?",
+    "answer": "Jabol / Alpagos / żur"
+  },
+  {
+    "id": 100,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jakie okrągłe wafle z nadrukiem gwiazdy/krzyża, kupowane w paczkach, były suchym i chrupkim przysmakiem na podwórku?",
+    "answer": "Andruty"
+  },
+  {
+    "id": 101,
+    "category": "Podwórko i Styl Życia",
+    "question": "Z czego robiło się tzw. 'plujki' lub 'spluwaczki' do strzelania jarzębiną lub kulkami z papieru na lekcjach i podwórku?",
+    "answer": "Z plastikowej rurki (np. po rozkręconym długopisie)"
+  },
+  {
+    "id": 102,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywała się zabawa ruchowa, w której jedna osoba stała tyłem do reszty przy ścianie i krzyczała: 'Raz, dwa, trzy...', a reszta musiała zastygnąć bez ruchu?",
+    "answer": "Raz, dwa, trzy, Baba Jaga patrzy!"
+  },
+  {
+    "id": 103,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywały się kolekcjonerskie karty z piłkarzami (np. na Mistrzostwa Świata 1998), które kupowało się w kioskach Ruchu i wymieniało 'na powtórki'?",
+    "answer": "Panini (naklejki lub karty)"
+  },
+  {
+    "id": 104,
+    "category": "Podwórko i Styl Życia",
+    "question": "Co oznaczało hasło 'Sikać do ogniska' lub 'Masz cykora' w slangu podwórkowym lat 90.?",
+    "answer": "Oznaczało to, że ktoś się boi zrobić coś odważnego"
+  },
+  {
+    "id": 105,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywała się podwórkowa gra w piłkę nożną, w której strzelało się tylko na jedną bramkę, a bramkarz po stracie odpowiedniej liczby punktów musiał stanąć tyłem do strzelających (tzw. dupa)?",
+    "answer": "Gra w tysiąca / król / jedenastka / dupek"
+  },
+  {
+    "id": 106,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywał się popularny przyrząd do skakania składający się z drążka, sprężyny i podnóżków, na którym próbowało się pobić rekordy skoków bez wywrotki?",
+    "answer": "Pogo (drążek pogo)"
+  },
+  {
+    "id": 107,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak potocznie nazywano szerokie, ortalionowe spodnie z charakterystycznymi trzema paskami z boku, które szeleściły przy każdym kroku?",
+    "answer": "Szelesty (lub dresy ortalionowe)"
+  },
+  {
+    "id": 108,
+    "category": "Podwórko i Styl Życia",
+    "question": "Co robiło się ze starym kluczem i gwoździem połączonym sznurkiem, do którego wkładało się zeskrobany materiał z zapałek (siarkę), aby wywołać głośny huk na betonie?",
+    "answer": "Robiło się tzw. 'strzelak' z klucza (rzucało się nim o ścianę/chodnik)"
+  },
+  {
+    "id": 109,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywał się kultowy plecak z lat 90., zrobiony z czarnej lub zielonej grubej kostki z metalowymi sprzączkami, na którym fani rocka pisali markerami nazwy zespołów?",
+    "answer": "Kostka (plecak wojskowy)"
+  },
+  {
+    "id": 110,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywała się gra kredą na chodniku, w której skakało się na jednej lub dwóch nogach po ponumerowanych polach, na koniec rzucając szkiełkiem lub kamykiem?",
+    "answer": "Gra w klasy"
+  },
+  {
+    "id": 111,
+    "category": "Muzyka i Styl Życia",
+    "question": "Jak nazywała się polska grupa hip-hopowa, która w 2000 roku wydała album 'Kinematografia' z legendarnym utworem 'Jestem Bogiem'?",
+    "answer": "Paktofonika"
+  },
+  {
+    "id": 112,
+    "category": "Muzyka i Styl Życia",
+    "question": "Jaki przenośny odtwarzacz kaset magnetofonowych (często z plastikowym klipsem na pasek) był marzeniem każdego dzieciaka w latach 90.?",
+    "answer": "Walkman"
+  },
+  {
+    "id": 113,
+    "category": "Muzyka i Styl Życia",
+    "question": "Która wokalistka wywołała skandal i zachwyciła Polskę na Eurowizji w 1994 roku utworem 'To nie ja!'?",
+    "answer": "Edyta Górniak"
+  },
+  {
+    "id": 114,
+    "category": "Muzyka i Styl Życia",
+    "question": "Jak nazywało się urządzenie, które zastąpiło Walkmana na początku lat 2000., ale miało wadę – piosenki przeskakiwały podczas szybkiego chodzenia lub biegania?",
+    "answer": "Discman"
+  },
+  {
+    "id": 115,
+    "category": "Muzyka i Styl Życia",
+    "question": "Jaki niemiecki zespół techno, z charyzmatycznym frontmanem H.P. Baxxterem, stworzył hity takie jak 'How Much Is the Fish?' słuchane na szkolnych dyskotekach?",
+    "answer": "Scooter"
+  },
+  {
+    "id": 116,
+    "category": "Muzyka i Styl Życia",
+    "question": "Który polski zespół rockowy, założony przez braci Golec, podbił listy przebojów utworami 'Lornetka' czy 'Ściernisko'?",
+    "answer": "Golec uOrkiestra"
+  },
+  {
+    "id": 117,
+    "category": "Muzyka i Styl Życia",
+    "question": "Jak nazywał się kultowy program muzyczny w TVP1 prowadzony przez Artura Orzecha, w którym prezentowano polską listę przebojów?",
+    "answer": "Muzyczna Jedynka"
+  },
+  {
+    "id": 118,
+    "category": "Muzyka i Styl Życia",
+    "question": "Jaki amerykański boysband z Nickiem Carterem na czele był głównym rywalem zespołu 'N Sync w pokojach nastolatek lat 90.?",
+    "answer": "Backstreet Boys"
+  },
+  {
+    "id": 119,
+    "category": "Muzyka i Styl Życia",
+    "question": "Który raper z Katowic, lider zespołu Katip, stał się ikoną polskiego rapu dzięki utworowi 'Plus i minus'?",
+    "answer": "Magik"
+  },
+  {
+    "id": 120,
+    "category": "Muzyka i Styl Życia",
+    "question": "Jak nazywał się coroczny festiwal muzyki rockowej i alternatywnej organizowany przez Jerzego Owsiaka, który w latach 90. odbywał się m.in. w Żarach?",
+    "answer": "Przystanek Woodstock"
+  },
+  {
+    "id": 121,
+    "category": "Reklamy i Kultowe Hasła",
+    "question": "Z jakiej reklamy pochodzi kultowy tekst: 'A świstak siedzi i zawija je w te sreberka'?",
+    "answer": "Milka (czekolada)"
+  },
+  {
+    "id": 122,
+    "category": "Reklamy i Kultowe Hasła",
+    "question": "Jak miały na imię dwa animowane serca z reklam Telekomunikacji Polskiej z lat 2000.?",
+    "answer": "Serce i Rozum"
+  },
+  {
+    "id": 123,
+    "category": "Reklamy i Kultowe Hasła",
+    "question": "Dokończ słynne hasło reklamowe proszku do prania: 'A Pollena Rex pierze...'",
+    "answer": "czysto i biało"
+  },
+  {
+    "id": 124,
+    "category": "Reklamy i Kultowe Hasła",
+    "question": "Jaki produkt reklamował wampir, który bał się słońca, ale uwielbiał czerwony, gęsty płyn i powtarzał hasło 'w paszczę lwa'?",
+    "answer": "Sok Frugo"
+  },
+  {
+    "id": 125,
+    "category": "Reklamy i Kultowe Hasła",
+    "question": "Która sieć komórkowa wprowadziła kultowe maskotki 'Plushaki' oraz taryfę z hasłem 'Siała baba mak'?",
+    "answer": "Plus (Sami Swoi / Simplus)"
+  },
+  {
+    "id": 126,
+    "category": "Reklamy i Kultowe Hasła",
+    "question": "Z jakiej reklamy piwa pochodzi seria biesiadnych haseł: 'Mariola ocieka i ociemnieje' lub 'A może i tak, ale... Olo ratuj'?",
+    "answer": "Piwo EB"
+  },
+  {
+    "id": 127,
+    "category": "Reklamy i Kultowe Hasła",
+    "question": "Jak nazywała się postać z reklamy chipsów Lays, grana przez Pawła Wilczaka, która nie chciała oddać ani jednej sztuki?",
+    "answer": "Koleszka (reklama 'Lays - prosto z pieca' / 'Oddaj chipsa')"
+  },
+  {
+    "id": 128,
+    "category": "Reklamy i Kultowe Hasła",
+    "question": "Dokończ słynny slogan reklamowy margaryny z lat 90.: 'Zawsze rano, zawsze...'",
+    "answer": "Rama"
+  },
+  {
+    "id": 129,
+    "category": "Reklamy i Kultowe Hasła",
+    "question": "Jak nazywał się animowany stworek z reklam chipsów, który ciągle uciekał przed głodnymi dziećmi i krzyczał 'Zjedz mnie'?",
+    "answer": "Chrupki Star Chips (postać Starboba) lub Chester Cheetah (z Cheetosów)"
+  },
+  {
+    "id": 130,
+    "category": "Reklamy i Kultowe Hasła",
+    "question": "Jaka marka proszku do prania wprowadziła postać legendarnej 'Zygmuntowej', która wiedziała jak doprać plamy?",
+    "answer": "Vizir"
+  },
+  {
+    "id": 131,
+    "category": "Wokół Szkoły",
+    "question": "Jak nazywał się charakterystyczny, niebieski, podłużny przedmiot z gumy, którym zmazywało się atrament z pióra wiecznego (z jednej strony zmazywacz, z drugiej niebieski pisak)?",
+    "answer": "Zmazywacz do piór / Korektor (np. Pirat)"
+  },
+  {
+    "id": 132,
+    "category": "Wokół Szkoły",
+    "question": "Co wpisywało się koledze lub koleżance na ostatniej stronie zeszytu na koniec roku szkolnego w latach 90., co zaczynało się od słów 'Ku pamięci... '?",
+    "answer": "Wpis do pamiętnika / wierszyk"
+  },
+  {
+    "id": 133,
+    "category": "Wokół Szkoły",
+    "question": "Jak nazywało się pismo dla młodzieży szkolnej, w którym można było przeczytać fotoblogi (historie ze zdjęciami), opisy problemów dojrzewania i znaleźć plakaty gwiazd?",
+    "answer": "Bravo"
+  },
+  {
+    "id": 134,
+    "category": "Wokół Szkoły",
+    "question": "Jaki przedmiot szkolny wymagał noszenia na lekcje bloku technicznego, plasteliny, farb plakatowych w okrągłych słoiczkach i pędzelków?",
+    "answer": "Plastyka"
+  },
+  {
+    "id": 135,
+    "category": "Wokół Szkoły",
+    "question": "Jak nazywał się popularny w latach 90. metalowy cyrkiel w plastikowym etui, do którego wkładało się mały ołówek (rysik), będący zmorą lekcji geometrii?",
+    "answer": "Cyrkiel szkolny (często marki Skala)"
+  },
+  {
+    "id": 136,
+    "category": "Wokół Szkoły",
+    "question": "Co oznaczała ocena 'mierny' w polskiej szkole przed reformą wprowadzającą ocenę dopuszczającą (dwójkę)?",
+    "answer": "Mierny to była ocena 2 (dwója)"
+  },
+  {
+    "id": 137,
+    "category": "Wokół Szkoły",
+    "question": "Jak nazywały się buty sportowe z białą gumową podeszwą i czarnym lub granatowym materiałem, które były obowiązkowym obuwiem zamiennym po szkole?",
+    "answer": "Tenisówki / Halówki / Trampki"
+  },
+  {
+    "id": 138,
+    "category": "Wokół Szkoły",
+    "question": "Jaki kultowy podręcznik do języka polskiego dla klas 1-3 szkół podstawowych w latach 80. i 90. opowiadał o przygodach Ali i Asa?",
+    "answer": "Elementarz (Falskiego)"
+  },
+  {
+    "id": 139,
+    "category": "Wokół Szkoły",
+    "question": "Jak nazywał się specjalny, gruby papier (często szary lub granatowy w rolce), którym obkładało się podręczniki szkolne, żeby się nie niszczyły?",
+    "answer": "Papier pakowy / okładka na książki"
+  },
+  {
+    "id": 140,
+    "category": "Wokół Szkoły",
+    "question": "Które legendarne piórniki z lat 90. miały magnetyczne zamknięcia, wysuwane szufladki na gumki i temperówki uruchamiane przyciskami?",
+    "answer": "Piórniki z bajerami / piórniki magnetyczne (często chińskie)"
+  },
+  {
+    "id": 141,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywała się słynna argentyńska telenowela emitowana na TVN, w której główną bohaterką była Milagros (Cholito) pracująca w rezydencji rodziny Di Carlo?",
+    "answer": "Zbuntowany anioł"
+  },
+  {
+    "id": 142,
+    "category": "Telewizja i Popkultura",
+    "question": "Który polski skoczek narciarski wywołał ogólnokrajową manię (małyszomanię) na przełomie 2000 i 2001 roku, wygrywając Turniej Czterech Skoczni?",
+    "answer": "Adam Małysz"
+  },
+  {
+    "id": 143,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się talk-show prowadzony przez Ewę Drzyzgę w TVN od 2000 roku, w którym goście opowiadali o swoich nietypowych problemach życiowych?",
+    "answer": "Rozmowy w toku"
+  },
+  {
+    "id": 144,
+    "category": "Telewizja i Popkultura",
+    "question": "Jaki tytuł nosił emitowany na Polsacie serial komediowy o losach dwóch zaprzyjaźnionych rodzin kontrolerów ruchu tramwajowego i kanalizatorów pracujących w Warszawie?",
+    "answer": "Miodowe lata"
+  },
+  {
+    "id": 145,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak wabił się gadający kot, wierny towarzysz nastoletniej czarownicy Sabriny w popularnym serialu komediowym z przełomu wieków?",
+    "answer": "Salem"
+  },
+  {
+    "id": 146,
+    "category": "Telewizja i Popkultura",
+    "question": "Który kultowy polski teleturniej, prowadzony niezmiennie przez Tadeusza Sznuka, wymagał od uczestników wyznaczania kolejnych graczy do odpowiedzi?",
+    "answer": "Jeden z dziesięciu"
+  },
+  {
+    "id": 147,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się bezlitosny program muzyczny (talent show) na TV4 i Polsacie, w którym Elżbieta Zapendowska i Robert Leszczyński oceniali młodych wokalistów?",
+    "answer": "Idol"
+  },
+  {
+    "id": 148,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się grany przez Janusza Gajosa bohater serialu 'Alternatywy 4', który był surowym gospodarzem domu?",
+    "answer": "Stanisław Anioł"
+  },
+  {
+    "id": 149,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak brzmiało imię i nazwisko słynnego detektywa bez licencji, który prowadził program 'Detektyw' w TVN, tropiąc przestępców w asyście kamer?",
+    "answer": "Krzysztof Rutkowski"
+  },
+  {
+    "id": 150,
+    "category": "Telewizja i Popkultura",
+    "question": "Które kultowe rodzeństwo z sagi 'Gwiezdne Wojny' było motywem przewodnim słynnej kolekcji Tazo w chipsach Chio w 1997 roku?",
+    "answer": "Luke i Leia (Luke Skywalker i Księżniczka Leia)"
+  },
+  {
+    "id": 151,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywał się kultowy, polski portal internetowy założony w Gdańsku, który w latach 90. miał w logo charakterystyczne litery WP?",
+    "answer": "Wirtualna Polska"
+  },
+  {
+    "id": 152,
+    "category": "Gry i Technologie",
+    "question": "Który model konsoli Sony zrewolucjonizował rynek w Polsce pod koniec lat 90., pozwalając na odpalanie gier z płyt CD (szary model, często 'przerabiany' chipem)?",
+    "answer": "PlayStation (PS1 / PSX)"
+  },
+  {
+    "id": 153,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywała się legendarna gra strategiczna czasu rzeczywistego (RTS), w której zbierało się surowiec zwany 'Przyprawą' (Spice) na pustynnej planecie?",
+    "answer": "Dune II (Duna)"
+  },
+  {
+    "id": 154,
+    "category": "Gry i Technologie",
+    "question": "Jaki popularny format plików muzycznych o mniejszym rozmiarze wyparł płyty Audio CD z odtwarzaczy pod koniec lat 90.?",
+    "answer": "MP3"
+  },
+  {
+    "id": 155,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywała się pierwsza generacja telefonów komórkowych w Polsce, działająca w systemie analogowym, oferowana przez firmę Centertel (wielkie walizki lub cegły)?",
+    "answer": "Centertel"
+  },
+  {
+    "id": 156,
+    "category": "Gry i Technologie",
+    "question": "W jakiej kultowej grze platformowej sterowało się sympatycznym, pomarańczowym jamrajem pasiastym biegającym po planszach 3D na konsoli PlayStation?",
+    "answer": "Crash Bandicoot"
+  },
+  {
+    "id": 157,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywał się program Microsoftu służący do tworzenia prostych grafik rastrowych, w którym każdy z nas uczył się obsługi myszki w Windowsie 95/98?",
+    "answer": "Paint"
+  },
+  {
+    "id": 158,
+    "category": "Gry i Technologie",
+    "question": "Który popularny symulator życia z 2000 roku pozwalał na budowanie domów, usuwanie drabinek z basenu i sterowanie codziennymi potrzebami postaci?",
+    "answer": "The Sims"
+  },
+  {
+    "id": 159,
+    "category": "Gry i Technologie",
+    "question": "Jak potocznie nazywano monitory komputerowe o ogromnych, ciężkich tyłach, zanim na biurka weszły płaskie ekrany LCD?",
+    "answer": "Monitory kineskopowe (CRT)"
+  },
+  {
+    "id": 160,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywała się kultowa polska gra przygodowa z 1995 roku, stworzona przez Adriana Chmielarza, w której bohater eksplorował surrealistyczny świat?",
+    "answer": "Tajemnica Statuetki (lub Teenagent)"
+  },
+  {
+    "id": 161,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się lody w plastikowym opakowaniu w kształcie owocu (np. truskawki lub pomarańczy), które po zjedzeniu loda służyło jako zabawka?",
+    "answer": "Lody w owocach"
+  },
+  {
+    "id": 162,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jaka marka proszków instant do robienia napojów, konkurująca z Tangiem, miała w nazwie słowo sugerujące owocowy sad lub świeżość?",
+    "answer": "Bolero"
+  },
+  {
+    "id": 163,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się słynne, małe drażetki w tekturowych pudełeczkach produkowane przez firmę Skawa z Wadowic (np. Korsarze, Marynarze)?",
+    "answer": "Draże Skawa (Korsarze / Clownie)"
+  },
+  {
+    "id": 164,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jaki serek z czekoladowymi drażetkami pod wieczkiem, produkowany przez firmę Campina, był hitem śniadaniowym lat 2000.?",
+    "answer": "Puddis (lub serek z okienkiem / Gratka)"
+  },
+  {
+    "id": 165,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywał się gazowany napój z lat 90. o silnym, chemicznym smaku jabłkowym lub wieloowocowym, sprzedawany w 2-litrowych butelkach o nazwie 'K...",
+    "answer": "Kaskada"
+  },
+  {
+    "id": 166,
+    "category": "Smaki Dzieciństwa",
+    "question": "Które czekoladowe jajko z niespodzianką w środku (plastikową zabawką do składania) zbierało się masowo w latach 90., polując na figurki hipopotamów czy lwów?",
+    "answer": "Kinder Niespodzianka (Kinder Surprise)"
+  },
+  {
+    "id": 167,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się długie, żelowe paski pokryte bardzo kwaśną posypką, które kupowało się na wagę lub na sztuki w sklepikach?",
+    "answer": "Kable / żelki paski"
+  },
+  {
+    "id": 168,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jaki fast-food, sprzedawany z budek i przyczep kempingowych w latach 90., składał się z podłużnej bułki z dziurą, w którą wlewano ketchup/musztardę i wciskano parówkę?",
+    "answer": "Hot-dog francuski (lub po prostu hot-dog z budki)"
+  },
+  {
+    "id": 169,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się herbatniki w kształcie zwierzątek, które chrupało się w szkole w latach 90.?",
+    "answer": "Zoo (Herbatniki Zoo)"
+  },
+  {
+    "id": 170,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jaki kultowy smak gumy Orbit dla dzieci (w różowym opakowaniu) był uwielbiany za słodki, balonowy aromat?",
+    "answer": "Orbit dla dzieci (Donald/klasyczny smak gumy balonowej)"
+  },
+  {
+    "id": 171,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywały się buty na kółkach lub plastikowe platformy mocowane do butów, które były poprzednikami nowoczesnych wrotek w latach 90.?",
+    "answer": "Wrotki retro (wrotki na paski)"
+  },
+  {
+    "id": 172,
+    "category": "Podwórko i Styl Życia",
+    "question": "W jaką grę podwórkową grano przy użyciu noża (np. finki), rzucając go w ziemię, aby 'odkrajać' kawałki terytorium przeciwnika na narysowanym kole?",
+    "answer": "Gra w noża (lub: państwa-miasta na noże / pikuty)"
+  },
+  {
+    "id": 173,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywał się jojo-podobny szał z lat 90., polegający na kręceniu na sznurku plastikowego stożka za pomocą dwóch patyczków?",
+    "answer": "Diabolo"
+  },
+  {
+    "id": 174,
+    "category": "Podwórko i Styl Życia",
+    "question": "Co oznaczało w slangu lat 90. słowo 'Zgredzi'?",
+    "answer": "Rodzice"
+  },
+  {
+    "id": 175,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywały się plastikowe pistolety na małe, plastikowe kulki (zazwyczaj 6mm), które kupowało się na odpustach i bazarach, a potyczki nimi często kończyły się siniakami?",
+    "answer": "Pistolety na kulki (BB guns)"
+  },
+  {
+    "id": 176,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywał się metalowy lub betonowy element osiedlowego podwórka, służący teoretycznie do czyszczenia dywanów, a w praktyce będący głównym miejscem spotkań, robienia fikołków i bazą do berka?",
+    "answer": "Trzepak"
+  },
+  {
+    "id": 177,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywały się elastyczne, kolorowe żyłki z plastiku, które zaplatało się w kwadratowe lub okrągłe breloczki i hucznie kolekcjonowało w 2005 roku?",
+    "answer": "Scoubidou (skubidu)"
+  },
+  {
+    "id": 178,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak potocznie nazywano małe sklepy z zagraniczną odzieżą używaną, które zaczęły masowo powstawać w Polsce w latach 90.?",
+    "answer": "Lumpeks / Ciucholand / Second-hand"
+  },
+  {
+    "id": 179,
+    "category": "Podwórko i Styl Życia",
+    "question": "Co oznaczało podwórkowe zawołanie 'Zamawiam!' lub 'Zaklepane!' podczas gry w chowanego?",
+    "answer": "Zabezpieczenie pozycji lub uratowanie się przed szukającym (tzw. zapieczętowanie bazy)"
+  },
+  {
+    "id": 180,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywały się rowery z grubymi oponami, bez przerzutek, z charakterystyczną piankową osłoną na ramie i kierownicy, które były hitem komunijnym wczesnych lat 90.?",
+    "answer": "Brat / Rowery typu BMX"
   }
 ]
