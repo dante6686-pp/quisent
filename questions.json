@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "category": "Telewizja i Popkultura",
+    "question": "Jaki program dla dzieci prowadzony przez ciocię Klotę i Pana Tik-Taka (Krzysztofa Marca) gromadził miliony przed telewizorami w latach 80. i 90.?",
+    "answer": "Tik-Tak"
+  },
+  {
+    "id": 2,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się kultowy program z wielkim niebieskim stworem, w którym dzieci śpiewały piosenki, a prowadził go m.in. Krzysztof Antkowiak czy Piotr Pręgowski?",
+    "answer": "Dyskoteka Pana Dżeka"
+  },
+  {
+    "id": 3,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się program muzyczny prowadzony przez Wojciecha Manna i Krzysztofa Maternę, w którym amatorzy śpiewali hity znanych gwiazd, a nagrodą był występ w Opolu?",
+    "answer": "Szansa na sukces"
+  },
+  {
+    "id": 4,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się teleturniej interaktywny w Polsacie, w którym sterowało się postacią trolla za pomocą klawiatury telefonu stacjonarnego?",
+    "answer": "Hugo"
+  },
+  {
+    "id": 5,
+    "category": "Telewizja i Popkultura",
+    "question": "Kto prowadził kultowy teleturniej 'Idź na całość', w którym można było wygrać samochód albo maskotkę Kota w worku (Zonka)?",
+    "answer": "Zygmunt Chajzer"
+  },
+  {
+    "id": 6,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak wabił się pies z kultowego serialu animowanego o dwójce przyjaciół-konstruktorów: czeskim i słowackim (Sąsiedzi)?",
+    "answer": "W tym serialu nie było psa (to podchwytliwe pytanie, bohaterowie to Pat i Mat!)"
+  },
+  {
+    "id": 7,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywała się fikcyjna miejscowość, w której rozgrywała się akcja serialu 'Świat według Kiepskich'?",
+    "answer": "Wrocław (ulica Ćwiartki 3/4)"
+  },
+  {
+    "id": 8,
+    "category": "Telewizja i Popkultura",
+    "question": "Które anime emitowane na RTL7 i Polsacie opowiadało o poszukiwaniu siedmiu magicznych kul spełniających życzenia i wojownikach Saiyan?",
+    "answer": "Dragon Ball (Dragon Ball Z)"
+  },
+  {
+    "id": 9,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywał się popularny popołudniowy blok programowy dla młodzieży na antenie TVP2 w latach 90., prowadzony m.in. przez Marcina Tyszkę?",
+    "answer": "5-10-15"
+  },
+  {
+    "id": 10,
+    "category": "Telewizja i Popkultura",
+    "question": "Jaki tytuł nosił program informacyjny dla dzieci i młodzieży nadawany w TVP1, którego maskotką był animowany ludzik z antenką?",
+    "answer": "Rower Błażeja"
+  },
+  {
+    "id": 11,
+    "category": "Telewizja i Popkultura",
+    "question": "Jak nazywało się pierwsze polskie reality-show, w którym uczestnicy żyli zamknięci w jednym domu w Sękocinie pod Warszawą w 2001 roku?",
+    "answer": "Big Brother"
+  },
+  {
+    "id": 12,
+    "category": "Telewizja i Popkultura",
+    "question": "Która wokalistka śpiewała kultową czołówkę do polskiej wersji serialu animowanego 'Pokemony'?",
+    "answer": "Janusz Radek / Edyta Górniak (Czołówkę śpiewał Marcin Sanakiewicz, ale powszechnie kojarzy się z energią rockową)"
+  },
+  {
+    "id": 13,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywał się najpopularniejszy w Polsce klon konsoli NES/Famicom, sprzedawany na bazarach w charakterystycznych żółtych kartridżach?",
+    "answer": "Pegasus"
+  },
+  {
+    "id": 14,
+    "category": "Gry i Technologie",
+    "question": "Jaki nomor telefonu (modemowy) trzeba było wykręcić, aby połączyć się z internetem przez TPSA, co blokowało linię telefoniczną i słychać było charakterystyczne piszczenie?",
+    "answer": "0202122"
+  },
+  {
+    "id": 15,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywał się kultowy polski komunikator internetowy stworzony przez Łukasza Foltyna, uruchomiony w 2000 roku, przypisujący użytkownikom unikalne numery?",
+    "answer": "Gadu-Gadu (GG)"
+  },
+  {
+    "id": 16,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywało się wirtualne zwierzątko z Japonii zamknięte w breloczku z trzema przyciskami, które trzeba było karmić, sprzątać po nim i kłaść spać?",
+    "answer": "Tamagotchi"
+  },
+  {
+    "id": 17,
+    "category": "Gry i Technologie",
+    "question": "Z jakiej strony internetowej pobierało się legalne i nielegalne pliki MP3, tapety na telefon i dzwonki polifoniczne w latach 2000? Miała w logo niebieskiego ludzika.",
+    "answer": "Wrzuta.pl (lub Chomikuj.pl)"
+  },
+  {
+    "id": 18,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywał się kultowy portal społecznościowy założony przez studentów z Wrocławia w 2006 roku, gdzie główną walutą towarzyską były 'Eurogąbki'?",
+    "answer": "Nasza-Klasa (NK.pl)"
+  },
+  {
+    "id": 19,
+    "category": "Gry i Technologie",
+    "question": "W jaką grę systemową na Windowsie zagrywali się wszyscy w pracowniach komputerowych, polegającą na odkrywaniu pól i unikaniu min na podstawie cyfr?",
+    "answer": "Saper (Minesweeper)"
+  },
+  {
+    "id": 20,
+    "category": "Gry i Technologie",
+    "question": "Jak nazywała się technologia przesyłania plików między telefonami komórkowymi, która wymagała przyłożenia aparatów do siebie bardzo blisko, zanim upowszechnił się Bluetooth?",
+    "answer": "IrDA (podczerwień)"
+  },
+  {
+    "id": 21,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się gumy do żucia z obrazkami/naklejkami samochodów, których zapach i smak znikał po minucie, ale zbierało się je na potęgę?",
+    "answer": "Turbo"
+  },
+  {
+    "id": 22,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywał się proszek w małych saszetkach, który teoretycznie rozpuszczało się w wodzie, ale dzieciaki lizały go prosto z palca?",
+    "answer": "Tang (lub Vibovit)"
+  },
+  {
+    "id": 23,
+    "category": "Smaki Dzieciństwa",
+    "question": "Kultowe chrupki z lat 90., do których dorzucano plastikowe Tazo (krążki) z Gwiezdnych Wojen czy Pokemonów. O jaką markę chodzi?",
+    "answer": "Chio Chips (lub Lays / Star Chips)"
+  },
+  {
+    "id": 24,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się tanie, podłużne lody wodne w foliowych tubkach, które zamrażało się w zamrażalniku, a potem odgryzało czubek?",
+    "answer": "Lody pałeczki (lub lody rurki)"
+  },
+  {
+    "id": 25,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jaki gazowany napój, będący polską odpowiedzią na Coca-Colę, triumfował w czasach PRL i powrócił jako symbol nostalgii w latach 90.?",
+    "answer": "Polo Cockta"
+  },
+  {
+    "id": 26,
+    "category": "Smaki Dzieciństwa",
+    "question": "Jak nazywały się słynne, twarde wafle przekładane kremem kakaowym lub orzechowym, produkowane w Kaliszu, które kupowało się do szkoły?",
+    "answer": "Grześki"
+  },
+  {
+    "id": 27,
+    "category": "Podwórko i Styl Życia",
+    "question": "W jaką grę podwórkową grano za pomocą rozciągniętej gumy pasmanteryjnej trzymanej przez dwie osoby na wysokości kostek, łydek lub kolan?",
+    "answer": "Gra w gumę"
+  },
+  {
+    "id": 28,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywały się małe metalowe lub plastikowe krążki, które odbijało się od ziemi lub stołu, próbując odwrócić krążki przeciwnika?",
+    "answer": "Caps / Pogi (Pog)"
+  },
+  {
+    "id": 29,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywał się gruby, papierowy zeszyt, w którym znajdowały się pytania (np. 'Kto Ci się podoba?'), a znajomi wpisywali tam swoje sekrety w ponumerowanych kopertach?",
+    "answer": "Złote myśli"
+  },
+  {
+    "id": 30,
+    "category": "Podwórko i Styl Życia",
+    "question": "Jak nazywał się popularny butik/sieć sklepów z odzieżą i gadżetami dla młodzieży, charakteryzujący się neonowymi kolorami i wszechobecnym plastikiem w latach 90./2000.?",
+    "answer": "Reporter / Troll"
+  }
+]
