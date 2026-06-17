@@ -19,15 +19,23 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        body {
-            /* --- OBSŁUGA OBRAZKA TŁA (bg.png) --- */
+        /* --- STABILNE TŁO NA TELEFONY (FIX) --- */
+        .mobile-bg-fix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('bg.png');
             background-color: var(--bg-color); /* Kolor zapasowy */
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             background-repeat: no-repeat;
-            
+            z-index: -1; /* Schowane pod grą */
+            transform: translate3d(0, 0, 0); /* Sprzętowa akceleracja zapobiegająca lagom */
+        }
+
+        body {
             color: var(--text-color);
             margin: 0;
             padding: 20px;
@@ -213,6 +221,8 @@
     </style>
 </head>
 <body>
+
+<div class="mobile-bg-fix"></div>
 
 <div class="container">
     <div id="logo-area" class="logo-container">
