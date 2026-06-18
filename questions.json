@@ -1078,5 +1078,1055 @@
     "category": "Podwórko i Styl Życia",
     "question": "Jak nazywały się rowery z grubymi oponami, bez przerzutek, z charakterystyczną piankową osłoną na ramie i kierownicy, które były hitem komunijnym wczesnych lat 90.?",
     "answer": "Brat / Rowery typu BMX"
+  },
+  {
+    "id": 181,
+    "category": "Świat według Kiepskich",
+    "question": "Jak miał na imię syn Ferdynanda i Haliny?",
+    "answer": "Waldemar (Walduś)",
+    "hint": "Często śmiał się w charakterystyczny sposób i wyjechał do Ameryki z Jolasia."
+  },
+  {
+    "id": 182,
+    "category": "Świat według Kiepskich",
+    "question": "Jaki był ulubiony browar Ferdynanda?",
+    "answer": "Mocny Full",
+    "hint": "Kosztował zazwyczaj złoty pięćdziesiąt za puszkę."
+  },
+  {
+    "id": 183,
+    "category": "Świat według Kiepskich",
+    "question": "Kim z zawodu był Marian Paździoch?",
+    "answer": "Handlarzem (bazarzany)",
+    "hint": "Sprzedawał bieliznę i męskie gacie na pobliskim bazarze."
+  },
+  {
+    "id": 184,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywał się sąsiad mieszkający nad Kiepskimi, grany przez Ryszarda Kotysa?",
+    "answer": "Marian Paździoch",
+    "hint": "Ferdek często nazywał go mądralą, łysym lub wrzodem na zdrowym organizmie narodu."
+  },
+  {
+    "id": 185,
+    "category": "Świat według Kiepskich",
+    "question": "Jak wabił się pies podwórkowy, który często pojawiał się w rozmowach lub na korytarzu?",
+    "answer": "Burek",
+    "hint": "Tradycyjne polskie imię dla psa na cztery litery."
+  },
+  {
+    "id": 186,
+    "category": "Świat według Kiepskich",
+    "question": "Pod jakim adresem kamienicy mieszkali bohaterowie serialu?",
+    "answer": "Ćwiartki 3 m. 4",
+    "hint": "Ulica to Podwale, a numer mieszkania to jedna czwarta litra."
+  },
+  {
+    "id": 187,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywało się legendarne, wspólne pomieszczenie na korytarzu kamienicy?",
+    "answer": "Wspólne WC (ubikacja/toaleta)",
+    "hint": "Miejsce licznych kłótni, kolejek i czytania gazety przez Ferdka."
+  },
+  {
+    "id": 188,
+    "category": "Świat według Kiepskich",
+    "question": "Kim z zawodu była Halina Kiepska?",
+    "answer": "Pielęgniarką",
+    "hint": "Pracowała w szpitalu i jako jedyna w domu przynosiła stałą pensję."
+  },
+  {
+    "id": 189,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywała się żona Mariana Paździocha?",
+    "answer": "Helena",
+    "hint": "Imię na literę H, słynęła z głośnego krzyczenia na męża i noszenia wałków we włosach."
+  },
+  {
+    "id": 190,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywał się potężny sąsiad, grany przez Dariusz Gnatowskiego?",
+    "answer": "Arnold Boczek",
+    "hint": "Pracował w rzeźni i uwielbiał tłuste potrawy, zwłaszcza kaszankę."
+  },
+  {
+    "id": 191,
+    "category": "Świat według Kiepskich",
+    "question": "Gdzie pracował Arnold Boczek?",
+    "answer": "W rzeźni (w masarni)",
+    "hint": "Miejsce, z którego przynosił świeże mięso, podroby i kiełbasy."
+  },
+  {
+    "id": 192,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywała się ekscentryczna żona Waldusia, grana przez Annę Ilczuk?",
+    "answer": "Jolasia (Jolanta)",
+    "hint": "Miała charakterystyczny, piskliwy głos i uwielbiał wydawać pieniądze na głupoty."
+  },
+  {
+    "id": 193,
+    "category": "Świat według Kiepskich",
+    "question": "Jakie było popisowe, bardzo częste powiedzenie Ferdka na temat pracy?",
+    "answer": "W tym kraju nie ma pracy dla ludzi z moim wykształceniem",
+    "hint": "Wymówka, którą Ferdek powtarzał Halinie siedząc przed telewizorem."
+  },
+  {
+    "id": 194,
+    "category": "Świat według Kiepskich",
+    "question": "Jak miała na imię córka Ferdynanda i Haliny?",
+    "answer": "Mariola (Mariolka)",
+    "hint": "Młodsza siostra Waldusia, grana przez Barbarę Mularczyk."
+  },
+  {
+    "id": 195,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywała się matka Haliny, grana przez Krystynę Feldman?",
+    "answer": "Rozalia (Babka Kiepska)",
+    "hint": "Ferdek ciągle polował na jej rentę, a ona chowała pieniądze w szafie."
+  },
+  {
+    "id": 196,
+    "category": "Świat według Kiepskich",
+    "question": "Gdzie Babka Rozalia chowała swoją rentę przed Ferdkiem?",
+    "answer": "W szafie (w biblioteczce)",
+    "hint": "Mebel stojący w pokoju babki, często zamknięty na klucz."
+  },
+  {
+    "id": 197,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywał się listonosz, który regularnie przynosił rentę babki i listy?",
+    "answer": "Edzio",
+    "hint": "Słynął z rymowania i układania wierszyków na każdą okazję."
+  },
+  {
+    "id": 198,
+    "category": "Świat według Kiepskich",
+    "question": "Jaki program telewizyjny Ferdek oglądał najchętniej z piwem w ręku?",
+    "answer": "Mecze piłki nożnej (futbol)",
+    "hint": "Sport, w którym Polacy według Ferdka zawsze grali 'piach'."
+  },
+  {
+    "id": 199,
+    "category": "Świat według Kiepskich",
+    "question": "Jak na nazwisko miała Jolasia, żona Waldusia, zanim wyszła za mąż?",
+    "answer": "Pupcia",
+    "hint": "Bardzo zabawne, anatomiczne wręcz nazwisko na literę P."
+  },
+  {
+    "id": 200,
+    "category": "Świat według Kiepskich",
+    "question": "Kto był najlepszym przyjacielem Mariana Paździocha z czasów młodości, o którym często wspominał?",
+    "answer": "Janusz (lub wspomnienia o handlu)",
+    "hint": "Paździoch często wspominał swoje międzynarodowe interesy m.in. na giełdzie w Turcji."
+  },
+  {
+    "id": 201,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywał się prezes spółdzielni mieszkaniowej, który często nachodził mieszkańców?",
+    "answer": "Andrzej Kozłowski",
+    "hint": "Często organizował dziwne akcje społeczne i kontrole lokatorskie."
+  },
+  {
+    "id": 202,
+    "category": "Świat według Kiepskich",
+    "question": "Co Boczek regularnie podkradał z korytarza lub zostawiał na wycieraczce u Kiepskich?",
+    "answer": "Gazety (lub korzystał z ich WC bez pytania)",
+    "hint": "Powód, dla którego Ferdek krzyczał: 'Panie Boczek, pan u siebie nie jesteś!'."
+  },
+  {
+    "id": 203,
+    "category": "Świat według Kiepskich",
+    "question": "Do jakiego kraju wyjechał Walduś w trakcie trwania serialu?",
+    "answer": "Do USA (Ameryki)",
+    "hint": "Kraj za oceanem, do którego jechało się 'za chlebem'."
+  },
+  {
+    "id": 204,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywało się ulubione danie Boczka, które uwielbiał jeść u Kiepskich w nocy?",
+    "answer": "Kaszanka",
+    "hint": "Wyrób wędliniarski z krwi i kaszy."
+  },
+  {
+    "id": 205,
+    "category": "Świat według Kiepskich",
+    "question": "Jak inwazyjnie w serialu nazywano luksusowy alkohol, który Ferdek pił od święta?",
+    "answer": "Wódka Zagłoba",
+    "hint": "Trunek z panem z sarmackim wąsem na etykiecie."
+  },
+  {
+    "id": 206,
+    "category": "Świat według Kiepskich",
+    "question": "Jak Ferdek nazywał telewizor, przed którym spędzał całe dnie?",
+    "answer": "Oko (lub pudełko)",
+    "hint": "Mówił często, że patrzy w 'szklane ...'."
+  },
+  {
+    "id": 207,
+    "category": "Świat według Kiepskich",
+    "question": "Jak na imię miał syn Mariana Paździocha, który niespodziewanie pojawił się z Romanii?",
+    "answer": "Janusz",
+    "hint": "Popularne polskie imię, postać grana przez Sławomira Szczęśniaka."
+  },
+  {
+    "id": 208,
+    "category": "Świat według Kiepskich",
+    "question": "Jakie zwierzę było symbolem partii, którą Ferdek próbował założyć w jednym z odcinków?",
+    "answer": "Borsuk (lub Świnia)",
+    "hint": "Zwierzę leśne znane z pasiastej głowy lub hodowlane."
+  },
+  {
+    "id": 209,
+    "category": "Świat według Kiepskich",
+    "question": "Jani instrument muzyczny potrafił na korytarzu uruchomić przedziwne zjawiska paranormalne?",
+    "answer": "Akordeon",
+    "hint": "Instrument klawiszowo-miechowy, na którym grano biesiadne pieśni."
+  },
+  {
+    "id": 210,
+    "category": "Świat według Kiepskich",
+    "question": "Do kogo należał słynny czerwony fotel przed telewizorem?",
+    "answer": "Do Ferdka",
+    "hint": "Nikt inny nie miał prawa na nim usiąść bez awantury."
+  },
+  {
+    "id": 211,
+    "category": "Świat według Kiepskich",
+    "question": "Co znajdowało się na dachu kamienicy i było miejscem wielu tajnych zebrań męskiej części lokatorów?",
+    "answer": "Gołębnik (lub taras)",
+    "hint": "Miejsce hodowli ptaków pokojowych."
+  },
+  {
+    "id": 212,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywał się lekarz, do którego Ferdek i sąsiedzi przychodzili z absurdalnymi dolegliwościami?",
+    "answer": "Doktor Kazula",
+    "hint": "Specjalista w kitlu, grany m.in. przez Tadeusza Szymkowa."
+  },
+  {
+    "id": 213,
+    "category": "Świat według Kiepskich",
+    "question": "Kto napisał słynną piosenkę czołówkową do serialu?",
+    "answer": "Big Cyc",
+    "hint": "Polski zespół rockowy z Krzysztofem Skibą na czele."
+  },
+  {
+    "id": 214,
+    "category": "Świat według Kiepskich",
+    "question": "Jak brzmiało drugie imię syna Ferdka, Waldusia?",
+    "answer": "Andrzej",
+    "hint": "Imię po wujku lub popularne imię na literę A."
+  },
+  {
+    "id": 215,
+    "category": "Świat według Kiepskich",
+    "question": "Jaki pseudonim nosił miejscowy handlarz złomem i kumpel Ferdka, grany przez Bohdana Smolenia?",
+    "answer": "Edi",
+    "hint": "Krótkie imię na trzy litery pasujące do dawnego kabareciarza TEY."
+  },
+  {
+    "id": 216,
+    "category": "Świat według Kiepskich",
+    "question": "W jakim mieście znajduje się ulica Podwale i kamienica Kiepskich?",
+    "answer": "We Wrocławiu",
+    "hint": "Stolica Dolnego Śląska."
+  },
+  {
+    "id": 217,
+    "category": "Świat według Kiepskich",
+    "question": "Co Marian Paździoch trzymał na strychu i nikomu nie pozwalał tam wchodzić?",
+    "answer": "Maszynę do szycia / Towar",
+    "hint": "Związane z jego tajemniczą przeszłością wywiadowczą lub bazarem."
+  },
+  {
+    "id": 218,
+    "category": "Świat według Kiepskich",
+    "question": "Jak miał na imię brat Ferdynanda, który od czasu do czasu przysyłał listy lub paczki?",
+    "answer": "Staszek (Stanisław)",
+    "hint": "Mieszkał na wsi i miał gospodarstwo."
+  },
+  {
+    "id": 219,
+    "category": "Świat według Kiepskich",
+    "question": "Jak na imię miała matka Mariana Paździocha?",
+    "answer": "Janina",
+    "hint": "Starsza pani, o której Marian mówił z ogromnym szacunkiem."
+  },
+  {
+    "id": 220,
+    "category": "Świat według Kiepskich",
+    "question": "Jaki napój Ferdek przygotowywał rano, gdy nie było w domu piwa?",
+    "answer": "Kawę (często 'plujkę')",
+    "hint": "Czarny, gorący napój budzący Polaków."
+  },
+  {
+    "id": 221,
+    "category": "Świat według Kiepskich",
+    "question": "Kto był idolem muzycznym Waldusia?",
+    "answer": "Krzysztof Krawczyk (lub Disco Polo)",
+    "hint": "Legendarny polski piosenkarz od 'Parostatku'."
+  },
+  {
+    "id": 222,
+    "category": "Świat według Kiepskich",
+    "question": "Ile pięter miała kamienica, w której żyli Kiepscy?",
+    "answer": "3 piętra",
+    "hint": "Paździoch mieszkał na samej górze, Boczek w środku, Ferdek na dole."
+  },
+  {
+    "id": 223,
+    "category": "Świat według Kiepskich",
+    "question": "Co Halina najczęściej kazała zrobić Ferdkowi, gdy ten siedział bezczynnie?",
+    "answer": "Wynieść śmieci",
+    "hint": "Kultowy domowy obowiązek z wiadrem w roli głównej."
+  },
+  {
+    "id": 224,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywał się bogaty wujek z Ameryki, który miał zapisać Kiepskim spadek?",
+    "answer": "Wujek Władek",
+    "hint": "Imię zbieżne z imieniem Waldusia."
+  },
+  {
+    "id": 225,
+    "category": "Świat według Kiepskich",
+    "question": "Jakie nakrycie głowy Ferdek nosił najczęściej, gdy wychodził z domu na podwórko?",
+    "answer": "Czapka z daszkiem (bejsbolówka)",
+    "hint": "Popularna sportowa czapka chroniąca przed słońcem."
+  },
+  {
+    "id": 226,
+    "category": "Świat według Kiepskich",
+    "question": "Jak nazywało się tanie wino, które Ferdek i kumpel ze złomowiska popijali w kryzysowych momentach?",
+    "answer": "Mocny Halny",
+    "hint": "Często nazywane potocznie 'mamrotem' lub 'jabcokiem'."
+  },
+  {
+    "id": 227,
+    "category": "Świat według Kiepskich",
+    "question": "Na czym polegał słynny 'biznes' Ferdka z hodowlą zwierząt w mieszkaniu?",
+    "answer": "Hodowla dżdżownic",
+    "hint": "Robaki używane przez wędkarzy jako przynęta."
+  },
+  {
+    "id": 228,
+    "category": "Świat według Kiepskich",
+    "question": "Kim z pochodzenia była żona Janusza Paździocha?",
+    "answer": "Romką (Z Cyganów)",
+    "hint": "Nawiązanie do rumuńskich korzeni młodego Paździocha."
+  },
+  {
+    "id": 229,
+    "category": "Świat według Kiepskich",
+    "question": "Jakie kapcie nosił Ferdek przez większość odcinków?",
+    "answer": "Skórzane bambosze (klapki)",
+    "hint": "Tradycyjne domowe obuwie bez pięty."
+  },
+  {
+    "id": 230,
+    "category": "Świat według Kiepskich",
+    "question": "Jaki kultowy rekwizyt stał w rogu salonu Kiepskich, za fotelem Ferdka?",
+    "answer": "Marek (Manekin)",
+    "hint": "Służył jako ozdoba lub wieszak na ubrania."
+  },
+  {
+    "id": 231,
+    "category": "13 posterunek",
+    "question": "Jak nazywał się główny, niezdarny policjant grany przez Cezarego Pazurę?",
+    "answer": "Cezary Cezary",
+    "hint": "Jego imię i nazwisko brzmią dokładnie tak samo."
+  },
+  {
+    "id": 232,
+    "category": "13 posterunek",
+    "question": "Jak miał na imię komendant posterunku, grany przez Marka Perepeczkę?",
+    "answer": "Władysław (Władek)",
+    "hint": "Był wielkim fanem swojego psa Pershinga i filmów akcji."
+  },
+  {
+    "id": 233,
+    "category": "13 posterunek",
+    "question": "Jak nazywał się ukochany pies komendanta Władysława?",
+    "answer": "Pershing",
+    "hint": "Rasa to buldog angielski, nazwany tak jak słynny amerykański pocisk."
+  },
+  {
+    "id": 234,
+    "category": "13 posterunek",
+    "question": "Kim dla Cezarego była Agnieszka, grana przez Agnieszkę Włodarczyk?",
+    "answer": "Siostrą",
+    "hint": "Młodsza nastolatka, która często uczyła się na posterunku i podkochiwała w policjantach."
+  },
+  {
+    "id": 235,
+    "category": "13 posterunek",
+    "question": "Jak nazywała się policjantka, która była szaleńczo zakochana w Czarku?",
+    "answer": "Kasia",
+    "hint": "Postać grana przez Aleksandrę Woźniak, nosiła okulary."
+  },
+  {
+    "id": 236,
+    "category": "13 posterunek",
+    "question": "Jaka była główna cecha charakterystyczna policjanta o imieniu Luksus?",
+    "answer": "Był erotomanem (podrywaczem)",
+    "hint": "Uwielbiał czytać pisma dla dorosłych i podrywać każdą kobietę."
+  },
+  {
+    "id": 237,
+    "category": "13 posterunek",
+    "question": "Jak nazywał się niewidomy, starszy policjant, który potrafił strzelać na słuch?",
+    "answer": "Stępień",
+    "hint": "Grany przez Marka Walczewskiego, ciągle narzekał na swoją żonę."
+  },
+  {
+    "id": 238,
+    "category": "13 posterunek",
+    "question": "O co Stępień nieustannie kłócił się ze swoją żoną w rozmowach telefonicznych?",
+    "answer": "O zupę (o obiad)",
+    "hint": "Kultowy tekst: 'Słuchaj no, zołzo!'."
+  },
+  {
+    "id": 239,
+    "category": "13 posterunek",
+    "question": "Jak nazywał się potężny, powolny policjant, który rzadko się odzywał, ale miał ogromną siłę?",
+    "answer": "Arnie",
+    "hint": "Jego idolem był Arnold Schwarzenegger."
+  },
+  {
+    "id": 240,
+    "category": "13 posterunek",
+    "question": "Kim z zawodu lub zamiłowania była filmowa brunetka Jola, dziewczyna Czarka?",
+    "answer": "Prostytutką",
+    "hint": "Pracowała przy drodze lub w klubie, grana przez Dorotę Chotecką."
+  },
+  {
+    "id": 241,
+    "category": "13 posterunek",
+    "question": "Kto reżyserował ten kultowy serial komediowy?",
+    "answer": "Maciej Ślesicki",
+    "hint": "Reżyser znany również z filmu 'Sara'."
+  },
+  {
+    "id": 242,
+    "category": "13 posterunek",
+    "question": "Jaki numer nosił ten warszawski posterunek policji?",
+    "answer": "13",
+    "hint": "Liczba uważana pechowo za pechową."
+  },
+  {
+    "id": 243,
+    "category": "13 posterunek",
+    "question": "Jak nazywał się starszy aspirant, inspektor z komendy głównej, grany przez Arkadiusza Jakubika?",
+    "answer": "Rysio (Aspirant Ryszard)",
+    "hint": "Miał bardzo specyficzny głos, tik nerwowy i brakowało mu kilku klepek."
+  },
+  {
+    "id": 244,
+    "category": "13 posterunek",
+    "question": "Co stało na biurku komendanta i było dla niego cenniejsze niż bezpieczeństwo miasta?",
+    "answer": "Zdjęcie Pershinga",
+    "hint": "Związane z jego czworonożnym pupilem."
+  },
+  {
+    "id": 245,
+    "category": "13 posterunek",
+    "question": "Jak nazywał się posterunkowy, który w drugim sezonie zastąpił Luksusa?",
+    "answer": "Janek (Rubin)",
+    "hint": "Młody chłopak z prowincji, bardzo skromny i religijny."
+  },
+  {
+    "id": 246,
+    "category": "13 posterunek",
+    "question": "Jakie nietypowe hobby miał filmowy Arnie?",
+    "answer": "Oglądanie filmów akcji",
+    "hint": "Uwielbiał strzelać ze wszystkiego, co popadnie i czcić Schwarzeneggera."
+  },
+  {
+    "id": 247,
+    "category": "13 posterunek",
+    "question": "Gdzie znajdowało się wejście do celi dla zatrzymanych na posterunku?",
+    "answer": "Za kratą po prawej stronie",
+    "hint": "Pomieszczenie, w którym Czarek często sam lądował przez przypadek."
+  },
+  {
+    "id": 248,
+    "category": "13 posterunek",
+    "question": "Jak miała na imię suczka, którą komendant próbował swatać z Pershingiem?",
+    "answer": "Alfa",
+    "hint": "Pierwsza litera greckiego alfabetu."
+  },
+  {
+    "id": 249,
+    "category": "13 posterunek",
+    "question": "Jaki przedmiot Czarek najczęściej niszczył na biurku komendanta?",
+    "answer": "Telefon",
+    "hint": "Urządzenie służące do odbierania połączeń."
+  },
+  {
+    "id": 250,
+    "category": "13 posterunek",
+    "question": "Kto grał postać Luksusa w pierwszym sezonie?",
+    "answer": "Paweł Burczyk",
+    "hint": "Aktor o rudych włosach i charakterystycznym uśmiechu."
+  },
+  {
+    "id": 251,
+    "category": "13 posterunek",
+    "question": "Jak miała na imię wysoka, atrakcyjna ruda policjantka z drugiego sezonu?",
+    "answer": "Agnieszka",
+    "hint": "Nosi takie samo imię jak serialowa siostra Czarka."
+  },
+  {
+    "id": 252,
+    "category": "13 posterunek",
+    "question": "Co Stępień nosił na nosie przez cały serial?",
+    "answer": "Grube okulary (bryle)",
+    "hint": "Miały szkła jak denka od butelek z powodu jego wady wzroku."
+  },
+  {
+    "id": 253,
+    "category": "13 posterunek",
+    "question": "Jak na imię miał bezdomny, który regularnie nocował na posterunku?",
+    "answer": "Janek",
+    "hint": "Czarek traktował go jak stałego lokatora, grany przez Macieja Kozłowskiego."
+  },
+  {
+    "id": 254,
+    "category": "13 posterunek",
+    "question": "Jakie zwierzę rzekomo zaatakowało posterunek w jednym z najbardziej absurdalnych odcinków?",
+    "answer": "Niedźwiedź",
+    "hint": "Wielki drapieżnik z lasu, za którego przebrał się jeden z bohaterów."
+  },
+  {
+    "id": 255,
+    "category": "13 posterunek",
+    "question": "Co było ulubioną bronią Arniego?",
+    "answer": "Bazooka (lub miotacz ognia)",
+    "hint": "Ciężki sprzęt wojskowy, nie pasujący do policji miejskiej."
+  },
+  {
+    "id": 256,
+    "category": "13 posterunek",
+    "question": "Jaki auto było oficjalnym radiowozem 13 posterunku?",
+    "answer": "Polonez",
+    "hint": "Kultowy samochód polskiej produkcji z FSO."
+  },
+  {
+    "id": 257,
+    "category": "13 posterunek",
+    "question": "Co Stępień chował w kaburze zamiast prawdziwego pistoletu?",
+    "answer": "Kanapkę",
+    "hint": "Coś do jedzenia, co żona przygotowała mu do pracy."
+  },
+  {
+    "id": 258,
+    "category": "13 posterunek",
+    "question": "Jakie pasje fizyczne na posterunku realizował Arnie (Piotr Zelt)?",
+    "answer": "Kulturystykę",
+    "hint": "Wyciskał ogromne ciężary bezpośrednio w biurze."
+  },
+  {
+    "id": 259,
+    "category": "13 posterunek",
+    "question": "Jak nazywał się minister, który często kontrolował posterunek i wpadał w szał?",
+    "answer": "Minister Pierdzioch",
+    "hint": "Wysoki urzędnik państwowy o niezbyt dostojnym nazwisku."
+  },
+  {
+    "id": 260,
+    "category": "13 posterunek",
+    "question": "Gdzie Czarek ukrywał się przed Kasią, gdy ta zbyt mocno go naciskała na ślub?",
+    "answer": "W szafie",
+    "hint": "Mebel z dokumentami stojący na środku sali."
+  },
+  {
+    "id": 261,
+    "category": "13 posterunek",
+    "question": "Ile żon miał według własnych opowieści Luksus?",
+    "answer": "Żadnej",
+    "hint": "Był rasowym singlem polującym na każdą kobietę."
+  },
+  {
+    "id": 262,
+    "category": "13 posterunek",
+    "question": "Co znajdowało się w centralnym punkcie głównej sali posterunku, gdzie siedzieli policjanci?",
+    "answer": "Biurka połączone na środku",
+    "hint": "Miejsce pracy, wokół którego kręciła się cała akcja."
+  },
+  {
+    "id": 263,
+    "category": "13 posterunek",
+    "question": "Jak reagował komendant, gdy ktoś obraził jego psa Pershinga?",
+    "answer": "Wyciągał broń i wpadał w szał",
+    "hint": "Agresywny atak wściekłości z użyciem siły i krzyku."
+  },
+  {
+    "id": 264,
+    "category": "13 posterunek",
+    "question": "W jakim mieście kręcono i osadzono akcję 13 posterunku?",
+    "answer": "W Warszawie",
+    "hint": "Stolica Polski."
+  },
+  {
+    "id": 265,
+    "category": "13 posterunek",
+    "question": "Który znany polski wokalista nagrał piosenkę tytułową '13 posterunek'?",
+    "answer": "Andrzej Krzywy",
+    "hint": "Wokalista zespołu De Mono, śpiewającego 'Statki na niebie'."
+  },
+  {
+    "id": 266,
+    "category": "13 posterunek",
+    "question": "Co z oczami miał Stępień pod koniec pierwszego sezonu po operacji?",
+    "answer": "Widział wszystko do góry nogami",
+    "hint": "Komediowa wada wzroku po fatalnie przeprowadzonym zabiegu."
+  },
+  {
+    "id": 267,
+    "category": "13 posterunek",
+    "question": "Jak Czarek nazywał Agnieszkę, gdy ta sprawiała problemy wychowawcze?",
+    "answer": "Gówniarą",
+    "hint": "Słowo określające młodą, niesforną i pyskatą dziewczynę."
+  },
+  {
+    "id": 268,
+    "category": "13 posterunek",
+    "question": "Co Kasia nosiła wpięte we włosy przez większość odcinków?",
+    "answer": "Kokardę",
+    "hint": "Ozdoba dziewczęca na głowie, pasująca do jej szkolnego stylu."
+  },
+  {
+    "id": 269,
+    "category": "13 posterunek",
+    "question": "Jaki stopień policyjny posiadał Cezary Cezary?",
+    "answer": "Posterunkowy",
+    "hint": "Najniższy stopień w hierarchii policyjnej."
+  },
+  {
+    "id": 270,
+    "category": "13 posterunek",
+    "question": "Kto był największym wrogiem publicznym komendanta Władysława w bajkach, które opowiadał?",
+    "answer": "Al Capone",
+    "hint": "Słynny amerykański gangster z czasów prohibicji."
+  },
+  {
+    "id": 271,
+    "category": "13 posterunek",
+    "question": "Co Czarek robił z policyjną czapką, gdy wpadał w szał radości?",
+    "answer": "Gryzł ją",
+    "hint": "Nietypowe i zwierzęce zachowanie z elementem umundurowania."
+  },
+  {
+    "id": 272,
+    "category": "13 posterunek",
+    "question": "Jak nazywał się ksiądz, który odwiedzał posterunek w celach duszpasterskich?",
+    "answer": "Ksiądz Proboszcz",
+    "hint": "Duchowny w sutannie z pobliskiej parafii."
+  },
+  {
+    "id": 273,
+    "category": "13 posterunek",
+    "question": "Jaki charakterystyczny taniec Czarek wykonywał na środku komisariatu?",
+    "answer": "Taniec w stylu Michaela Jacksona",
+    "hint": "Dynamiczne ruchy nóg, łapanie się za krok i głośne krzyki."
+  },
+  {
+    "id": 274,
+    "category": "13 posterunek",
+    "question": "Co Luksus zawsze nosił rozpięte w swoim mundurze?",
+    "answer": "Koszulę (klata na wierzchu)",
+    "hint": "Element podrywu na owłosioną męską klatkę piersiową."
+  },
+  {
+    "id": 275,
+    "category": "13 posterunek",
+    "question": "Kim z profesji był rzekomy brat bliźniak Czarka, który pojawił się na posterunku?",
+    "answer": "Mafioso / Przestępcą",
+    "hint": "Czarny charakter szukający ucieczki przed policją."
+  },
+  {
+    "id": 276,
+    "category": "13 posterunek",
+    "question": "Gdzie Kasia i Czarek spędzili swoją pierwszą (nieudaną) randkę?",
+    "answer": "Na posterunku (w pracy)",
+    "hint": "Nigdzie nie wyszli, zostali uwięzieni na nocnym dyżurze."
+  },
+  {
+    "id": 277,
+    "category": "13 posterunek",
+    "question": "Co Arnie nosił na głowie zamiast policyjnej czapki w sekwencjach bojowych?",
+    "answer": "Chustę (bandanę Rambo)",
+    "hint": "Czerwona lub czarna opaska wokół czoła."
+  },
+  {
+    "id": 278,
+    "category": "13 posterunek",
+    "question": "Jaki prezent komendant dostał od policjantów na urodziny, który okazał się bombą?",
+    "answer": "Tort",
+    "hint": "Słodki wypiek ze świeczkami, który spektakularnie eksplodował."
+  },
+  {
+    "id": 279,
+    "category": "13 posterunek",
+    "question": "Jak kończył się niemal każdy odcinek serialu na posterunku?",
+    "answer": "Totalną demolką (wybuchem)",
+    "hint": "Zniszczenie całego biura, gruz, dym i zniszczone meble."
+  },
+  {
+    "id": 280,
+    "category": "13 posterunek",
+    "question": "Kto grał postać inspektora Pieca, regularnie gnębiącego komendanta?",
+    "answer": "Aleksander Pociej",
+    "hint": "Aktor o poważnym, urzędowym wyglądzie."
+  },
+  {
+    "id": 281,
+    "category": "Daleko od noszy",
+    "question": "Jak nazywał się ordynator szpitala, grany przez Krzysztofa Kowalewskiego?",
+    "answer": "Zygmunt Łubicz",
+    "hint": "Słynął z noszenia wielkich okularów i miłości do luksusu oraz polowań."
+  },
+  {
+    "id": 282,
+    "category": "Daleko od noszy",
+    "question": "Jak nazywał się najbardziej pechowy i niezdarny doktor, grany przez Pawła Wawrzeckiego?",
+    "answer": "Roman Kidler",
+    "hint": "Uważał się za wielkiego podrywacza, nosił wąsy i hawajskie koszule pod fartuchem."
+  },
+  {
+    "id": 283,
+    "category": "Daleko od noszy",
+    "question": "Kim w szpitalu był basowy i potężny pan Kraśniak, grany przez Jerzego Turowicza?",
+    "answer": "Salowym (noszowym)",
+    "hint": "Nosił pacjentów i rzadko cokolwiek rozumiał z medycyny."
+  },
+  {
+    "id": 284,
+    "category": "Daleko od noszy",
+    "question": "Jak nazywała się urocza, ale niezbyt rozgarnięta pielęgniarka, grana przez Annę Przybylską?",
+    "answer": "Karina",
+    "hint": "Imię na literę K, była miss i stałym obiektem westchnień doktora Kidlera."
+  },
+  {
+    "id": 285,
+    "category": "Daleko od noszy",
+    "question": "Jak nazywał się lekarz-biznesmen, kumpel Kidlera, grany przez Piotra Gąsowskiego?",
+    "answer": "Czesław Basen",
+    "hint": "Jego nazwisko to również naczynie na mocz dla pacjentów leżących."
+  },
+  {
+    "id": 286,
+    "category": "Daleko od noszy",
+    "question": "Jak miała na imię żona doktora Basena, która również była pielęgniarką?",
+    "answer": "Magda (Magdalena)",
+    "hint": "Grana przez Hannę Śleszyńską, całkowicie rządziła mężem za pomocą wałka."
+  },
+  {
+    "id": 287,
+    "category": "Daleko od noszy",
+    "question": "Jak nazywała się bezwzględna i surowa przełożona pielęgniarek?",
+    "answer": "Siostra Gerarda",
+    "hint": "Twarda kobieta o tradycyjnym imieniu zakonnym na literę G."
+  },
+  {
+    "id": 288,
+    "category": "Daleko od noszy",
+    "question": "Jaki numer nosiła słynna sala chorych, na której leżeli stali pacjenci?",
+    "answer": "Sala numer 3",
+    "hint": "Cyfra mniejsza od 4, większa od 2."
+  },
+  {
+    "id": 289,
+    "category": "Daleko od noszy",
+    "question": "Jak nazywał się wieczny pacjent szpitala, grany przez Bogusława Kupczaka?",
+    "answer": "Nowak",
+    "hint": "Najpopularniejsze nazwisko w Polsce, leżał w łóżku przez długie lata."
+  },
+  {
+    "id": 290,
+    "category": "Daleko od noszy",
+    "question": "Jak miał na imię brat Czesława, salowy grany przez Krzysztofa Tyńca?",
+    "answer": "Rudolf (Rudolf Basen)",
+    "hint": "Imię czerwononosego renifera Świętego Mikołaja."
+  },
+  {
+    "id": 291,
+    "category": "Daleko od noszy",
+    "question": "Co ordynator Łubicz najchętniej robił w swoim gabinecie zamiast leczenia ludzi?",
+    "answer": "Grał w golfa (mini-golf)",
+    "hint": "Sport polegający na wbijaniu małej piłeczki do dołka za pomocą kija."
+  },
+  {
+    "id": 292,
+    "category": "Daleko od noszy",
+    "question": "Na czym polegały słynne 'eksperymenty' medyczne doktora Kidlera?",
+    "answer": "Na zamianie kart pacjentów",
+    "hint": "Robił to najczęściej po to, żeby ukryć swoje rażące błędy lekarskie."
+  },
+  {
+    "id": 293,
+    "category": "Daleko od noszy",
+    "question": "Jak lekarze potocznie nazywali łapówki, które brali od pacjentów w kopertach?",
+    "answer": "Dowody wdzięczności",
+    "hint": "Eleganckie, dwuwyrazowe określenie na nielegalne opłacenie lekarza."
+  },
+  {
+    "id": 294,
+    "category": "Daleko od noszy",
+    "question": "Jak nazywał się młody, naiwny stażysta, doktor grany przez Rafała Rutkowskiego?",
+    "answer": "Doktor Zawisza",
+    "hint": "Nazwisko jak słynny czarny rycerz z polskiej historii."
+  },
+  {
+    "id": 295,
+    "category": "Daleko od noszy",
+    "question": "Co było głównym tematem stałej rywalizacji między doktorem Basenem a Kidlerem?",
+    "answer": "Pieniądze i pielęgniarki",
+    "hint": "Chodziło o zyski z dyżurów oraz o względy pięknej Kariny."
+  },
+  {
+    "id": 296,
+    "category": "Daleko od noszy",
+    "question": "Jaka była oficjalna specjalizacja medyczna tego osobliwego szpitala?",
+    "answer": "Chirurgia",
+    "hint": "Dziedzina medycyny zajmująca się operacjami, krojeniem i szyciem ludzi."
+  },
+  {
+    "id": 297,
+    "category": "Daleko od noszy",
+    "question": "Co pacjent Nowak stale próbował zrobić, ale personel zawsze mu uniemożliwiał?",
+    "answer": "Uciec ze szpitala",
+    "hint": "Opuszczenie placówki medycznej bez zgody lekarza prowadzącego."
+  },
+  {
+    "id": 298,
+    "category": "Daleko od noszy",
+    "question": "Jaki nadrzędny urzędnik państwowy regularnie nawiedzał szpital w celach kontroli?",
+    "answer": "Minister Zdrowia",
+    "hint": "Szef resortu odpowiedzialnego za szpitale."
+  },
+  {
+    "id": 299,
+    "category": "Daleko od noszy",
+    "question": "Co salowi robili z pacjentami, gdy dramatycznie brakowało wolnych łóżek na oddziale?",
+    "answer": "Kładli ich na korytarzu",
+    "hint": "Wąskie miejsce przejścia między salami pacjentów."
+  },
+  {
+    "id": 300,
+    "category": "Daleko od noszy",
+    "question": "Jaki nietypowy instrument Kidler stosował do badania odruchów neurologicznych kolana?",
+    "answer": "Zwykły młotek budowlany",
+    "hint": "Narzędzie, którym normalnie wbija się gwoździe w ścianę."
+  },
+  {
+    "id": 301,
+    "category": "Daleko od noszy",
+    "question": "Jak ordynator Łubicz wpadał w szał i krzyczał na lekarzy, to jak ich nazywał?",
+    "answer": "Mordercy (konowały)",
+    "hint": "Słowo oznaczające kogoś, kto pozbawia życia, lub fatalnego medyka."
+  },
+  {
+    "id": 302,
+    "category": "Daleko od noszy",
+    "question": "Kto grał postać złośliwego pacjenta Wstrząsa, który bez przerwy pisał skargi?",
+    "answer": "Wojciech Pokora",
+    "hint": "Legendarny polski aktor komediowy, znany z filmu 'Poszukiwany, poszukiwana'."
+  },
+  {
+    "id": 303,
+    "category": "Daleko od noszy",
+    "question": "Co doktor Basen nałogowo ukrywał w szpitalnej lodówce przeznaczonej na szczepionki?",
+    "answer": "Wódkę (alkohol)",
+    "hint": "Zimny trunek wysokoprocentowy używany do celów 'towarzyskich'."
+  },
+  {
+    "id": 304,
+    "category": "Daleko od noszy",
+    "question": "Jak miała na imię nowa, młoda blond pielęgniarka, grana przez Magdalenę Mazur?",
+    "answer": "Paulinka",
+    "hint": "Zdrobnienie od imienia Paula."
+  },
+  {
+    "id": 305,
+    "category": "Daleko od noszy",
+    "question": "Jaki kolor fartuchów roboczych nosili salowi w tej placówce?",
+    "answer": "Niebieski",
+    "hint": "Kolor bezchmurnego nieba."
+  },
+  {
+    "id": 306,
+    "category": "Daleko od noszy",
+    "question": "Gdzie doktor Kidler najchętniej ucinał sobie drzemki podczas ciężkiego nocnego dyżuru?",
+    "answer": "W dyżurce na kozetce",
+    "hint": "Pokój personelu, kanapa lekarska."
+  },
+  {
+    "id": 307,
+    "category": "Daleko od noszy",
+    "question": "Jak na nazwisko miał ordynator szpitala Zygmunt?",
+    "answer": "Łubicz",
+    "hint": "Brzmi dokładnie tak samo jak nazwisko rodu z telenoweli 'Klan'."
+  },
+  {
+    "id": 308,
+    "category": "Daleko od noszy",
+    "question": "Jak nazywał się fikcyjny, cudowny lek na wszystko, który Basen wciskał pacjentom za pieniądze?",
+    "answer": "Specyfik Basena",
+    "hint": "Zwykła woda z cukrem lub witamina C nazwana jego nazwiskiem."
+  },
+  {
+    "id": 309,
+    "category": "Daleko od noszy",
+    "question": "Co salowy Kraśniak potrafił zrobić z termometrem tuż przed zmierzeniem gorączki pacjentowi?",
+    "answer": "Oblizać go",
+    "hint": "Skrajnie niehigieniczna czynność z użyciem języka i śliny."
+  },
+  {
+    "id": 310,
+    "category": "Daleko od noszy",
+    "question": "Jaki sport na trawie ordynator Łubicz trenował bezpośrednio przy biurku w gabinecie?",
+    "answer": "Mini-golf",
+    "hint": "Wbijanie małej piłeczki do sztucznego dołka za pomocą kija."
+  },
+  {
+    "id": 311,
+    "category": "Daleko od noszy",
+    "question": "Kto był głównym reżyserem oraz scenarzystą serialu 'Daleko od noszy'?",
+    "answer": "Krzysztof Jaroszyński",
+    "hint": "Znany polski satyryk, twórca wcześniejszych 'Graczyków'."
+  },
+  {
+    "id": 312,
+    "category": "Daleko od noszy",
+    "question": "Jak nazywał się pacjent-biznesmen, który bez przerwy leżał w bandażach, grany przez Macieja Miecznikowskiego?",
+    "answer": "Zygmunt",
+    "hint": "Wokalista zespołu Leszcze wcielił się w tę zabandażowaną postać."
+  },
+  {
+    "id": 313,
+    "category": "Daleko od noszy",
+    "question": "Co siostra Magda Basen trzymała pod ręką i używała do bicia męża za przewinienia?",
+    "answer": "Wałek do ciasta",
+    "hint": "Drewniane narzędzie kuchenne służące do rozwałkowywania ciasta na stolnicy."
+  },
+  {
+    "id": 314,
+    "category": "Daleko od noszy",
+    "question": "Jak lekarze perfidnie fałszowali statystyki zgonów na oddziale chirurgii?",
+    "answer": "Wypisywali zmarłych jako zdrowych dzień przed śmiercią",
+    "hint": "Absurdalna papierkowa sztuczka biurokratyczna."
+  },
+  {
+    "id": 315,
+    "category": "Daleko od noszy",
+    "question": "Co Kidler nosił pod swoim oficjalnym, białym fartunkiem lekarskim?",
+    "answer": "Hawajskie koszule",
+    "hint": "Kolorowe, jaskrawe ubrania męskie w palmy, kwiaty i papugi."
+  },
+  {
+    "id": 316,
+    "category": "Daleko od noszy",
+    "question": "W jakim polskim mieście znajdował się ten prześmieszny szpital?",
+    "answer": "W Warszawie",
+    "hint": "Stolica kraju."
+  },
+  {
+    "id": 317,
+    "category": "Daleko od noszy",
+    "question": "Jaki klasyczny przyrząd lekarski doktor Zawisza zawsze dumnie nosił zawieszony na szyi?",
+    "answer": "Stetoskop (słuchawki)",
+    "hint": "Służy do osłuchiwania bicia serca i szmerów w płucach pacjenta."
+  },
+  {
+    "id": 318,
+    "category": "Daleko od noszy",
+    "question": "Kto osobiście wykonywał kultową piosenkę czołówkową zaczynającą się od 'Daleko od noszy...'?",
+    "answer": "Piotr Gąsowski",
+    "hint": "Aktor grający doktora Czesława Basena osobiście stanął przed mikrofonem."
+  },
+  {
+    "id": 319,
+    "category": "Daleko od noszy",
+    "question": "Co ordynator Łubicz z pasją kolekcjonował i wieszał na ścianach swojego gabinetu?",
+    "answer": "Poroża jeleni (trofea myśliwskie)",
+    "hint": "Kościane ozdoby z głowy zwierzyny leśnej, związane z polowaniem."
+  },
+  {
+    "id": 320,
+    "category": "Daleko od noszy",
+    "question": "Jak siostra Gerarda testowała czystość mebli i szafek na sali chorych?",
+    "answer": "Przecierała palcem w białej rękawiczce",
+    "hint": "Tradycyjny wojskowo-szpitalny test na obecność najmniejszego kurzu."
+  },
+  {
+    "id": 321,
+    "category": "Daleko od noszy",
+    "question": "Jaki radykalny zabieg chirurdzy wykonywali najchętniej, bo uważali go za najprostszy?",
+    "answer": "Amputację kończyny",
+    "hint": "Chirurgiczne odcięcie ręki lub nogi pacjenta."
+  },
+  {
+    "id": 322,
+    "category": "Daleko od noszy",
+    "question": "Gdzie salowi bezceremonialnie chowali zwłoki, gdy w kostnicy brakowało wolnych chłodni?",
+    "answer": "W windzie",
+    "hint": "Urządzenie służące do pionowego transportu ludzi między piętrami."
+  },
+  {
+    "id": 323,
+    "category": "Daleko od noszy",
+    "question": "Kim z zawodu była piękna siostra Karina, zanim przez przypadek trafiła do pielęgniarstwa?",
+    "answer": "Modelką (fotomodelką)",
+    "hint": "Kobieta, która pozuje do zdjęć w magazynach lub chodzi po wybiegach."
+  },
+  {
+    "id": 324,
+    "category": "Daleko od noszy",
+    "question": "Co robił bezwzględny Kidler, gdy okazywało się, że pacjent nie ma pieniędzy na łapówkę?",
+    "answer": "Przekładał operację na odległy termin",
+    "hint": "Celowe odwlekanie leczenia w czasie, dopóki chory czegoś nie przyniesie."
+  },
+  {
+    "id": 325,
+    "category": "Daleko od noszy",
+    "question": "Jaki ciepły napój pielęgniarki piły litrami podczas wiecznego plotkowania w kanciapie?",
+    "answer": "Kawę",
+    "hint": "Czarny napój kofeinowy, podawany w szklankach z metalowym koszyczkiem."
+  },
+  {
+    "id": 326,
+    "category": "Daleko od noszy",
+    "question": "Który słynny satyryk o grubym głosie grał postać przebiegłego adwokata szpitala w późniejszych sezonach?",
+    "answer": "Jerzy Kryszak",
+    "hint": "Artysta kabaretowy znany z parodiowania polityków i charakterystycznej fryzury."
+  },
+  {
+    "id": 327,
+    "category": "Daleko od noszy",
+    "question": "Jak lekarze prześmiewczo nazywali salę operacyjną w swoim codziennym żargonie?",
+    "answer": "Rzeźnia (chlastalnia)",
+    "hint": "Miejsce, w którym masowo zabija się i porcjuje zwierzęta na mięso."
+  },
+  {
+    "id": 328,
+    "category": "Daleko od noszy",
+    "question": "Co znajdowało się na dachu tego potężnego budynku szpitalnego?",
+    "answer": "Lądowisko dla helikopterów",
+    "hint": "Specjalna strefa oznaczona literą H dla maszyn lotniczych."
+  },
+  {
+    "id": 329,
+    "category": "Daleko od noszy",
+    "question": "Jak brzmiało sztandarowe, miłosne zdrobnienie doktora Basena do swojej surowej żony Magdy?",
+    "answer": "Myszko",
+    "hint": "Określenie pochodzące od małego polnego gryzonia z długim ogonem."
+  },
+  {
+    "id": 330,
+    "category": "Daleko od noszy",
+    "question": "Jak najczęściej kończyły się brawurowe próby ucieczki pacjenta Nowaka z sali numer 3?",
+    "answer": "Złapaniem na korytarzu i zastrzykiem usypiającym",
+    "hint": "Przyłapanie przez salowych i aplikacja silnego leku igłą prosto w pośladki."
   }
 ]
