@@ -87,11 +87,11 @@
 
 <div class="container">
     <div id="logo-area" class="logo-container">
-        <img src="logo.png" alt="[Nostalgiczna Trivia]" class="game-logo" onerror="this.style.display='none';">
+        <img src="logo.png" alt="[back to the future]" class="game-logo" onerror="this.style.display='none';">
     </div>
 
     <div id="screen-role" class="screen active">
-        <h1>Nostalgiczna Trivia</h1>
+        <h1>Back to the future</h1>
         <button id="btn-role-host">👑 Jestem Hostem (Stwórz Grę)</button>
         <button id="btn-role-player" class="btn-alt">📱 Jestem Graczem (Dołącz do Gry)</button>
     </div>
@@ -113,14 +113,14 @@
         </div>
         <div class="form-group">
             <label>Twoje Imię:</label>
-            <input type="text" id="input-player-name" placeholder="Brat 1">
+            <input type="text" id="input-player-name" placeholder="Gracz 1">
         </div>
         <button id="btn-join-room">Wejdź do poczekalni</button>
     </div>
 
     <div id="screen-lobby" class="screen">
         <h2>Poczekalnia</h2>
-        <p style="text-align: center;">Kod dostępu dla braci:</p>
+        <p style="text-align: center;">Kod dostępu dla graczy:</p>
         <div id="lobby-pin" class="pin-display">...</div>
         <p style="text-align: center; color: var(--accent-color);">Oczekujący gracze:</p>
         <ul id="lobby-players" class="player-list-lobby"></ul>
@@ -148,8 +148,8 @@
                 <span id="game-answer">...</span>
             </div>
             <div class="btn-game-container">
-                <button id="btn-wrong" class="btn-wrong">❌ Źle odpowiedział</button>
-                <button id="btn-correct" class="btn-correct">✅ Dobrze odpowiedział</button>
+                <button id="btn-wrong" class="btn-wrong">❌ Zła odpowiedź</button>
+                <button id="btn-correct" class="btn-correct">✅ Dobra odpowiedź</button>
             </div>
         </div>
 
