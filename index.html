@@ -110,29 +110,48 @@
 
     <div id="screen-solo-setup" class="screen">
         <h2>Tryb Jednego Gracza</h2>
-        <div class="form-group"><label>Ile pytań?</label><input type="number" id="solo-round-count" value="10"></div>
-        <button id="btn-start-solo">Rozpocznij</button>
+        <div class="form-group">
+            <label for="solo-round-count">Ile pytań chcesz wylosować?</label>
+            <input type="number" id="solo-round-count" value="10" min="1" max="50">
+        </div>
+        <button id="btn-start-solo">Rozpocznij Grę 🚀</button>
     </div>
-    
+
     <div id="screen-host-setup" class="screen">
         <h2>Ustawienia Pokoju</h2>
-        <div class="form-group"><label>Imię:</label><input type="text" id="input-host-name"></div>
-        <div class="form-group"><label>Rundy:</label><input type="number" id="multi-round-count" value="3"></div>
-        <button id="btn-create-room">Utwórz</button>
+        <div class="form-group">
+            <label>Twoje Imię (Host też gra!):</label>
+            <input type="text" id="input-host-name" placeholder="np. Tomek">
+        </div>
+        <div class="form-group">
+            <label for="multi-round-count">Liczba rund na gracza:</label>
+            <input type="number" id="multi-round-count" value="3" min="1" max="20">
+        </div>
+        <button id="btn-create-room">Utwórz Pokój 🚀</button>
     </div>
 
     <div id="screen-player-join" class="screen">
-        <h2>Dołącz</h2>
-        <div class="form-group"><label>PIN:</label><input type="number" id="input-pin"></div>
-        <div class="form-group"><label>Imię:</label><input type="text" id="input-player-name"></div>
-        <button id="btn-join-room">Wejdź</button>
+        <h2>Dołącz do gry</h2>
+        <div class="form-group">
+            <label>PIN Pokoju:</label>
+            <input type="number" id="input-pin" placeholder="np. 1234">
+        </div>
+        <div class="form-group">
+            <label>Twoje Imię:</label>
+            <input type="text" id="input-player-name" placeholder="Gracz 2">
+        </div>
+        <button id="btn-join-room">Wejdź do poczekalni</button>
     </div>
 
     <div id="screen-lobby" class="screen">
         <h2>Poczekalnia</h2>
+        <p style="text-align: center;">Kod dostępu dla innych graczy:</p>
         <div id="lobby-pin" class="pin-display">...</div>
+        <p style="text-align: center; color: var(--accent-color);">Gracze w pokoju:</p>
         <ul id="lobby-players" class="player-list-lobby"></ul>
-        <button id="btn-start-multi" class="hidden">Start</button>
+        
+        <button id="btn-start-multi" class="hidden">Zacznijmy to! 🎮</button>
+        <p id="lobby-wait-msg" style="text-align: center; opacity: 0.6;" class="hidden">Oczekiwanie na start przez Hosta...</p>
     </div>
 
     <div id="screen-game" class="screen">
@@ -142,56 +161,331 @@
         </div>
         
         <div id="game-category" class="category-label">Kategoria: ...</div>
-        <div class="question-box" id="game-question">...</div>
+        <div class="question-box" id="game-question">Czekaj na pytanie...</div>
 
         <div id="solo-controls" class="hidden">
-            <button id="btn-solo-show-hint" class="btn-hint">💡 Pokaż podpowiedź</button>
-            <div id="solo-hint-text" class="hint-text-content hidden"></div>
+            <div class="hint-box" id="solo-hint-container">
+                <button id="btn-solo-show-hint" class="btn-hint">💡 Pokaż podpowiedź</button>
+                <div id="solo-hint-text" class="hint-text-content hidden"></div>
+            </div>
+
             <button id="btn-solo-check-answer" class="btn-check-answer">Sprawdź odpowiedź ➡️</button>
+
             <div id="solo-answer-eval" class="hidden">
-                <div class="answer-box"><span id="solo-game-answer">...</span></div>
+                <div class="answer-box">
+                    <span style="font-size: 12px; display: block; opacity: 0.7; margin-bottom: 4px;">PRAWIDŁOWA ODPOWIEDŹ TO:</span>
+                    <span id="solo-game-answer">...</span>
+                </div>
                 <div class="btn-game-container">
-                    <button id="btn-solo-wrong" class="btn-wrong">❌ Źle</button>
-                    <button id="btn-solo-correct" class="btn-correct">✅ Dobrze</button>
+                    <button id="btn-solo-wrong" class="btn-wrong">❌ Wiedziałem źle (0 pkt)</button>
+                    <button id="btn-solo-correct" class="btn-correct">✅ Wiedziałem dobrze (+1 pkt)</button>
                 </div>
             </div>
         </div>
 
         <div id="multi-reader-controls" class="hidden">
             <div class="hint-box">
+                <span style="font-size: 12px; opacity: 0.7; display: block; margin-bottom: 5px;">PODPOWIEDŹ DLA GRACZA (PRZECZYTAJ MU JĄ, JEŚLI CHCESZ):</span>
                 <div id="multi-hint-text" class="hint-text-content"></div>
             </div>
-            <div class="answer-box"><span id="multi-game-answer">...</span></div>
+            <div class="answer-box">
+                <span style="font-size: 12px; display: block; opacity: 0.7; margin-bottom: 4px;">ODPOWIEDŹ (ZNASZ JĄ TYLKO TY):</span>
+                <span id="multi-game-answer">...</span>
+            </div>
             <div class="btn-game-container">
-                <button id="btn-multi-wrong" class="btn-wrong">❌ Odrzuć</button>
-                <button id="btn-multi-correct" class="btn-correct">✅ Uznaj</button>
+                <button id="btn-multi-wrong" class="btn-wrong">❌ Odrzuć odpowiedź</button>
+                <button id="btn-multi-correct" class="btn-correct">✅ Uznaj odpowiedź</button>
             </div>
         </div>
-        <div class="live-score-box" id="multi-live-score-box"></div>
+
+        <div class="live-score-box" id="multi-live-score-box">
+            <div class="score-title">Tabela wyników:</div>
+            <ul id="live-score-list" class="leaderboard-list"></ul>
+        </div>
     </div>
 
     <div id="screen-solo-result" class="screen">
-        <h2>Wynik</h2>
-        <button id="btn-solo-restart">Wróć do Menu</button>
+        <h2>🏆 Twój Wynik</h2>
+        <p style="text-align: center; font-size: 24px; color: var(--accent-color); margin: 30px 0;">
+            Zdobyłeś: <br><strong style="font-size: 48px; color: var(--success);"><span id="solo-final-score">0</span> / <span id="solo-final-total">0</span></strong><br> punktów!
+        </p>
+        <button id="btn-solo-restart">Wróć do Menu 🔄</button>
     </div>
-    
+
+    <div id="screen-bonus" class="screen">
+        <h2>Mamy Remis! 😱</h2>
+        <p style="text-align: center; margin-bottom: 20px;">Zadaj ostateczne pytanie z głowy zliczając punkty. Jako Host, wskaż zwycięzcę dogrywki:</p>
+        <div id="bonus-voters"></div>
+    </div>
+
     <div id="screen-leaderboard" class="screen">
-        <h2>Wyniki</h2>
-        <button id="btn-multi-restart" class="hidden">Wróć do Menu</button>
+        <h2>🏆 Wyniki Końcowe</h2>
+        <ul id="leaderboard-list" class="leaderboard-list"></ul>
+        <button id="btn-multi-restart" class="hidden">Zakończ i wróć (Host) 🔄</button>
     </div>
 </div>
 
 <script type="module">
-    // ... (Logika pozostaje identyczna, ale z dodaniem kategorii)
-    // W funkcji loadNextSoloQuestion dodaj:
-    // document.getElementById('game-category').innerText = "Kategoria: " + (soloCurrentQ.category || "Brak");
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getDatabase, ref, set, get, update, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
-    // wW funkcji listenToRoom (status playing) dodaj:
-    // document.getElementById('game-category').innerText = "Kategoria: " + (room.currentQuestion.category || "Ogólne");
+    // =========================================================
+    // WAŻNE: TUTAJ WKLEJ SWOJĄ KONFIGURACJĘ Z KONSOLI FIREBASE
+    // =========================================================
+    const firebaseConfig = {
+        apiKey: "TWOJ_API_KEY",
+        authDomain: "TWOJ_PROJEKT.firebaseapp.com",
+        databaseURL: "https://TWOJ_PROJEKT-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "TWOJ_PROJEKT",
+        storageBucket: "TWOJ_PROJEKT.appspot.com",
+        messagingSenderId: "SENDER_ID",
+        appId: "APP_ID"
+    };
+    // =========================================================
 
-    // NAPRAWA PRZYCISKU:
-    document.getElementById('btn-solo-restart').onclick = () => window.location.reload();
-    document.getElementById('btn-multi-restart').onclick = () => window.location.reload();
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // --- SYNTEZATOR AUDIO ---
+    let audioCtx = null;
+    function initAudio() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+    function playTone(type) {
+        initAudio(); if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+        if (type === 'click') {
+            let osc = audioCtx.createOscillator(); let gain = audioCtx.createGain();
+            osc.type = 'sine'; osc.frequency.setValueAtTime(400, now);
+            gain.gain.setValueAtTime(0.1, now); gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+            osc.connect(gain); gain.connect(audioCtx.destination); osc.start(now); osc.stop(now + 0.05);
+        } else if (type === 'correct') {
+            [523.25, 659.25, 783.99].forEach((freq, index) => {
+                let osc = audioCtx.createOscillator(); let gain = audioCtx.createGain();
+                osc.type = 'square'; osc.frequency.setValueAtTime(freq, now + index * 0.08);
+                gain.gain.setValueAtTime(0.08, now + index * 0.08); gain.gain.exponentialRampToValueAtTime(0.01, now + index * 0.08 + 0.12);
+                osc.connect(gain); gain.connect(audioCtx.destination); osc.start(now + index * 0.08); osc.stop(now + index * 0.08 + 0.12);
+            });
+        } else if (type === 'wrong') {
+            let osc = audioCtx.createOscillator(); let gain = audioCtx.createGain();
+            osc.type = 'sawtooth'; osc.frequency.setValueAtTime(180, now); osc.frequency.linearRampToValueAtTime(90, now + 0.25);
+            gain.gain.setValueAtTime(0.12, now); gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+            osc.connect(gain); gain.connect(audioCtx.destination); osc.start(now); osc.stop(now + 0.25);
+        } else if (type === 'victory') {
+            const notes = [261.63, 329.63, 392.00, 523.25];
+            notes.forEach((freq, index) => {
+                let osc = audioCtx.createOscillator(); let gain = audioCtx.createGain();
+                osc.type = 'triangle'; osc.frequency.setValueAtTime(freq, now + index * 0.12);
+                gain.gain.setValueAtTime(0.1, now + index * 0.12);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + index * 0.12 + (index === notes.length - 1 ? 0.4 : 0.15));
+                osc.connect(gain); gain.connect(audioCtx.destination); osc.start(now + index * 0.12); osc.stop(now + index * 0.12 + (index === notes.length - 1 ? 0.4 : 0.15));
+            });
+        }
+    }
+
+    // --- ZMIENNE GLOBALNE ---
+    let dbQuestions = [];
+    let currentMode = ''; 
+    let soloQuestions = [];
+    let soloTotalRounds = 10;
+    let soloCurrentRound = 1;
+    let soloScore = 0;
+    let soloCurrentQ = null;
+    let isHost = false;
+    let roomPin = "";
+    let myPlayerId = null; 
+    let multiSessionQuestions = [];
+
+    function switchScreen(screenId) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(screenId).classList.add('active');
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function generateDynamicHint(answerText) {
+        let cleanAnswer = answerText.split('(')[0].trim();
+        let firstLetter = cleanAnswer.charAt(0).toUpperCase();
+        let length = cleanAnswer.replace(/\s/g, '').length;
+        return `Pierwsza litera to <strong>${firstLetter}</strong>. Zawiera <strong>${length}</strong> znaków.`;
+    }
+
+    async function fetchQuestions() {
+        if(dbQuestions.length > 0) return;
+        try {
+            const response = await fetch('questions.json');
+            dbQuestions = await response.json();
+        } catch (error) {
+            console.error("Błąd bazy pytań:", error);
+            dbQuestions = [{ question: "Błąd ładowania bazy.", answer: "Brak", hint: "Brak", category: "System" }];
+        }
+    }
+
+    // --- LOGIKA SOLO ---
+    document.getElementById('btn-role-solo').addEventListener('click', () => { playTone('click'); currentMode = 'solo'; switchScreen('screen-solo-setup'); fetchQuestions(); });
+    document.getElementById('btn-start-solo').addEventListener('click', () => {
+        playTone('click');
+        soloTotalRounds = parseInt(document.getElementById('solo-round-count').value) || 10;
+        soloCurrentRound = 1; soloScore = 0; soloQuestions = [...dbQuestions]; shuffleArray(soloQuestions);
+        document.getElementById('logo-area').style.display = 'none';
+        document.getElementById('solo-controls').classList.remove('hidden');
+        document.getElementById('multi-reader-controls').classList.add('hidden');
+        document.getElementById('multi-live-score-box').classList.add('hidden');
+        switchScreen('screen-game');
+        loadNextSoloQuestion();
+    });
+
+    function loadNextSoloQuestion() {
+        document.getElementById('info-round').innerText = `Pytanie: ${soloCurrentRound}/${soloTotalRounds}`;
+        document.getElementById('info-turn').innerText = `Tryb Solo`;
+        if (soloQuestions.length === 0) { soloQuestions = [...dbQuestions]; shuffleArray(soloQuestions); }
+        soloCurrentQ = soloQuestions.pop();
+
+        document.getElementById('game-category').innerText = "Kategoria: " + (soloCurrentQ.category || "Ogólne");
+        document.getElementById('game-question').innerText = soloCurrentQ.question;
+        document.getElementById('solo-game-answer').innerText = soloCurrentQ.answer;
+        document.getElementById('solo-hint-text').innerHTML = soloCurrentQ.hint || generateDynamicHint(soloCurrentQ.answer);
+
+        document.getElementById('btn-solo-show-hint').classList.remove('hidden');
+        document.getElementById('solo-hint-text').classList.add('hidden');
+        document.getElementById('btn-solo-check-answer').classList.remove('hidden');
+        document.getElementById('solo-answer-eval').classList.add('hidden');
+    }
+
+    document.getElementById('btn-solo-show-hint').addEventListener('click', () => { playTone('click'); document.getElementById('btn-solo-show-hint').classList.add('hidden'); document.getElementById('solo-hint-text').classList.remove('hidden'); });
+    document.getElementById('btn-solo-check-answer').addEventListener('click', () => { playTone('click'); document.getElementById('btn-solo-check-answer').classList.add('hidden'); document.getElementById('solo-answer-eval').classList.remove('hidden'); });
+    document.getElementById('btn-solo-correct').addEventListener('click', () => { playTone('correct'); soloScore++; advanceSoloGame(); });
+    document.getElementById('btn-solo-wrong').addEventListener('click', () => { playTone('wrong'); advanceSoloGame(); });
+
+    function advanceSoloGame() {
+        soloCurrentRound++;
+        if (soloCurrentRound > soloTotalRounds) { playTone('victory'); switchScreen('screen-solo-result'); document.getElementById('solo-final-score').innerText = soloScore; document.getElementById('solo-final-total').innerText = soloTotalRounds; }
+        else loadNextSoloQuestion();
+    }
+
+    // --- LOGIKA MULTI ---
+    document.getElementById('btn-role-host').addEventListener('click', () => { playTone('click'); currentMode = 'multi'; isHost = true; switchScreen('screen-host-setup'); fetchQuestions(); });
+    document.getElementById('btn-role-player').addEventListener('click', () => { playTone('click'); currentMode = 'multi'; isHost = false; switchScreen('screen-player-join'); });
+
+    document.getElementById('btn-create-room').addEventListener('click', async () => {
+        playTone('click');
+        let hName = document.getElementById('input-host-name').value.trim() || "Host";
+        roomPin = Math.floor(1000 + Math.random() * 9000).toString();
+        const rounds = parseInt(document.getElementById('multi-round-count').value) || 3;
+        await set(ref(db, `rooms/${roomPin}`), { status: 'lobby', totalRounds: rounds, currentRound: 1, turnIndex: 0, players: [{ name: hName, score: 0 }], currentQuestion: null, winner: null });
+        myPlayerId = 0; multiSessionQuestions = [...dbQuestions]; shuffleArray(multiSessionQuestions);
+        document.getElementById('lobby-pin').innerText = roomPin; document.getElementById('btn-start-multi').classList.remove('hidden'); switchScreen('screen-lobby'); document.getElementById('logo-area').style.display = 'none';
+        listenToRoom();
+    });
+
+    document.getElementById('btn-start-multi').addEventListener('click', async () => {
+        playTone('click');
+        const snapshot = await get(ref(db, `rooms/${roomPin}/players`));
+        if (!snapshot.val() || snapshot.val().length < 2) { alert("Potrzeba min. 2 graczy!"); return; }
+        let q = multiSessionQuestions.pop(); q.hintData = q.hint || generateDynamicHint(q.answer);
+        await update(ref(db, `rooms/${roomPin}`), { status: 'playing', currentQuestion: q });
+    });
+
+    document.getElementById('btn-join-room').addEventListener('click', async () => {
+        playTone('click');
+        roomPin = document.getElementById('input-pin').value.trim();
+        let pName = document.getElementById('input-player-name').value.trim() || "Anonim";
+        if(roomPin.length !== 4) { alert("PIN musi mieć 4 cyfry!"); return; }
+        const snapshot = await get(ref(db, `rooms/${roomPin}`));
+        if (!snapshot.exists()) { alert("Brak pokoju!"); return; }
+        if (snapshot.val().status !== 'lobby') { alert("Gra trwa!"); return; }
+        let currentPlayers = snapshot.val().players || [];
+        myPlayerId = currentPlayers.length; currentPlayers.push({ name: pName, score: 0 });
+        await update(ref(db, `rooms/${roomPin}`), { players: currentPlayers });
+        document.getElementById('lobby-pin').innerText = roomPin; document.getElementById('lobby-wait-msg').classList.remove('hidden'); switchScreen('screen-lobby'); document.getElementById('logo-area').style.display = 'none';
+        listenToRoom();
+    });
+
+    function listenToRoom() {
+        onValue(ref(db, `rooms/${roomPin}`), (snapshot) => {
+            if (!snapshot.exists()) return;
+            const room = snapshot.val();
+            if (room.status === 'lobby') {
+                const list = document.getElementById('lobby-players'); list.innerHTML = '';
+                if(room.players) room.players.forEach(p => { let li = document.createElement('li'); li.innerText = p.name; list.appendChild(li); });
+            }
+            if (room.status === 'playing') {
+                switchScreen('screen-game');
+                document.getElementById('solo-controls').classList.add('hidden');
+                document.getElementById('multi-live-score-box').classList.remove('hidden');
+                document.getElementById('info-round').innerText = `Runda: ${room.currentRound}/${room.totalRounds}`;
+                document.getElementById('game-category').innerText = "Kategoria: " + (room.currentQuestion.category || "Ogólne");
+                document.getElementById('game-question').innerText = room.currentQuestion.question;
+
+                let activeIndex = room.turnIndex;
+                let readerIndex = (activeIndex - 1 + room.players.length) % room.players.length;
+                document.getElementById('info-turn').innerHTML = `Odpowiada: ${room.players[activeIndex].name} <br> <span style="font-size:12px;color:rgba(255,255,255,0.6);">(Czyta: ${room.players[readerIndex].name})</span>`;
+
+                if (myPlayerId === readerIndex) {
+                    document.getElementById('multi-reader-controls').classList.remove('hidden');
+                    document.getElementById('multi-game-answer').innerText = room.currentQuestion.answer;
+                    document.getElementById('multi-hint-text').innerHTML = room.currentQuestion.hintData;
+                } else {
+                    document.getElementById('multi-reader-controls').classList.add('hidden');
+                }
+                const scoreList = document.getElementById('live-score-list'); scoreList.innerHTML = '';
+                [...(room.players||[])].sort((a, b) => b.score - a.score).forEach(p => {
+                    let li = document.createElement('li'); li.className = 'leaderboard-item';
+                    li.innerHTML = `<span>${p.name}</span><span>${Math.floor(p.score)} pkt</span>`;
+                    scoreList.appendChild(li);
+                });
+            }
+            if (room.status === 'tiebreaker') {
+                if (isHost) {
+                    switchScreen('screen-bonus');
+                    const bonusContainer = document.getElementById('bonus-voters'); bonusContainer.innerHTML = '';
+                    let winners = room.players.filter(p => p.score === Math.max(...room.players.map(p => p.score)));
+                    winners.forEach(winner => {
+                        const btn = document.createElement('button'); btn.className = 'bonus-btn'; btn.innerText = `👑 Dogrywkę wygrywa: ${winner.name}`;
+                        btn.onclick = async () => { playTone('victory'); let idx = room.players.findIndex(p => p.name === winner.name); room.players[idx].score += 0.1; await update(ref(db, `rooms/${roomPin}`), { status: 'finished', players: room.players, winner: winner.name }); };
+                        bonusContainer.appendChild(btn);
+                    });
+                } else {
+                    switchScreen('screen-game');
+                    document.getElementById('multi-reader-controls').classList.add('hidden');
+                    document.getElementById('game-question').innerHTML = "<span style='color:#facc15'>MAMY REMIS!</span><br>Host zadaje decydujące pytanie.";
+                }
+            }
+            if (room.status === 'finished') {
+                switchScreen('screen-leaderboard');
+                if(isHost) document.getElementById('btn-multi-restart').classList.remove('hidden');
+                const list = document.getElementById('leaderboard-list'); list.innerHTML = '';
+                [...room.players].sort((a, b) => b.score - a.score).forEach(p => {
+                    const li = document.createElement('li'); li.className = 'leaderboard-item ' + (p.name === room.winner ? 'winner' : '');
+                    li.innerHTML = `<span>${p.name === room.winner ? '👑 ' : ''}${p.name}</span><span>${Math.floor(p.score)} pkt</span>`;
+                    list.appendChild(li);
+                });
+            }
+        });
+    }
+
+    document.getElementById('btn-multi-correct').addEventListener('click', () => multiEvaluate(true));
+    document.getElementById('btn-multi-wrong').addEventListener('click', () => multiEvaluate(false));
+
+    async function multiEvaluate(isCorrect) {
+        if(isCorrect) playTone('correct'); else playTone('wrong');
+        const snapshot = await get(ref(db, `rooms/${roomPin}`)); let room = snapshot.val(); let pList = room.players || [];
+        if (isCorrect) pList[room.turnIndex].score += 1;
+        let nextTurn = room.turnIndex + 1, nextRound = room.currentRound;
+        if (nextTurn >= pList.length) { nextTurn = 0; nextRound += 1; }
+        if (nextRound > room.totalRounds) {
+            await update(ref(db, `rooms/${roomPin}`), { players: pList });
+            let winners = pList.filter(p => p.score === Math.max(...pList.map(p => p.score)));
+            await update(ref(db, `rooms/${roomPin}`), { status: winners.length > 1 ? 'tiebreaker' : 'finished', winner: winners[0].name });
+        } else {
+            if(multiSessionQuestions.length === 0) { multiSessionQuestions = [...dbQuestions]; shuffleArray(multiSessionQuestions); }
+            let q = multiSessionQuestions.pop(); q.hintData = q.hint || generateDynamicHint(q.answer);
+            await update(ref(db, `rooms/${roomPin}`), { players: pList, turnIndex: nextTurn, currentRound: nextRound, currentQuestion: q });
+        }
+    }
 </script>
 </body>
 </html>
