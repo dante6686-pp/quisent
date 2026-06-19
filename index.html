@@ -73,7 +73,8 @@
 
         .player-list-lobby { list-style: none; padding: 0; margin-bottom: 20px; text-align: center; font-size: 18px; color: var(--success);}
 
-        .game-info { display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px; }
+        .game-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px; }
+        .category-label { text-align: center; color: var(--accent-color); margin-bottom: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
         .question-box { background-color: rgba(0, 0, 0, 0.3); padding: 20px; border-radius: 8px; font-size: 18px; line-height: 1.5; text-align: center; margin-bottom: 20px; min-height: 100px; border: 1px solid rgba(255, 255, 255, 0.05); }
 
         .hint-box { background-color: rgba(250, 204, 21, 0.1); border: 1px dashed var(--warning); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
@@ -100,7 +101,6 @@
         <img src="logo.png" alt="[Logo Quisent]" class="game-logo" onerror="this.style.display='none';">
     </div>
 
-    <!-- EKRAN 0: Wybór roli/trybu -->
     <div id="screen-role" class="screen active">
         <h1>Quisent <span class="title-highlight">Back to the future</span></h1>
         <button id="btn-role-solo" class="btn-solo">👤 Single Player (Graj Sam)</button>
@@ -108,7 +108,6 @@
         <button id="btn-role-player" class="btn-join">📱 Multi: Dołącz do Gry</button>
     </div>
 
-    <!-- EKRAN: USTAWIENIA SOLO -->
     <div id="screen-solo-setup" class="screen">
         <h2>Tryb Jednego Gracza</h2>
         <div class="form-group">
@@ -118,7 +117,6 @@
         <button id="btn-start-solo">Rozpocznij Grę 🚀</button>
     </div>
 
-    <!-- EKRAN: USTAWIENIA HOSTA (Multi) -->
     <div id="screen-host-setup" class="screen">
         <h2>Ustawienia Pokoju</h2>
         <div class="form-group">
@@ -132,7 +130,6 @@
         <button id="btn-create-room">Utwórz Pokój 🚀</button>
     </div>
 
-    <!-- EKRAN: DOŁĄCZANIE (Multi) -->
     <div id="screen-player-join" class="screen">
         <h2>Dołącz do gry</h2>
         <div class="form-group">
@@ -146,7 +143,6 @@
         <button id="btn-join-room">Wejdź do poczekalni</button>
     </div>
 
-    <!-- EKRAN: LOBBY (Multi) -->
     <div id="screen-lobby" class="screen">
         <h2>Poczekalnia</h2>
         <p style="text-align: center;">Kod dostępu dla innych graczy:</p>
@@ -154,21 +150,19 @@
         <p style="text-align: center; color: var(--accent-color);">Gracze w pokoju:</p>
         <ul id="lobby-players" class="player-list-lobby"></ul>
         
-        <!-- Przycisk widoczny tylko dla Hosta -->
         <button id="btn-start-multi" class="hidden">Zacznijmy to! 🎮</button>
         <p id="lobby-wait-msg" style="text-align: center; opacity: 0.6;" class="hidden">Oczekiwanie na start przez Hosta...</p>
     </div>
 
-    <!-- EKRAN: GŁÓWNY EKRAN GRY (Wspólny dla Solo i Multi) -->
     <div id="screen-game" class="screen">
         <div class="game-info">
             <span id="info-round">Runda: ...</span>
             <span id="info-turn" style="color: var(--accent-color); font-weight: bold;">...</span>
         </div>
         
+        <div id="game-category" class="category-label">Kategoria: ...</div>
         <div class="question-box" id="game-question">Czekaj na pytanie...</div>
 
-        <!-- SEKCJA SOLO -->
         <div id="solo-controls" class="hidden">
             <div class="hint-box" id="solo-hint-container">
                 <button id="btn-solo-show-hint" class="btn-hint">💡 Pokaż podpowiedź</button>
@@ -189,7 +183,6 @@
             </div>
         </div>
 
-        <!-- SEKCJA MULTI (Zarządzanie pytaniem przez lektora) -->
         <div id="multi-reader-controls" class="hidden">
             <div class="hint-box">
                 <span style="font-size: 12px; opacity: 0.7; display: block; margin-bottom: 5px;">PODPOWIEDŹ DLA GRACZA (PRZECZYTAJ MU JĄ, JEŚLI CHCESZ):</span>
@@ -205,14 +198,12 @@
             </div>
         </div>
 
-        <!-- Stan punktów w trakcie gry (na dole ekranu - tylko Multi) -->
         <div class="live-score-box" id="multi-live-score-box">
             <div class="score-title">Tabela wyników:</div>
             <ul id="live-score-list" class="leaderboard-list"></ul>
         </div>
     </div>
 
-    <!-- EKRAN: WYNIK SOLO -->
     <div id="screen-solo-result" class="screen">
         <h2>🏆 Twój Wynik</h2>
         <p style="text-align: center; font-size: 24px; color: var(--accent-color); margin: 30px 0;">
@@ -221,14 +212,12 @@
         <button id="btn-solo-restart">Wróć do Menu 🔄</button>
     </div>
 
-    <!-- EKRAN REMISU (Tylko Host - Multi) -->
     <div id="screen-bonus" class="screen">
         <h2>Mamy Remis! 😱</h2>
         <p style="text-align: center; margin-bottom: 20px;">Zadaj ostateczne pytanie z głowy zliczając punkty. Jako Host, wskaż zwycięzcę dogrywki:</p>
         <div id="bonus-voters"></div>
     </div>
 
-    <!-- EKRAN TABLICA WYNIKÓW (Multi) -->
     <div id="screen-leaderboard" class="screen">
         <h2>🏆 Wyniki Końcowe</h2>
         <ul id="leaderboard-list" class="leaderboard-list"></ul>
@@ -236,7 +225,6 @@
     </div>
 </div>
 
-<!-- FIREBASE SDK -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
     import { getDatabase, ref, set, get, update, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
@@ -245,15 +233,14 @@
     // WAŻNE: TUTAJ WKLEJ SWOJĄ KONFIGURACJĘ Z KONSOLI FIREBASE
     // =========================================================
     const firebaseConfig = {
-  apiKey: "AIzaSyBeSs0i1oKNUeEbCCi8mWEs6WfxukWAebA",
-  authDomain: "quisent-8b6cd.firebaseapp.com",
-  databaseURL: "https://quisent-8b6cd-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "quisent-8b6cd",
-  storageBucket: "quisent-8b6cd.firebasestorage.app",
-  messagingSenderId: "537252295249",
-  appId: "1:537252295249:web:7f6b6e90ca29f5df973e70",
-  measurementId: "G-MYTHMCLQHF"
-};
+        apiKey: "TWOJ_API_KEY",
+        authDomain: "TWOJ_PROJEKT.firebaseapp.com",
+        databaseURL: "https://TWOJ_PROJEKT-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "TWOJ_PROJEKT",
+        storageBucket: "TWOJ_PROJEKT.appspot.com",
+        messagingSenderId: "SENDER_ID",
+        appId: "APP_ID"
+    };
     // =========================================================
 
     const app = initializeApp(firebaseConfig);
@@ -296,22 +283,17 @@
 
     // --- ZMIENNE GLOBALNE ---
     let dbQuestions = [];
-    let currentMode = ''; // 'solo' lub 'multi'
-    
-    // Zmienne Solo
+    let currentMode = ''; 
     let soloQuestions = [];
     let soloTotalRounds = 10;
     let soloCurrentRound = 1;
     let soloScore = 0;
     let soloCurrentQ = null;
-
-    // Zmienne Multi
     let isHost = false;
     let roomPin = "";
     let myPlayerId = null; 
     let multiSessionQuestions = [];
 
-    // --- FUNKCJE POMOCNICZE ---
     function switchScreen(screenId) {
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
         document.getElementById(screenId).classList.add('active');
@@ -332,67 +314,26 @@
     }
 
     async function fetchQuestions() {
-        if(dbQuestions.length > 0) return; // Już pobrane
+        if(dbQuestions.length > 0) return;
         try {
             const response = await fetch('questions.json');
             dbQuestions = await response.json();
         } catch (error) {
             console.error("Błąd bazy pytań:", error);
-            dbQuestions = [
-                { question: "Błąd ładowania bazy. Odśwież stronę.", answer: "Brak", hint: "Brak" }
-            ];
+            dbQuestions = [{ question: "Błąd ładowania bazy.", answer: "Brak", hint: "Brak", category: "System" }];
         }
     }
 
-    // ==========================================
-    // LOGIKA: WYBÓR TRYBÓW
-    // ==========================================
-    document.getElementById('btn-role-solo').addEventListener('click', () => {
-        playTone('click');
-        currentMode = 'solo';
-        switchScreen('screen-solo-setup');
-        fetchQuestions();
-    });
-
-    document.getElementById('btn-role-host').addEventListener('click', () => {
-        playTone('click'); 
-        currentMode = 'multi';
-        isHost = true; 
-        switchScreen('screen-host-setup'); 
-        fetchQuestions();
-    });
-
-    document.getElementById('btn-role-player').addEventListener('click', () => {
-        playTone('click'); 
-        currentMode = 'multi';
-        isHost = false; 
-        switchScreen('screen-player-join');
-    });
-
-    // Powrót z ekranów końcowych do menu
-    document.getElementById('btn-solo-restart').addEventListener('click', () => { playTone('click'); location.reload(); });
-    document.getElementById('btn-multi-restart').addEventListener('click', () => { playTone('click'); location.reload(); });
-
-
-    // ==========================================
-    // LOGIKA: TRYB SINGLE PLAYER (SOLO)
-    // ==========================================
+    // --- LOGIKA SOLO ---
+    document.getElementById('btn-role-solo').addEventListener('click', () => { playTone('click'); currentMode = 'solo'; switchScreen('screen-solo-setup'); fetchQuestions(); });
     document.getElementById('btn-start-solo').addEventListener('click', () => {
         playTone('click');
         soloTotalRounds = parseInt(document.getElementById('solo-round-count').value) || 10;
-        soloCurrentRound = 1;
-        soloScore = 0;
-        
-        soloQuestions = [...dbQuestions];
-        shuffleArray(soloQuestions);
-        
+        soloCurrentRound = 1; soloScore = 0; soloQuestions = [...dbQuestions]; shuffleArray(soloQuestions);
         document.getElementById('logo-area').style.display = 'none';
-        
-        // Konfiguracja widoku pod Solo
         document.getElementById('solo-controls').classList.remove('hidden');
         document.getElementById('multi-reader-controls').classList.add('hidden');
         document.getElementById('multi-live-score-box').classList.add('hidden');
-
         switchScreen('screen-game');
         loadNextSoloQuestion();
     });
@@ -400,300 +341,149 @@
     function loadNextSoloQuestion() {
         document.getElementById('info-round').innerText = `Pytanie: ${soloCurrentRound}/${soloTotalRounds}`;
         document.getElementById('info-turn').innerText = `Tryb Solo`;
-
-        if (soloQuestions.length === 0) {
-            soloQuestions = [...dbQuestions];
-            shuffleArray(soloQuestions);
-        }
+        if (soloQuestions.length === 0) { soloQuestions = [...dbQuestions]; shuffleArray(soloQuestions); }
         soloCurrentQ = soloQuestions.pop();
 
+        document.getElementById('game-category').innerText = "Kategoria: " + (soloCurrentQ.category || "Ogólne");
         document.getElementById('game-question').innerText = soloCurrentQ.question;
         document.getElementById('solo-game-answer').innerText = soloCurrentQ.answer;
-        
-        let hint = soloCurrentQ.hint || generateDynamicHint(soloCurrentQ.answer);
-        document.getElementById('solo-hint-text').innerHTML = hint;
+        document.getElementById('solo-hint-text').innerHTML = soloCurrentQ.hint || generateDynamicHint(soloCurrentQ.answer);
 
-        // Reset UI dla nowego pytania
         document.getElementById('btn-solo-show-hint').classList.remove('hidden');
         document.getElementById('solo-hint-text').classList.add('hidden');
-        
         document.getElementById('btn-solo-check-answer').classList.remove('hidden');
         document.getElementById('solo-answer-eval').classList.add('hidden');
     }
 
-    document.getElementById('btn-solo-show-hint').addEventListener('click', () => {
-        playTone('click');
-        document.getElementById('btn-solo-show-hint').classList.add('hidden');
-        document.getElementById('solo-hint-text').classList.remove('hidden');
-    });
-
-    document.getElementById('btn-solo-check-answer').addEventListener('click', () => {
-        playTone('click');
-        document.getElementById('btn-solo-check-answer').classList.add('hidden');
-        document.getElementById('solo-answer-eval').classList.remove('hidden');
-    });
-
-    document.getElementById('btn-solo-correct').addEventListener('click', () => {
-        playTone('correct');
-        soloScore++;
-        advanceSoloGame();
-    });
-
-    document.getElementById('btn-solo-wrong').addEventListener('click', () => {
-        playTone('wrong');
-        advanceSoloGame();
-    });
+    document.getElementById('btn-solo-show-hint').addEventListener('click', () => { playTone('click'); document.getElementById('btn-solo-show-hint').classList.add('hidden'); document.getElementById('solo-hint-text').classList.remove('hidden'); });
+    document.getElementById('btn-solo-check-answer').addEventListener('click', () => { playTone('click'); document.getElementById('btn-solo-check-answer').classList.add('hidden'); document.getElementById('solo-answer-eval').classList.remove('hidden'); });
+    document.getElementById('btn-solo-correct').addEventListener('click', () => { playTone('correct'); soloScore++; advanceSoloGame(); });
+    document.getElementById('btn-solo-wrong').addEventListener('click', () => { playTone('wrong'); advanceSoloGame(); });
 
     function advanceSoloGame() {
         soloCurrentRound++;
-        if (soloCurrentRound > soloTotalRounds) {
-            playTone('victory');
-            switchScreen('screen-solo-result');
-            document.getElementById('solo-final-score').innerText = soloScore;
-            document.getElementById('solo-final-total').innerText = soloTotalRounds;
-        } else {
-            loadNextSoloQuestion();
-        }
+        if (soloCurrentRound > soloTotalRounds) { playTone('victory'); switchScreen('screen-solo-result'); document.getElementById('solo-final-score').innerText = soloScore; document.getElementById('solo-final-total').innerText = soloTotalRounds; }
+        else loadNextSoloQuestion();
     }
 
-    // ==========================================
-    // LOGIKA: TRYB MULTIPLAYER (ONLINE)
-    // ==========================================
-    
-    // --- HOST ---
+    // --- LOGIKA MULTI ---
+    document.getElementById('btn-role-host').addEventListener('click', () => { playTone('click'); currentMode = 'multi'; isHost = true; switchScreen('screen-host-setup'); fetchQuestions(); });
+    document.getElementById('btn-role-player').addEventListener('click', () => { playTone('click'); currentMode = 'multi'; isHost = false; switchScreen('screen-player-join'); });
+
     document.getElementById('btn-create-room').addEventListener('click', async () => {
         playTone('click');
         let hName = document.getElementById('input-host-name').value.trim() || "Host";
         roomPin = Math.floor(1000 + Math.random() * 9000).toString();
         const rounds = parseInt(document.getElementById('multi-round-count').value) || 3;
-
-        await set(ref(db, `rooms/${roomPin}`), {
-            status: 'lobby',
-            totalRounds: rounds,
-            currentRound: 1,
-            turnIndex: 0, 
-            players: [{ name: hName, score: 0 }],
-            currentQuestion: null,
-            winner: null
-        });
-
-        myPlayerId = 0; // Host ma zawsze index 0
-        multiSessionQuestions = [...dbQuestions];
-        shuffleArray(multiSessionQuestions);
-
-        document.getElementById('lobby-pin').innerText = roomPin;
-        document.getElementById('btn-start-multi').classList.remove('hidden');
-        switchScreen('screen-lobby');
-        document.getElementById('logo-area').style.display = 'none';
-
+        await set(ref(db, `rooms/${roomPin}`), { status: 'lobby', totalRounds: rounds, currentRound: 1, turnIndex: 0, players: [{ name: hName, score: 0 }], currentQuestion: null, winner: null });
+        myPlayerId = 0; multiSessionQuestions = [...dbQuestions]; shuffleArray(multiSessionQuestions);
+        document.getElementById('lobby-pin').innerText = roomPin; document.getElementById('btn-start-multi').classList.remove('hidden'); switchScreen('screen-lobby'); document.getElementById('logo-area').style.display = 'none';
         listenToRoom();
     });
 
     document.getElementById('btn-start-multi').addEventListener('click', async () => {
         playTone('click');
         const snapshot = await get(ref(db, `rooms/${roomPin}/players`));
-        let pList = snapshot.val();
-        
-        if (!pList || pList.length < 2) { 
-            alert("Do gry w trybie Multiplayer potrzeba minimum 2 graczy!"); 
-            return; 
-        }
-        
-        let q = multiSessionQuestions.pop();
-        q.hintData = q.hint || generateDynamicHint(q.answer);
-
-        await update(ref(db, `rooms/${roomPin}`), {
-            status: 'playing',
-            currentQuestion: q
-        });
+        if (!snapshot.val() || snapshot.val().length < 2) { alert("Potrzeba min. 2 graczy!"); return; }
+        let q = multiSessionQuestions.pop(); q.hintData = q.hint || generateDynamicHint(q.answer);
+        await update(ref(db, `rooms/${roomPin}`), { status: 'playing', currentQuestion: q });
     });
 
-    // --- GRACZ ---
     document.getElementById('btn-join-room').addEventListener('click', async () => {
         playTone('click');
         roomPin = document.getElementById('input-pin').value.trim();
         let pName = document.getElementById('input-player-name').value.trim() || "Anonim";
-
         if(roomPin.length !== 4) { alert("PIN musi mieć 4 cyfry!"); return; }
-
         const snapshot = await get(ref(db, `rooms/${roomPin}`));
-        if (!snapshot.exists()) { alert("Taki pokój nie istnieje!"); return; }
-        if (snapshot.val().status !== 'lobby') { alert("Gra już się rozpoczęła!"); return; }
-
+        if (!snapshot.exists()) { alert("Brak pokoju!"); return; }
+        if (snapshot.val().status !== 'lobby') { alert("Gra trwa!"); return; }
         let currentPlayers = snapshot.val().players || [];
-        myPlayerId = currentPlayers.length; // Index = miejsce w tablicy
-        currentPlayers.push({ name: pName, score: 0 });
-
+        myPlayerId = currentPlayers.length; currentPlayers.push({ name: pName, score: 0 });
         await update(ref(db, `rooms/${roomPin}`), { players: currentPlayers });
-
-        document.getElementById('lobby-pin').innerText = roomPin;
-        document.getElementById('lobby-wait-msg').classList.remove('hidden');
-        switchScreen('screen-lobby');
-        document.getElementById('logo-area').style.display = 'none';
-
+        document.getElementById('lobby-pin').innerText = roomPin; document.getElementById('lobby-wait-msg').classList.remove('hidden'); switchScreen('screen-lobby'); document.getElementById('logo-area').style.display = 'none';
         listenToRoom();
     });
 
-    // --- SYNCHRONIZACJA (REALTIME) ---
     function listenToRoom() {
         onValue(ref(db, `rooms/${roomPin}`), (snapshot) => {
             if (!snapshot.exists()) return;
             const room = snapshot.val();
-
-            // LOBBY
             if (room.status === 'lobby') {
-                const list = document.getElementById('lobby-players');
-                list.innerHTML = '';
-                if(room.players) {
-                    room.players.forEach(p => {
-                        let li = document.createElement('li'); li.innerText = p.name; list.appendChild(li);
-                    });
-                }
+                const list = document.getElementById('lobby-players'); list.innerHTML = '';
+                if(room.players) room.players.forEach(p => { let li = document.createElement('li'); li.innerText = p.name; list.appendChild(li); });
             }
-
-            // W TRAKCIE GRY
             if (room.status === 'playing') {
-                // UI bazowe
                 switchScreen('screen-game');
                 document.getElementById('solo-controls').classList.add('hidden');
                 document.getElementById('multi-live-score-box').classList.remove('hidden');
-
                 document.getElementById('info-round').innerText = `Runda: ${room.currentRound}/${room.totalRounds}`;
+                document.getElementById('game-category').innerText = "Kategoria: " + (room.currentQuestion.category || "Ogólne");
                 document.getElementById('game-question').innerText = room.currentQuestion.question;
 
-                // Ustalanie kto czyta, a kto odpowiada
                 let activeIndex = room.turnIndex;
-                let activeName = room.players[activeIndex].name;
-                
-                // Poprzedni gracz w kolejce czyta (zawija się na końcu)
                 let readerIndex = (activeIndex - 1 + room.players.length) % room.players.length;
-                let readerName = room.players[readerIndex].name;
+                document.getElementById('info-turn').innerHTML = `Odpowiada: ${room.players[activeIndex].name} <br> <span style="font-size:12px;color:rgba(255,255,255,0.6);">(Czyta: ${room.players[readerIndex].name})</span>`;
 
-                document.getElementById('info-turn').innerHTML = `Odpowiada: <span style="font-size:18px;">${activeName}</span> <br> <span style="font-size:12px;color:rgba(255,255,255,0.6);">(Czyta i ocenia: ${readerName})</span>`;
-
-                // Logika widoczności (Kto widzi odpowiedź?)
                 if (myPlayerId === readerIndex) {
-                    // JESTEM CZYTAJĄCYM (Pytającym)
                     document.getElementById('multi-reader-controls').classList.remove('hidden');
                     document.getElementById('multi-game-answer').innerText = room.currentQuestion.answer;
                     document.getElementById('multi-hint-text').innerHTML = room.currentQuestion.hintData;
                 } else {
-                    // JESTEM ODPOWIADAJĄCYM LUB WIDZEM
                     document.getElementById('multi-reader-controls').classList.add('hidden');
                 }
-
-                // Aktualizacja tabeli wyników na dole
-                const scoreList = document.getElementById('live-score-list');
-                scoreList.innerHTML = '';
-                let sortedLive = [...(room.players||[])].sort((a, b) => b.score - a.score);
-                sortedLive.forEach(p => {
+                const scoreList = document.getElementById('live-score-list'); scoreList.innerHTML = '';
+                [...(room.players||[])].sort((a, b) => b.score - a.score).forEach(p => {
                     let li = document.createElement('li'); li.className = 'leaderboard-item';
-                    if (p.name === activeName) li.style.border = "1px solid var(--accent-color)";
                     li.innerHTML = `<span>${p.name}</span><span>${Math.floor(p.score)} pkt</span>`;
                     scoreList.appendChild(li);
                 });
             }
-
-            // REMIS (Dogrywka rozwiązywana przez Hosta)
             if (room.status === 'tiebreaker') {
                 if (isHost) {
                     switchScreen('screen-bonus');
-                    const bonusContainer = document.getElementById('bonus-voters');
-                    bonusContainer.innerHTML = '';
-                    let maxScore = Math.max(...room.players.map(p => p.score));
-                    let winners = room.players.filter(p => p.score === maxScore);
-                    
+                    const bonusContainer = document.getElementById('bonus-voters'); bonusContainer.innerHTML = '';
+                    let winners = room.players.filter(p => p.score === Math.max(...room.players.map(p => p.score)));
                     winners.forEach(winner => {
                         const btn = document.createElement('button'); btn.className = 'bonus-btn'; btn.innerText = `👑 Dogrywkę wygrywa: ${winner.name}`;
-                        btn.onclick = async () => {
-                            playTone('victory');
-                            let idx = room.players.findIndex(p => p.name === winner.name);
-                            room.players[idx].score += 0.1;
-                            await update(ref(db, `rooms/${roomPin}`), { status: 'finished', players: room.players, winner: winner.name });
-                        };
+                        btn.onclick = async () => { playTone('victory'); let idx = room.players.findIndex(p => p.name === winner.name); room.players[idx].score += 0.1; await update(ref(db, `rooms/${roomPin}`), { status: 'finished', players: room.players, winner: winner.name }); };
                         bonusContainer.appendChild(btn);
                     });
                 } else {
                     switchScreen('screen-game');
                     document.getElementById('multi-reader-controls').classList.add('hidden');
-                    document.getElementById('game-question').innerHTML = "<span style='color:#facc15'>MAMY REMIS!</span><br>Host zadaje decydujące pytanie. Słuchajcie uważnie!";
+                    document.getElementById('game-question').innerHTML = "<span style='color:#facc15'>MAMY REMIS!</span><br>Host zadaje decydujące pytanie.";
                 }
             }
-
-            // KONIEC GRY
             if (room.status === 'finished') {
-                if(!isHost) playTone('victory');
                 switchScreen('screen-leaderboard');
                 if(isHost) document.getElementById('btn-multi-restart').classList.remove('hidden');
-
-                const list = document.getElementById('leaderboard-list');
-                list.innerHTML = '';
-                const sorted = [...room.players].sort((a, b) => b.score - a.score);
-
-                sorted.forEach(p => {
-                    const li = document.createElement('li'); li.className = 'leaderboard-item';
-                    if (p.name === room.winner) {
-                        li.className += ' winner';
-                        li.innerHTML = `<span>👑 ${p.name}</span><span>${Math.floor(p.score)} pkt</span>`;
-                    } else {
-                        li.innerHTML = `<span>${p.name}</span><span>${Math.floor(p.score)} pkt</span>`;
-                    }
+                const list = document.getElementById('leaderboard-list'); list.innerHTML = '';
+                [...room.players].sort((a, b) => b.score - a.score).forEach(p => {
+                    const li = document.createElement('li'); li.className = 'leaderboard-item ' + (p.name === room.winner ? 'winner' : '');
+                    li.innerHTML = `<span>${p.name === room.winner ? '👑 ' : ''}${p.name}</span><span>${Math.floor(p.score)} pkt</span>`;
                     list.appendChild(li);
                 });
             }
         });
     }
 
-    // --- MULTIPLAYER: PRZYCISKI OCENY (Klika je tylko 'Reader') ---
     document.getElementById('btn-multi-correct').addEventListener('click', () => multiEvaluate(true));
     document.getElementById('btn-multi-wrong').addEventListener('click', () => multiEvaluate(false));
 
     async function multiEvaluate(isCorrect) {
         if(isCorrect) playTone('correct'); else playTone('wrong');
-        
-        const snapshot = await get(ref(db, `rooms/${roomPin}`));
-        let room = snapshot.val();
-        let pList = room.players || [];
-        
-        // Przyznanie punktu graczowi, który odpowiadał
-        if (isCorrect) { 
-            pList[room.turnIndex].score += 1; 
-        }
-
-        let nextTurn = room.turnIndex + 1;
-        let nextRound = room.currentRound;
-
-        if (nextTurn >= pList.length) {
-            nextTurn = 0;
-            nextRound += 1;
-        }
-
+        const snapshot = await get(ref(db, `rooms/${roomPin}`)); let room = snapshot.val(); let pList = room.players || [];
+        if (isCorrect) pList[room.turnIndex].score += 1;
+        let nextTurn = room.turnIndex + 1, nextRound = room.currentRound;
+        if (nextTurn >= pList.length) { nextTurn = 0; nextRound += 1; }
         if (nextRound > room.totalRounds) {
-            // Koniec
             await update(ref(db, `rooms/${roomPin}`), { players: pList });
-            let maxScore = Math.max(...pList.map(p => p.score));
-            let winners = pList.filter(p => p.score === maxScore);
-
-            if (winners.length > 1) {
-                await update(ref(db, `rooms/${roomPin}`), { status: 'tiebreaker' });
-            } else {
-                await update(ref(db, `rooms/${roomPin}`), { status: 'finished', winner: winners[0].name });
-            }
+            let winners = pList.filter(p => p.score === Math.max(...pList.map(p => p.score)));
+            await update(ref(db, `rooms/${roomPin}`), { status: winners.length > 1 ? 'tiebreaker' : 'finished', winner: winners[0].name });
         } else {
-            // Następne pytanie (Jeśli w puli zabraknie pytań, ładujemy na nowo z głównej bazy)
-            if(multiSessionQuestions.length === 0) {
-                multiSessionQuestions = [...dbQuestions];
-                shuffleArray(multiSessionQuestions);
-            }
-            let q = multiSessionQuestions.pop();
-            q.hintData = q.hint || generateDynamicHint(q.answer);
-            
-            await update(ref(db, `rooms/${roomPin}`), {
-                players: pList,
-                turnIndex: nextTurn,
-                currentRound: nextRound,
-                currentQuestion: q
-            });
+            if(multiSessionQuestions.length === 0) { multiSessionQuestions = [...dbQuestions]; shuffleArray(multiSessionQuestions); }
+            let q = multiSessionQuestions.pop(); q.hintData = q.hint || generateDynamicHint(q.answer);
+            await update(ref(db, `rooms/${roomPin}`), { players: pList, turnIndex: nextTurn, currentRound: nextRound, currentQuestion: q });
         }
     }
 </script>
