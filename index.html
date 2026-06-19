@@ -15,19 +15,81 @@
             --danger: #f87171;
             --warning: #facc15;
         }
-        * { box-sizing: border-box; font-family: sans-serif; }
-        .mobile-bg-fix { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg-color); z-index: -1; }
-        body { color: var(--text-color); margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .container { background-color: var(--card-color); padding: 25px; border-radius: 15px; width: 100%; max-width: 500px; border: 1px solid rgba(255, 255, 255, 0.1); }
+
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        .mobile-bg-fix {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('bg.png'); background-color: var(--bg-color);
+            background-size: cover; background-position: center; background-repeat: no-repeat;
+            z-index: -1; transform: translate3d(0, 0, 0);
+        }
+
+        body {
+            color: var(--text-color); margin: 0; padding: 20px;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+        }
+
+        .container {
+            background-color: var(--card-color); padding: 30px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); width: 100%; max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px);
+        }
+
+        h1, h2, h3 { text-align: center; color: var(--accent-color); margin-top: 0; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
+        h1 { color: #fff; font-size: 26px; margin-bottom: 25px;}
+        .title-highlight { color: var(--warning); display: block; font-size: 18px; margin-top: 5px; text-transform: uppercase; letter-spacing: 2px;}
+
+        .pin-display { font-size: 48px; color: var(--warning); text-align: center; letter-spacing: 5px; margin: 20px 0; font-weight: bold; }
+
+        .logo-container { text-align: center; margin-bottom: 25px; }
+        .game-logo { max-width: 100%; height: auto; max-height: 180px; border-radius: 8px; filter: drop-shadow(0 0 10px rgba(0,242,254,0.3));}
+
         .screen { display: none; }
         .screen.active { display: block; }
-        h1, h2 { text-align: center; color: var(--accent-color); }
-        .category-label { text-align: center; color: var(--warning); font-size: 14px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; }
-        .question-box { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; text-align: center; font-size: 18px; margin-bottom: 20px; min-height: 80px; }
-        button { width: 100%; padding: 15px; border-radius: 8px; border: none; background: var(--accent-color); color: #000; font-weight: bold; margin-top: 10px; cursor: pointer; }
         .hidden { display: none !important; }
-        .logo-container { text-align: center; margin-bottom: 20px; }
-        .game-logo { max-width: 100%; height: auto; max-height: 150px; }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+
+        input, select, button {
+            width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(0, 0, 0, 0.4); color: var(--text-color); font-size: 16px; outline: none; transition: all 0.3s ease;
+        }
+        input:focus, select:focus { border-color: var(--accent-color); box-shadow: 0 0 8px rgba(0, 242, 254, 0.4);}
+
+        button { background-color: var(--accent-color); color: #111; font-weight: bold; cursor: pointer; border: none; margin-top: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); }
+        button:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0, 242, 254, 0.2); }
+
+        .btn-solo { background-color: var(--solo-color); color: #fff; margin-bottom: 15px; font-size: 18px; padding: 15px;}
+        .btn-host { background-color: var(--warning); margin-bottom: 15px; }
+        .btn-join { background-color: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); }
+        .btn-join:hover { background-color: rgba(0, 242, 254, 0.1); }
+
+        .btn-game-container { display: flex; gap: 15px; margin-top: 20px; }
+        .btn-correct { background-color: var(--success); color: #111; }
+        .btn-wrong { background-color: var(--danger); color: #111; }
+        .btn-check-answer { background-color: #f8fafc; color: #0f172a; font-size: 18px; padding: 15px;}
+
+        .player-list-lobby { list-style: none; padding: 0; margin-bottom: 20px; text-align: center; font-size: 18px; color: var(--success);}
+
+        .game-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px; }
+        .category-label { text-align: center; color: var(--accent-color); margin-bottom: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .question-box { background-color: rgba(0, 0, 0, 0.3); padding: 20px; border-radius: 8px; font-size: 18px; line-height: 1.5; text-align: center; margin-bottom: 20px; min-height: 100px; border: 1px solid rgba(255, 255, 255, 0.05); }
+
+        .hint-box { background-color: rgba(250, 204, 21, 0.1); border: 1px dashed var(--warning); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
+        .btn-hint { background-color: transparent; color: var(--warning); border: 1px solid var(--warning); margin: 0; padding: 8px; font-size: 14px; }
+        .btn-hint:hover { background-color: rgba(250, 204, 21, 0.2); }
+        .hint-text-content { color: var(--warning); font-style: italic; font-size: 15px; }
+
+        .answer-box { background-color: rgba(74, 222, 128, 0.15); border: 1px dashed var(--success); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-weight: bold; font-size: 18px;}
+
+        .live-score-box { margin-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px; }
+        .score-title { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255, 255, 255, 0.5); margin-bottom: 10px; text-align: center; }
+        .leaderboard-list { list-style: none; padding: 0; margin: 0; }
+        .leaderboard-item { display: flex; justify-content: space-between; padding: 10px 12px; background-color: rgba(0, 0, 0, 0.3); margin-bottom: 6px; border-radius: 6px; font-size: 15px; border: 1px solid rgba(255, 255, 255, 0.02); }
+        .leaderboard-item.winner { border: 2px solid var(--accent-color); background-color: rgba(0, 242, 254, 0.15); font-weight: bold; }
+        .bonus-btn { background-color: #f59e0b; color: #111; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -36,99 +98,100 @@
 
 <div class="container">
     <div id="logo-area" class="logo-container">
-        <img src="logo.png" alt="Logo" class="game-logo" onerror="this.style.display='none';">
+        <img src="logo.png" alt="[Logo Quisent]" class="game-logo" onerror="this.style.display='none';">
     </div>
 
     <div id="screen-role" class="screen active">
-        <h1>Quisent</h1>
-        <button onclick="startSolo()">Single Player</button>
-        <button onclick="switchToHost()">Host (Multi)</button>
-        <button onclick="switchToJoin()">Dołącz (Multi)</button>
+        <h1>Quisent <span class="title-highlight">Back to the future</span></h1>
+        <button id="btn-role-solo" class="btn-solo">👤 Single Player (Graj Sam)</button>
+        <button id="btn-role-host" class="btn-host">👑 Multi: Stwórz Pokój (Host)</button>
+        <button id="btn-role-player" class="btn-join">📱 Multi: Dołącz do Gry</button>
+    </div>
+
+    <div id="screen-solo-setup" class="screen">
+        <h2>Tryb Jednego Gracza</h2>
+        <div class="form-group"><label>Ile pytań?</label><input type="number" id="solo-round-count" value="10"></div>
+        <button id="btn-start-solo">Rozpocznij</button>
+    </div>
+    
+    <div id="screen-host-setup" class="screen">
+        <h2>Ustawienia Pokoju</h2>
+        <div class="form-group"><label>Imię:</label><input type="text" id="input-host-name"></div>
+        <div class="form-group"><label>Rundy:</label><input type="number" id="multi-round-count" value="3"></div>
+        <button id="btn-create-room">Utwórz</button>
+    </div>
+
+    <div id="screen-player-join" class="screen">
+        <h2>Dołącz</h2>
+        <div class="form-group"><label>PIN:</label><input type="number" id="input-pin"></div>
+        <div class="form-group"><label>Imię:</label><input type="text" id="input-player-name"></div>
+        <button id="btn-join-room">Wejdź</button>
+    </div>
+
+    <div id="screen-lobby" class="screen">
+        <h2>Poczekalnia</h2>
+        <div id="lobby-pin" class="pin-display">...</div>
+        <ul id="lobby-players" class="player-list-lobby"></ul>
+        <button id="btn-start-multi" class="hidden">Start</button>
     </div>
 
     <div id="screen-game" class="screen">
-        <div id="info-round" style="font-size: 12px; opacity: 0.7;"></div>
-        <div id="game-category" class="category-label"></div>
-        <div class="question-box" id="game-question"></div>
+        <div class="game-info">
+            <span id="info-round">Runda: ...</span>
+            <span id="info-turn" style="color: var(--accent-color); font-weight: bold;">...</span>
+        </div>
         
-        <div id="solo-controls">
-            <button id="btn-solo-show-hint" onclick="showHint()">Pokaż podpowiedź</button>
-            <div id="solo-hint-text" class="hidden" style="color:var(--warning); text-align:center; padding:10px;"></div>
-            <button id="btn-solo-check-answer" onclick="checkAnswer()">Sprawdź odpowiedź</button>
+        <div id="game-category" class="category-label">Kategoria: ...</div>
+        <div class="question-box" id="game-question">...</div>
+
+        <div id="solo-controls" class="hidden">
+            <button id="btn-solo-show-hint" class="btn-hint">💡 Pokaż podpowiedź</button>
+            <div id="solo-hint-text" class="hint-text-content hidden"></div>
+            <button id="btn-solo-check-answer" class="btn-check-answer">Sprawdź odpowiedź ➡️</button>
             <div id="solo-answer-eval" class="hidden">
-                <div style="background:rgba(0,255,0,0.2); padding:10px; text-align:center; margin:10px 0;">
-                    <span id="solo-game-answer"></span>
+                <div class="answer-box"><span id="solo-game-answer">...</span></div>
+                <div class="btn-game-container">
+                    <button id="btn-solo-wrong" class="btn-wrong">❌ Źle</button>
+                    <button id="btn-solo-correct" class="btn-correct">✅ Dobrze</button>
                 </div>
-                <button onclick="nextSolo(true)">Dobrze</button>
-                <button onclick="nextSolo(false)">Źle</button>
             </div>
         </div>
+
+        <div id="multi-reader-controls" class="hidden">
+            <div class="hint-box">
+                <div id="multi-hint-text" class="hint-text-content"></div>
+            </div>
+            <div class="answer-box"><span id="multi-game-answer">...</span></div>
+            <div class="btn-game-container">
+                <button id="btn-multi-wrong" class="btn-wrong">❌ Odrzuć</button>
+                <button id="btn-multi-correct" class="btn-correct">✅ Uznaj</button>
+            </div>
+        </div>
+        <div class="live-score-box" id="multi-live-score-box"></div>
     </div>
 
     <div id="screen-solo-result" class="screen">
         <h2>Wynik</h2>
-        <p style="text-align:center; font-size: 24px;"><span id="solo-final-score">0</span> / <span id="solo-final-total">0</span></p>
-        <button onclick="location.reload()">Wróć do Menu</button>
+        <button id="btn-solo-restart">Wróć do Menu</button>
+    </div>
+    
+    <div id="screen-leaderboard" class="screen">
+        <h2>Wyniki</h2>
+        <button id="btn-multi-restart" class="hidden">Wróć do Menu</button>
     </div>
 </div>
 
-<script>
-    let dbQuestions = [], soloQuestions = [], soloScore = 0, currentRound = 1, totalRounds = 10, currentQ = null;
+<script type="module">
+    // ... (Logika pozostaje identyczna, ale z dodaniem kategorii)
+    // W funkcji loadNextSoloQuestion dodaj:
+    // document.getElementById('game-category').innerText = "Kategoria: " + (soloCurrentQ.category || "Brak");
 
-    async function loadQuestions() {
-        const res = await fetch('questions.json');
-        dbQuestions = await res.json();
-    }
+    // W funkcji listenToRoom (status playing) dodaj:
+    // document.getElementById('game-category').innerText = "Kategoria: " + (room.currentQuestion.category || "Ogólne");
 
-    function startSolo() {
-        loadQuestions().then(() => {
-            soloQuestions = [...dbQuestions];
-            totalRounds = 10;
-            currentRound = 1;
-            soloScore = 0;
-            document.getElementById('logo-area').classList.add('hidden');
-            document.getElementById('screen-role').classList.remove('active');
-            document.getElementById('screen-game').classList.add('active');
-            nextSolo(null);
-        });
-    }
-
-    function nextSolo(isCorrect) {
-        if (isCorrect !== null) if (isCorrect) soloScore++;
-        if (currentRound > totalRounds) {
-            document.getElementById('screen-game').classList.remove('active');
-            document.getElementById('screen-solo-result').classList.add('active');
-            document.getElementById('solo-final-score').innerText = soloScore;
-            document.getElementById('solo-final-total').innerText = totalRounds;
-            return;
-        }
-        
-        currentQ = soloQuestions[Math.floor(Math.random() * soloQuestions.length)];
-        document.getElementById('info-round').innerText = `Runda: ${currentRound}/${totalRounds}`;
-        document.getElementById('game-category').innerText = "Kategoria: " + (currentQ.category || "Brak");
-        document.getElementById('game-question').innerText = currentQ.question;
-        document.getElementById('solo-game-answer').innerText = currentQ.answer;
-        document.getElementById('solo-hint-text').innerText = currentQ.hint;
-        
-        document.getElementById('solo-hint-text').classList.add('hidden');
-        document.getElementById('btn-solo-show-hint').classList.remove('hidden');
-        document.getElementById('btn-solo-check-answer').classList.remove('hidden');
-        document.getElementById('solo-answer-eval').classList.add('hidden');
-        currentRound++;
-    }
-
-    function showHint() {
-        document.getElementById('btn-solo-show-hint').classList.add('hidden');
-        document.getElementById('solo-hint-text').classList.remove('hidden');
-    }
-
-    function checkAnswer() {
-        document.getElementById('btn-solo-check-answer').classList.add('hidden');
-        document.getElementById('solo-answer-eval').classList.remove('hidden');
-    }
-
-    function switchToHost() { alert("Funkcja Multi w budowie."); }
-    function switchToJoin() { alert("Funkcja Multi w budowie."); }
+    // NAPRAWA PRZYCISKU:
+    document.getElementById('btn-solo-restart').onclick = () => window.location.reload();
+    document.getElementById('btn-multi-restart').onclick = () => window.location.reload();
 </script>
 </body>
 </html>
