@@ -80,14 +80,14 @@
         .hint-box { background-color: rgba(250, 204, 21, 0.1); border: 1px dashed var(--warning); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
         .btn-hint { background-color: transparent; color: var(--warning); border: 1px solid var(--warning); margin: 0; padding: 8px; font-size: 14px; }
         .btn-hint:hover { background-color: rgba(250, 204, 21, 0.2); }
-        .hint-text-content { color: var(--warning); font-style: italic; font-size: 15px; }
+        .hint-text-content { color: var(--warning); font-style: italic; font-size: 15px; margin-top: 10px; }
 
         .answer-box { background-color: rgba(74, 222, 128, 0.15); border: 1px dashed var(--success); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-weight: bold; font-size: 18px;}
 
         .live-score-box { margin-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px; }
         .score-title { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255, 255, 255, 0.5); margin-bottom: 10px; text-align: center; }
         .leaderboard-list { list-style: none; padding: 0; margin: 0; }
-        .leaderboard-item { display: flex; justify-content: space-between; padding: 10px 12px; background-color: rgba(0, 0, 0, 0.3); margin-bottom: 6px; border-radius: 6px; font-size: 15px; border: 1px solid rgba(255, 255, 255, 0.02); }
+        .leaderboard-item { display: flex; justify-content: space-between; padding: 10px 12px; background-color: rgba(0, 0, 0, 0.3); margin-bottom: 6px; border-radius: 6px; font-size: 15px; border: 1px solid rgba(255, 255, 255, 0.02); align-items: center; }
         .leaderboard-item.winner { border: 2px solid var(--accent-color); background-color: rgba(0, 242, 254, 0.15); font-weight: bold; }
         .bonus-btn { background-color: #f59e0b; color: #111; margin-bottom: 10px; }
     </style>
@@ -114,6 +114,10 @@
             <label for="solo-round-count">Ile pytań chcesz wylosować?</label>
             <input type="number" id="solo-round-count" value="10" min="1" max="50">
         </div>
+        <div class="form-group">
+            <label for="solo-hints-count">Ilość podpowiedzi na grę:</label>
+            <input type="number" id="solo-hints-count" value="3" min="0" max="20">
+        </div>
         <button id="btn-start-solo">Rozpocznij Grę 🚀</button>
     </div>
 
@@ -126,6 +130,10 @@
         <div class="form-group">
             <label for="multi-round-count">Liczba rund na gracza:</label>
             <input type="number" id="multi-round-count" value="3" min="1" max="20">
+        </div>
+        <div class="form-group">
+            <label for="multi-hints-count">Ilość podpowiedzi dla każdego gracza:</label>
+            <input type="number" id="multi-hints-count" value="2" min="0" max="10">
         </div>
         <button id="btn-create-room">Utwórz Pokój 🚀</button>
     </div>
@@ -164,6 +172,10 @@
         <div class="question-box" id="game-question">Czekaj na pytanie...</div>
 
         <div id="solo-controls" class="hidden">
+            <div style="text-align:center; margin-bottom: 15px; color: var(--accent-color); font-weight: bold; font-size: 16px;">
+                💡 Pozostałe podpowiedzi: <span id="solo-hints-display">0</span>
+            </div>
+            
             <div class="hint-box" id="solo-hint-container">
                 <button id="btn-solo-show-hint" class="btn-hint">💡 Pokaż podpowiedź</button>
                 <div id="solo-hint-text" class="hint-text-content hidden"></div>
@@ -177,25 +189,30 @@
                     <span id="solo-game-answer">...</span>
                 </div>
                 <div class="btn-game-container">
-                    <button id="btn-solo-wrong" class="btn-wrong">❌ Wiedziałem źle (0 pkt)</button>
-                    <button id="btn-solo-correct" class="btn-correct">✅ Wiedziałem dobrze (+1 pkt)</button>
+                    <button id="btn-solo-wrong" class="btn-wrong">❌ Źle</button>
+                    <button id="btn-solo-correct" class="btn-correct">✅ Dobrze</button>
                 </div>
             </div>
+            
+            <button id="btn-solo-reroll" style="background-color: #475569; margin-top:20px;">🔄 Było - wylosuj ponownie</button>
         </div>
 
         <div id="multi-reader-controls" class="hidden">
             <div class="hint-box">
-                <span style="font-size: 12px; opacity: 0.7; display: block; margin-bottom: 5px;">PODPOWIEDŹ DLA GRACZA (PRZECZYTAJ MU JĄ, JEŚLI CHCESZ):</span>
-                <div id="multi-hint-text" class="hint-text-content"></div>
+                <span style="font-size: 12px; opacity: 0.7; display: block; margin-bottom: 5px; text-transform: uppercase;">PODPOWIEDŹ:</span>
+                <button id="btn-multi-show-hint" class="btn-hint">💡 Wykorzystaj podpowiedź gracza</button>
+                <div id="multi-hint-text" class="hint-text-content hidden"></div>
             </div>
             <div class="answer-box">
                 <span style="font-size: 12px; display: block; opacity: 0.7; margin-bottom: 4px;">ODPOWIEDŹ (ZNASZ JĄ TYLKO TY):</span>
                 <span id="multi-game-answer">...</span>
             </div>
             <div class="btn-game-container">
-                <button id="btn-multi-wrong" class="btn-wrong">❌ Odrzuć odpowiedź</button>
-                <button id="btn-multi-correct" class="btn-correct">✅ Uznaj odpowiedź</button>
+                <button id="btn-multi-wrong" class="btn-wrong">❌ Źle</button>
+                <button id="btn-multi-correct" class="btn-correct">✅ Dobrze</button>
             </div>
+            
+            <button id="btn-multi-reroll" style="background-color: #475569; margin-top:20px;">🔄 Było - wylosuj ponownie</button>
         </div>
 
         <div class="live-score-box" id="multi-live-score-box">
@@ -286,17 +303,18 @@
     let dbQuestions = [];
     let currentMode = ''; 
     let soloQuestions = [];
-    let soloRecentCategories = []; // Pamięć kategorii dla Solo
+    let soloRecentCategories = []; 
     let soloTotalRounds = 10;
     let soloCurrentRound = 1;
     let soloScore = 0;
     let soloCurrentQ = null;
+    let soloHintsLeft = 3;
     
     let isHost = false;
     let roomPin = "";
     let myPlayerId = null; 
     let multiSessionQuestions = [];
-    let multiRecentCategories = []; // Pamięć kategorii dla Multi
+    let multiRecentCategories = []; 
 
     function switchScreen(screenId) {
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -305,33 +323,16 @@
 
     // --- FUNKCJA INTELIGENTNEGO LOSOWANIA ---
     function getNextQuestion(pool, history) {
-        // Jeśli skończyły się pytania, odnawiamy pulę
-        if (pool.length === 0) {
-            pool.push(...dbQuestions);
-        }
-
-        // Filtrujemy, wykluczając 2 ostatnie kategorie
+        if (pool.length === 0) pool.push(...dbQuestions);
         let validQuestions = pool.filter(q => !history.includes(q.category));
-
-        // Zabezpieczenie (np. pod koniec puli zostały same wykluczone kategorie)
-        if (validQuestions.length === 0) {
-            validQuestions = pool; 
-        }
-
-        // Losujemy pytanie
+        if (validQuestions.length === 0) validQuestions = pool; 
         const randomIndex = Math.floor(Math.random() * validQuestions.length);
         const selectedQuestion = validQuestions[randomIndex];
-
-        // Usuwamy wybrane pytanie z ogólnej puli
         const originalIndex = pool.findIndex(item => item.id === selectedQuestion.id);
         pool.splice(originalIndex, 1);
 
-        // Dodajemy kategorię do historii (pamiętamy maks 2)
         history.push(selectedQuestion.category);
-        if (history.length > 2) {
-            history.shift(); // Usuwamy najstarszą
-        }
-
+        if (history.length > 2) history.shift();
         return selectedQuestion;
     }
 
@@ -355,13 +356,15 @@
 
     // --- LOGIKA SOLO ---
     document.getElementById('btn-role-solo').addEventListener('click', () => { playTone('click'); currentMode = 'solo'; switchScreen('screen-solo-setup'); fetchQuestions(); });
+    
     document.getElementById('btn-start-solo').addEventListener('click', () => {
         playTone('click');
         soloTotalRounds = parseInt(document.getElementById('solo-round-count').value) || 10;
+        soloHintsLeft = parseInt(document.getElementById('solo-hints-count').value) || 3;
         soloCurrentRound = 1; 
         soloScore = 0; 
         soloQuestions = [...dbQuestions]; 
-        soloRecentCategories = []; // Reset historii kategorii
+        soloRecentCategories = []; 
 
         document.getElementById('logo-area').style.display = 'none';
         document.getElementById('solo-controls').classList.remove('hidden');
@@ -375,24 +378,54 @@
         document.getElementById('info-round').innerText = `Pytanie: ${soloCurrentRound}/${soloTotalRounds}`;
         document.getElementById('info-turn').innerText = `Tryb Solo`;
         
-        // Używamy nowej funkcji zamiast pop()
         soloCurrentQ = getNextQuestion(soloQuestions, soloRecentCategories);
+        updateSoloUI();
+    }
 
+    function updateSoloUI() {
         document.getElementById('game-category').innerText = "Kategoria: " + (soloCurrentQ.category || "Ogólne");
         document.getElementById('game-question').innerText = soloCurrentQ.question;
         document.getElementById('solo-game-answer').innerText = soloCurrentQ.answer;
         document.getElementById('solo-hint-text').innerHTML = soloCurrentQ.hint || generateDynamicHint(soloCurrentQ.answer);
+        
+        document.getElementById('solo-hints-display').innerText = soloHintsLeft;
 
-        document.getElementById('btn-solo-show-hint').classList.remove('hidden');
         document.getElementById('solo-hint-text').classList.add('hidden');
+        if (soloHintsLeft > 0) {
+            document.getElementById('btn-solo-show-hint').classList.remove('hidden');
+        } else {
+            document.getElementById('btn-solo-show-hint').classList.add('hidden');
+        }
+
         document.getElementById('btn-solo-check-answer').classList.remove('hidden');
+        document.getElementById('btn-solo-reroll').classList.remove('hidden');
         document.getElementById('solo-answer-eval').classList.add('hidden');
     }
 
-    document.getElementById('btn-solo-show-hint').addEventListener('click', () => { playTone('click'); document.getElementById('btn-solo-show-hint').classList.add('hidden'); document.getElementById('solo-hint-text').classList.remove('hidden'); });
-    document.getElementById('btn-solo-check-answer').addEventListener('click', () => { playTone('click'); document.getElementById('btn-solo-check-answer').classList.add('hidden'); document.getElementById('solo-answer-eval').classList.remove('hidden'); });
+    document.getElementById('btn-solo-show-hint').addEventListener('click', () => { 
+        playTone('click'); 
+        soloHintsLeft--;
+        document.getElementById('solo-hints-display').innerText = soloHintsLeft;
+        document.getElementById('btn-solo-show-hint').classList.add('hidden'); 
+        document.getElementById('solo-hint-text').classList.remove('hidden'); 
+    });
+
+    document.getElementById('btn-solo-check-answer').addEventListener('click', () => { 
+        playTone('click'); 
+        document.getElementById('btn-solo-check-answer').classList.add('hidden'); 
+        document.getElementById('btn-solo-reroll').classList.add('hidden');
+        document.getElementById('solo-answer-eval').classList.remove('hidden'); 
+    });
+
     document.getElementById('btn-solo-correct').addEventListener('click', () => { playTone('correct'); soloScore++; advanceSoloGame(); });
     document.getElementById('btn-solo-wrong').addEventListener('click', () => { playTone('wrong'); advanceSoloGame(); });
+    
+    // Przycisk Wylosuj Ponownie - Solo
+    document.getElementById('btn-solo-reroll').addEventListener('click', () => {
+        playTone('click');
+        soloCurrentQ = getNextQuestion(soloQuestions, soloRecentCategories);
+        updateSoloUI();
+    });
 
     function advanceSoloGame() {
         soloCurrentRound++;
@@ -409,10 +442,23 @@
         let hName = document.getElementById('input-host-name').value.trim() || "Host";
         roomPin = Math.floor(1000 + Math.random() * 9000).toString();
         const rounds = parseInt(document.getElementById('multi-round-count').value) || 3;
-        await set(ref(db, `rooms/${roomPin}`), { status: 'lobby', totalRounds: rounds, currentRound: 1, turnIndex: 0, players: [{ name: hName, score: 0 }], currentQuestion: null, winner: null });
+        const startHints = parseInt(document.getElementById('multi-hints-count').value) || 2;
+        
+        await set(ref(db, `rooms/${roomPin}`), { 
+            status: 'lobby', 
+            totalRounds: rounds, 
+            totalHints: startHints,
+            currentRound: 1, 
+            turnIndex: 0, 
+            hintShown: false,
+            players: [{ name: hName, score: 0, hints: startHints }], 
+            currentQuestion: null, 
+            winner: null 
+        });
+        
         myPlayerId = 0; 
         multiSessionQuestions = [...dbQuestions]; 
-        multiRecentCategories = []; // Reset historii kategorii
+        multiRecentCategories = []; 
         
         document.getElementById('lobby-pin').innerText = roomPin; document.getElementById('btn-start-multi').classList.remove('hidden'); switchScreen('screen-lobby'); document.getElementById('logo-area').style.display = 'none';
         listenToRoom();
@@ -423,10 +469,9 @@
         const snapshot = await get(ref(db, `rooms/${roomPin}/players`));
         if (!snapshot.val() || snapshot.val().length < 2) { alert("Potrzeba min. 2 graczy!"); return; }
         
-        // Używamy nowej funkcji zamiast pop()
         let q = getNextQuestion(multiSessionQuestions, multiRecentCategories);
         q.hintData = q.hint || generateDynamicHint(q.answer);
-        await update(ref(db, `rooms/${roomPin}`), { status: 'playing', currentQuestion: q });
+        await update(ref(db, `rooms/${roomPin}`), { status: 'playing', currentQuestion: q, hintShown: false });
     });
 
     document.getElementById('btn-join-room').addEventListener('click', async () => {
@@ -437,9 +482,15 @@
         const snapshot = await get(ref(db, `rooms/${roomPin}`));
         if (!snapshot.exists()) { alert("Brak pokoju!"); return; }
         if (snapshot.val().status !== 'lobby') { alert("Gra trwa!"); return; }
-        let currentPlayers = snapshot.val().players || [];
-        myPlayerId = currentPlayers.length; currentPlayers.push({ name: pName, score: 0 });
+        
+        let roomData = snapshot.val();
+        let currentPlayers = roomData.players || [];
+        myPlayerId = currentPlayers.length; 
+        
+        // Zapisujemy gracza z pulą podpowiedzi hosta
+        currentPlayers.push({ name: pName, score: 0, hints: roomData.totalHints || 2 });
         await update(ref(db, `rooms/${roomPin}`), { players: currentPlayers });
+        
         document.getElementById('lobby-pin').innerText = roomPin; document.getElementById('lobby-wait-msg').classList.remove('hidden'); switchScreen('screen-lobby'); document.getElementById('logo-area').style.display = 'none';
         listenToRoom();
     });
@@ -468,13 +519,27 @@
                     document.getElementById('multi-reader-controls').classList.remove('hidden');
                     document.getElementById('multi-game-answer').innerText = room.currentQuestion.answer;
                     document.getElementById('multi-hint-text').innerHTML = room.currentQuestion.hintData;
+                    
+                    // Zarządzanie przyciskiem podpowiedzi w Multi
+                    if (room.hintShown) {
+                        document.getElementById('btn-multi-show-hint').classList.add('hidden');
+                        document.getElementById('multi-hint-text').classList.remove('hidden');
+                    } else {
+                        document.getElementById('multi-hint-text').classList.add('hidden');
+                        if (room.players[activeIndex].hints > 0) {
+                            document.getElementById('btn-multi-show-hint').classList.remove('hidden');
+                        } else {
+                            document.getElementById('btn-multi-show-hint').classList.add('hidden');
+                        }
+                    }
                 } else {
                     document.getElementById('multi-reader-controls').classList.add('hidden');
                 }
+                
                 const scoreList = document.getElementById('live-score-list'); scoreList.innerHTML = '';
                 [...(room.players||[])].sort((a, b) => b.score - a.score).forEach(p => {
                     let li = document.createElement('li'); li.className = 'leaderboard-item';
-                    li.innerHTML = `<span>${p.name}</span><span>${Math.floor(p.score)} pkt</span>`;
+                    li.innerHTML = `<span>${p.name}</span><span>${Math.floor(p.score)} pkt &nbsp;|&nbsp; 💡 ${p.hints || 0}</span>`;
                     scoreList.appendChild(li);
                 });
             }
@@ -507,8 +572,37 @@
         });
     }
 
+    // Przycisk pokazania podpowiedzi (Multi)
+    document.getElementById('btn-multi-show-hint').addEventListener('click', async () => {
+        playTone('click');
+        const snapshot = await get(ref(db, `rooms/${roomPin}`)); 
+        let room = snapshot.val(); 
+        
+        if (room.players[room.turnIndex].hints > 0 && !room.hintShown) {
+            room.players[room.turnIndex].hints -= 1;
+            await update(ref(db, `rooms/${roomPin}`), {
+                players: room.players,
+                hintShown: true
+            });
+        }
+    });
+
     document.getElementById('btn-multi-correct').addEventListener('click', () => multiEvaluate(true));
     document.getElementById('btn-multi-wrong').addEventListener('click', () => multiEvaluate(false));
+    
+    // Przycisk Wylosuj Ponownie - Multi
+    document.getElementById('btn-multi-reroll').addEventListener('click', async () => {
+        playTone('click');
+        const snapshot = await get(ref(db, `rooms/${roomPin}`));
+        let room = snapshot.val();
+        let q = getNextQuestion(multiSessionQuestions, multiRecentCategories);
+        q.hintData = q.hint || generateDynamicHint(q.answer);
+        
+        await update(ref(db, `rooms/${roomPin}`), {
+            currentQuestion: q,
+            hintShown: false
+        });
+    });
 
     async function multiEvaluate(isCorrect) {
         if(isCorrect) playTone('correct'); else playTone('wrong');
@@ -521,10 +615,9 @@
             let winners = pList.filter(p => p.score === Math.max(...pList.map(p => p.score)));
             await update(ref(db, `rooms/${roomPin}`), { status: winners.length > 1 ? 'tiebreaker' : 'finished', winner: winners[0].name });
         } else {
-            // Używamy nowej funkcji zamiast pop()
             let q = getNextQuestion(multiSessionQuestions, multiRecentCategories);
             q.hintData = q.hint || generateDynamicHint(q.answer);
-            await update(ref(db, `rooms/${roomPin}`), { players: pList, turnIndex: nextTurn, currentRound: nextRound, currentQuestion: q });
+            await update(ref(db, `rooms/${roomPin}`), { players: pList, turnIndex: nextTurn, currentRound: nextRound, currentQuestion: q, hintShown: false });
         }
     }
 </script>
