@@ -250,15 +250,15 @@
     // WAŻNE: TUTAJ WKLEJ SWOJĄ KONFIGURACJĘ Z KONSOLI FIREBASE
     // =========================================================
     const firebaseConfig = {
-  apiKey: "AIzaSyBeSs0i1oKNUeEbCCi8mWEs6WfxukWAebA",
-  authDomain: "quisent-8b6cd.firebaseapp.com",
-  databaseURL: "https://quisent-8b6cd-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "quisent-8b6cd",
-  storageBucket: "quisent-8b6cd.firebasestorage.app",
-  messagingSenderId: "537252295249",
-  appId: "1:537252295249:web:7f6b6e90ca29f5df973e70",
-  measurementId: "G-MYTHMCLQHF"
-};
+      apiKey: "AIzaSyBeSs0i1oKNUeEbCCi8mWEs6WfxukWAebA",
+      authDomain: "quisent-8b6cd.firebaseapp.com",
+      databaseURL: "https://quisent-8b6cd-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "quisent-8b6cd",
+      storageBucket: "quisent-8b6cd.firebasestorage.app",
+      messagingSenderId: "537252295249",
+      appId: "1:537252295249:web:7f6b6e90ca29f5df973e70",
+      measurementId: "G-MYTHMCLQHF"
+    };
     // =========================================================
 
     const app = initializeApp(firebaseConfig);
@@ -355,7 +355,10 @@
     }
 
     // --- LOGIKA SOLO ---
-    document.getElementById('btn-role-solo').addEventListener('click', () => { playTone('click'); currentMode = 'solo'; switchScreen('screen-solo-setup'); fetchQuestions(); });
+    document.getElementById('btn-role-solo').addEventListener('click', () => { 
+        playTone('click'); currentMode = 'solo'; switchScreen('screen-solo-setup'); 
+        fetchQuestions(); 
+    });
     
     document.getElementById('btn-start-solo').addEventListener('click', () => {
         playTone('click');
@@ -420,7 +423,6 @@
     document.getElementById('btn-solo-correct').addEventListener('click', () => { playTone('correct'); soloScore++; advanceSoloGame(); });
     document.getElementById('btn-solo-wrong').addEventListener('click', () => { playTone('wrong'); advanceSoloGame(); });
     
-    // Przycisk Wylosuj Ponownie - Solo
     document.getElementById('btn-solo-reroll').addEventListener('click', () => {
         playTone('click');
         soloCurrentQ = getNextQuestion(soloQuestions, soloRecentCategories);
@@ -434,8 +436,16 @@
     }
 
     // --- LOGIKA MULTI ---
-    document.getElementById('btn-role-host').addEventListener('click', () => { playTone('click'); currentMode = 'multi'; isHost = true; switchScreen('screen-host-setup'); fetchQuestions(); });
-    document.getElementById('btn-role-player').addEventListener('click', () => { playTone('click'); currentMode = 'multi'; isHost = false; switchScreen('screen-player-join'); });
+    document.getElementById('btn-role-host').addEventListener('click', () => { 
+        playTone('click'); currentMode = 'multi'; isHost = true; switchScreen('screen-host-setup'); 
+        fetchQuestions(); 
+    });
+    
+    // BŁĄD BYŁ TUTAJ: Zwykli gracze nie ładowali w tle bazy pytań, przez co wykrzaczali się, gdy klikali akcję w grze. Dodałem `fetchQuestions()` 
+    document.getElementById('btn-role-player').addEventListener('click', () => { 
+        playTone('click'); currentMode = 'multi'; isHost = false; switchScreen('screen-player-join'); 
+        fetchQuestions(); 
+    });
 
     document.getElementById('btn-create-room').addEventListener('click', async () => {
         playTone('click');
@@ -487,9 +497,12 @@
         let currentPlayers = roomData.players || [];
         myPlayerId = currentPlayers.length; 
         
-        // Zapisujemy gracza z pulą podpowiedzi hosta
         currentPlayers.push({ name: pName, score: 0, hints: roomData.totalHints || 2 });
         await update(ref(db, `rooms/${roomPin}`), { players: currentPlayers });
+        
+        // PAMIĘĆ LOKALNA GOŚCIA: Konieczna by na jego turze było z czego losować pytania
+        multiSessionQuestions = [...dbQuestions]; 
+        multiRecentCategories = []; 
         
         document.getElementById('lobby-pin').innerText = roomPin; document.getElementById('lobby-wait-msg').classList.remove('hidden'); switchScreen('screen-lobby'); document.getElementById('logo-area').style.display = 'none';
         listenToRoom();
@@ -520,7 +533,6 @@
                     document.getElementById('multi-game-answer').innerText = room.currentQuestion.answer;
                     document.getElementById('multi-hint-text').innerHTML = room.currentQuestion.hintData;
                     
-                    // Zarządzanie przyciskiem podpowiedzi w Multi
                     if (room.hintShown) {
                         document.getElementById('btn-multi-show-hint').classList.add('hidden');
                         document.getElementById('multi-hint-text').classList.remove('hidden');
@@ -572,7 +584,6 @@
         });
     }
 
-    // Przycisk pokazania podpowiedzi (Multi)
     document.getElementById('btn-multi-show-hint').addEventListener('click', async () => {
         playTone('click');
         const snapshot = await get(ref(db, `rooms/${roomPin}`)); 
@@ -590,7 +601,6 @@
     document.getElementById('btn-multi-correct').addEventListener('click', () => multiEvaluate(true));
     document.getElementById('btn-multi-wrong').addEventListener('click', () => multiEvaluate(false));
     
-    // Przycisk Wylosuj Ponownie - Multi
     document.getElementById('btn-multi-reroll').addEventListener('click', async () => {
         playTone('click');
         const snapshot = await get(ref(db, `rooms/${roomPin}`));
