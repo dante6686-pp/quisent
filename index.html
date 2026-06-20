@@ -233,15 +233,15 @@
     // WAŻNE: TUTAJ WKLEJ SWOJĄ KONFIGURACJĘ Z KONSOLI FIREBASE
     // =========================================================
     const firebaseConfig = {
-  apiKey: "AIzaSyBeSs0i1oKNUeEbCCi8mWEs6WfxukWAebA",
-  authDomain: "quisent-8b6cd.firebaseapp.com",
-  databaseURL: "https://quisent-8b6cd-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "quisent-8b6cd",
-  storageBucket: "quisent-8b6cd.firebasestorage.app",
-  messagingSenderId: "537252295249",
-  appId: "1:537252295249:web:7f6b6e90ca29f5df973e70",
-  measurementId: "G-MYTHMCLQHF"
-};
+      apiKey: "AIzaSyBeSs0i1oKNUeEbCCi8mWEs6WfxukWAebA",
+      authDomain: "quisent-8b6cd.firebaseapp.com",
+      databaseURL: "https://quisent-8b6cd-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "quisent-8b6cd",
+      storageBucket: "quisent-8b6cd.firebasestorage.app",
+      messagingSenderId: "537252295249",
+      appId: "1:537252295249:web:7f6b6e90ca29f5df973e70",
+      measurementId: "G-MYTHMCLQHF"
+    };
     // =========================================================
 
     const app = initializeApp(firebaseConfig);
@@ -286,25 +286,53 @@
     let dbQuestions = [];
     let currentMode = ''; 
     let soloQuestions = [];
+    let soloRecentCategories = []; // Pamięć kategorii dla Solo
     let soloTotalRounds = 10;
     let soloCurrentRound = 1;
     let soloScore = 0;
     let soloCurrentQ = null;
+    
     let isHost = false;
     let roomPin = "";
     let myPlayerId = null; 
     let multiSessionQuestions = [];
+    let multiRecentCategories = []; // Pamięć kategorii dla Multi
 
     function switchScreen(screenId) {
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
         document.getElementById(screenId).classList.add('active');
     }
 
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+    // --- FUNKCJA INTELIGENTNEGO LOSOWANIA ---
+    function getNextQuestion(pool, history) {
+        // Jeśli skończyły się pytania, odnawiamy pulę
+        if (pool.length === 0) {
+            pool.push(...dbQuestions);
         }
+
+        // Filtrujemy, wykluczając 2 ostatnie kategorie
+        let validQuestions = pool.filter(q => !history.includes(q.category));
+
+        // Zabezpieczenie (np. pod koniec puli zostały same wykluczone kategorie)
+        if (validQuestions.length === 0) {
+            validQuestions = pool; 
+        }
+
+        // Losujemy pytanie
+        const randomIndex = Math.floor(Math.random() * validQuestions.length);
+        const selectedQuestion = validQuestions[randomIndex];
+
+        // Usuwamy wybrane pytanie z ogólnej puli
+        const originalIndex = pool.findIndex(item => item.id === selectedQuestion.id);
+        pool.splice(originalIndex, 1);
+
+        // Dodajemy kategorię do historii (pamiętamy maks 2)
+        history.push(selectedQuestion.category);
+        if (history.length > 2) {
+            history.shift(); // Usuwamy najstarszą
+        }
+
+        return selectedQuestion;
     }
 
     function generateDynamicHint(answerText) {
@@ -330,7 +358,11 @@
     document.getElementById('btn-start-solo').addEventListener('click', () => {
         playTone('click');
         soloTotalRounds = parseInt(document.getElementById('solo-round-count').value) || 10;
-        soloCurrentRound = 1; soloScore = 0; soloQuestions = [...dbQuestions]; shuffleArray(soloQuestions);
+        soloCurrentRound = 1; 
+        soloScore = 0; 
+        soloQuestions = [...dbQuestions]; 
+        soloRecentCategories = []; // Reset historii kategorii
+
         document.getElementById('logo-area').style.display = 'none';
         document.getElementById('solo-controls').classList.remove('hidden');
         document.getElementById('multi-reader-controls').classList.add('hidden');
@@ -342,8 +374,9 @@
     function loadNextSoloQuestion() {
         document.getElementById('info-round').innerText = `Pytanie: ${soloCurrentRound}/${soloTotalRounds}`;
         document.getElementById('info-turn').innerText = `Tryb Solo`;
-        if (soloQuestions.length === 0) { soloQuestions = [...dbQuestions]; shuffleArray(soloQuestions); }
-        soloCurrentQ = soloQuestions.pop();
+        
+        // Używamy nowej funkcji zamiast pop()
+        soloCurrentQ = getNextQuestion(soloQuestions, soloRecentCategories);
 
         document.getElementById('game-category').innerText = "Kategoria: " + (soloCurrentQ.category || "Ogólne");
         document.getElementById('game-question').innerText = soloCurrentQ.question;
@@ -377,7 +410,10 @@
         roomPin = Math.floor(1000 + Math.random() * 9000).toString();
         const rounds = parseInt(document.getElementById('multi-round-count').value) || 3;
         await set(ref(db, `rooms/${roomPin}`), { status: 'lobby', totalRounds: rounds, currentRound: 1, turnIndex: 0, players: [{ name: hName, score: 0 }], currentQuestion: null, winner: null });
-        myPlayerId = 0; multiSessionQuestions = [...dbQuestions]; shuffleArray(multiSessionQuestions);
+        myPlayerId = 0; 
+        multiSessionQuestions = [...dbQuestions]; 
+        multiRecentCategories = []; // Reset historii kategorii
+        
         document.getElementById('lobby-pin').innerText = roomPin; document.getElementById('btn-start-multi').classList.remove('hidden'); switchScreen('screen-lobby'); document.getElementById('logo-area').style.display = 'none';
         listenToRoom();
     });
@@ -386,7 +422,10 @@
         playTone('click');
         const snapshot = await get(ref(db, `rooms/${roomPin}/players`));
         if (!snapshot.val() || snapshot.val().length < 2) { alert("Potrzeba min. 2 graczy!"); return; }
-        let q = multiSessionQuestions.pop(); q.hintData = q.hint || generateDynamicHint(q.answer);
+        
+        // Używamy nowej funkcji zamiast pop()
+        let q = getNextQuestion(multiSessionQuestions, multiRecentCategories);
+        q.hintData = q.hint || generateDynamicHint(q.answer);
         await update(ref(db, `rooms/${roomPin}`), { status: 'playing', currentQuestion: q });
     });
 
@@ -482,8 +521,9 @@
             let winners = pList.filter(p => p.score === Math.max(...pList.map(p => p.score)));
             await update(ref(db, `rooms/${roomPin}`), { status: winners.length > 1 ? 'tiebreaker' : 'finished', winner: winners[0].name });
         } else {
-            if(multiSessionQuestions.length === 0) { multiSessionQuestions = [...dbQuestions]; shuffleArray(multiSessionQuestions); }
-            let q = multiSessionQuestions.pop(); q.hintData = q.hint || generateDynamicHint(q.answer);
+            // Używamy nowej funkcji zamiast pop()
+            let q = getNextQuestion(multiSessionQuestions, multiRecentCategories);
+            q.hintData = q.hint || generateDynamicHint(q.answer);
             await update(ref(db, `rooms/${roomPin}`), { players: pList, turnIndex: nextTurn, currentRound: nextRound, currentQuestion: q });
         }
     }
